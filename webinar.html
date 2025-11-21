@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webinars - Tomorrow Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; }
+        header { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: #0c4a6e; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: #333; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: #1e9db3; }
+        .breadcrumb { max-width: 1200px; margin: 2rem auto; padding: 0 2rem; display: flex; gap: 0.5rem; color: #666; font-size: 0.9rem; }
+        .breadcrumb a { color: #1e9db3; text-decoration: none; }
+        .hero { background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%); color: white; padding: 4rem 2rem; text-align: center; }
+        .hero h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; }
+        .content { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+        .section { margin-bottom: 4rem; }
+        .section h2 { font-size: 2rem; color: #0c4a6e; margin-bottom: 1.5rem; }
+        .webinars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+        .webinar-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .webinar-banner { height: 200px; background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%); display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+        .webinar-content { padding: 2rem; }
+        .webinar-content h3 { color: #0c4a6e; margin-bottom: 0.5rem; }
+        .webinar-meta { display: flex; gap: 1rem; margin: 1rem 0; flex-wrap: wrap; font-size: 0.9rem; color: #666; }
+        .webinar-meta span { display: flex; align-items: center; gap: 0.3rem; }
+        .register-btn { display: inline-block; background: #1e9db3; color: white; padding: 0.8rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 1rem; }
+        .register-btn:hover { background: #0891b2; }
+        .badge { background: #f0f9ff; color: #0891b2; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+        .badge.live { background: #fee; color: #c00; }
+        footer { background: #0c4a6e; color: white; padding: 2rem; text-align: center; }
+        @media (max-width: 768px) { .nav-links { display: none; } .webinars-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="header-top">
+                    <div class="logo">
+                        <img src="https://page.gensparksite.com/v1/base64_upload/cd3e70466238584d229e88d14a5186b1" alt="Technodot Academy Logo" style="height: 45px;">
+                    </div>
+                    <div class="header-right">
+                        <div class="search-box">
+                            <input type="text" placeholder="Search courses, programs, or topics...">
+                            <button type="submit">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="m21 21-4.35-4.35"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <a href="#signup" class="btn-signup">Sign Up</a>
+                    </div>
+                </div>
+                <div class="header-bottom">
+                    <nav>
+                        <ul>
+                            <li><a href="#topics">Topics</a></li>
+                            <li><a href="vendors.html">Vendors</a></li>
+                            <li><a href="universities.html">Universities</a></li>
+                            <li><a href="earn-learn.html">Earn & Learn</a></li>
+                            <li><a href="rnd.html">R&D&I</a></li>
+                            <li><a href="business.html">Business</a></li>
+                            <li><a href="about.html">About</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> / <a href="about.html">About</a> / <span>Webinars</span>
+    </div>
+
+    <section class="hero">
+        <h1>Free Webinars & Workshops</h1>
+        <p>Learn from industry experts through our live and recorded sessions</p>
+    </section>
+
+    <div class="content">
+        <section class="section">
+            <h2>Upcoming Webinars</h2>
+            <div class="webinars-grid">
+                <div class="webinar-card">
+                    <div class="webinar-banner">🚀</div>
+                    <div class="webinar-content">
+                        <span class="badge live">UPCOMING</span>
+                        <h3>AI & Machine Learning: Career Roadmap 2024</h3>
+                        <div class="webinar-meta">
+                            <span>📅 Jan 25, 2024</span>
+                            <span>⏰ 6:00 PM IST</span>
+                            <span>⏱️ 90 mins</span>
+                        </div>
+                        <p>Explore career opportunities in AI/ML, required skills, and how to get started. Expert: Dr. Amit Kumar, AI Research Lead at Tech Giants.</p>
+                        <a href="#" class="register-btn">Register Free</a>
+                    </div>
+                </div>
+
+                <div class="webinar-card">
+                    <div class="webinar-banner">💼</div>
+                    <div class="webinar-content">
+                        <span class="badge live">UPCOMING</span>
+                        <h3>Crack Your Next Job Interview</h3>
+                        <div class="webinar-meta">
+                            <span>📅 Jan 28, 2024</span>
+                            <span>⏰ 7:00 PM IST</span>
+                            <span>⏱️ 60 mins</span>
+                        </div>
+                        <p>Master interview techniques, common questions, and salary negotiation tips. Speaker: Priya Sharma, HR Director with 15+ years experience.</p>
+                        <a href="#" class="register-btn">Register Free</a>
+                    </div>
+                </div>
+
+                <div class="webinar-card">
+                    <div class="webinar-banner">☁️</div>
+                    <div class="webinar-content">
+                        <span class="badge live">UPCOMING</span>
+                        <h3>Cloud Computing Fundamentals</h3>
+                        <div class="webinar-meta">
+                            <span>📅 Feb 2, 2024</span>
+                            <span>⏰ 6:30 PM IST</span>
+                            <span>⏱️ 75 mins</span>
+                        </div>
+                        <p>Introduction to AWS, Azure, and Google Cloud. Learn basics and certification paths. Expert: Rajesh Patel, Cloud Architect.</p>
+                        <a href="#" class="register-btn">Register Free</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Past Webinars (On-Demand)</h2>
+            <div class="webinars-grid">
+                <div class="webinar-card">
+                    <div class="webinar-banner">💻</div>
+                    <div class="webinar-content">
+                        <span class="badge">RECORDED</span>
+                        <h3>Full Stack Development Career Guide</h3>
+                        <div class="webinar-meta">
+                            <span>👥 2,500+ Attended</span>
+                            <span>⭐ 4.8/5</span>
+                        </div>
+                        <p>Complete roadmap to becoming a full stack developer, technologies to learn, and job market insights.</p>
+                        <a href="#" class="register-btn">Watch Now</a>
+                    </div>
+                </div>
+
+                <div class="webinar-card">
+                    <div class="webinar-banner">📊</div>
+                    <div class="webinar-content">
+                        <span class="badge">RECORDED</span>
+                        <h3>Data Analytics for Beginners</h3>
+                        <div class="webinar-meta">
+                            <span>👥 1,800+ Attended</span>
+                            <span>⭐ 4.7/5</span>
+                        </div>
+                        <p>Introduction to data analytics, tools (Excel, Python, Power BI), and career opportunities in the field.</p>
+                        <a href="#" class="register-btn">Watch Now</a>
+                    </div>
+                </div>
+
+                <div class="webinar-card">
+                    <div class="webinar-banner">🎯</div>
+                    <div class="webinar-content">
+                        <span class="badge">RECORDED</span>
+                        <h3>Digital Marketing Strategies 2024</h3>
+                        <div class="webinar-meta">
+                            <span>👥 3,200+ Attended</span>
+                            <span>⭐ 4.9/5</span>
+                        </div>
+                        <p>Latest digital marketing trends, SEO, social media, and tools every marketer should know.</p>
+                        <a href="#" class="register-btn">Watch Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Tomorrow Academy. All rights reserved.</p>
+    </footer>
+</body>
+</html>

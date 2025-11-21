@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovation Consulting - Tomorrow Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; }
+        header { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: #0c4a6e; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: #333; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: #1e9db3; }
+        .breadcrumb { max-width: 1200px; margin: 2rem auto; padding: 0 2rem; display: flex; gap: 0.5rem; color: #666; font-size: 0.9rem; }
+        .breadcrumb a { color: #1e9db3; text-decoration: none; }
+        .hero { background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%); color: white; padding: 4rem 2rem; text-align: center; }
+        .hero h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; opacity: 0.95; }
+        .content { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+        .section { margin-bottom: 4rem; }
+        .section h2 { font-size: 2rem; color: #0c4a6e; margin-bottom: 1.5rem; }
+        .section p { font-size: 1.1rem; color: #666; line-height: 1.8; margin-bottom: 1.5rem; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .service-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s; }
+        .service-card:hover { transform: translateY(-5px); }
+        .service-header { background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%); color: white; padding: 2rem; text-align: center; }
+        .service-header h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .service-header .icon { font-size: 3rem; margin-bottom: 1rem; }
+        .service-body { padding: 2rem; }
+        .service-body ul { list-style: none; }
+        .service-body ul li { padding: 0.5rem 0 0.5rem 1.5rem; position: relative; color: #666; }
+        .service-body ul li:before { content: "✓"; position: absolute; left: 0; color: #1e9db3; font-weight: bold; }
+        .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .step { position: relative; padding: 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .step-number { position: absolute; top: -15px; left: 2rem; width: 40px; height: 40px; background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.2rem; }
+        .step h3 { color: #0c4a6e; margin-bottom: 0.5rem; margin-top: 1rem; }
+        .step p { color: #666; font-size: 0.95rem; }
+        .stats { background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%); padding: 4rem 2rem; margin: 4rem 0; }
+        .stats-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .stat-card { text-align: center; color: white; }
+        .stat-card .number { font-size: 3rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .stat-card .label { font-size: 1.1rem; opacity: 0.95; }
+        footer { background: #0c4a6e; color: white; padding: 2rem; text-align: center; }
+        @media (max-width: 768px) { .nav-links { display: none; } .services-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="header-top">
+                    <div class="logo">
+                        <img src="https://page.gensparksite.com/v1/base64_upload/cd3e70466238584d229e88d14a5186b1" alt="Technodot Academy Logo" style="height: 45px;">
+                    </div>
+                    <div class="header-right">
+                        <div class="search-box">
+                            <input type="text" placeholder="Search courses, programs, or topics...">
+                            <button type="submit">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="m21 21-4.35-4.35"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <a href="#signup" class="btn-signup">Sign Up</a>
+                    </div>
+                </div>
+                <div class="header-bottom">
+                    <nav>
+                        <ul>
+                            <li><a href="#topics">Topics</a></li>
+                            <li><a href="vendors.html">Vendors</a></li>
+                            <li><a href="universities.html">Universities</a></li>
+                            <li><a href="earn-learn.html">Earn & Learn</a></li>
+                            <li><a href="rnd.html">R&D&I</a></li>
+                            <li><a href="business.html">Business</a></li>
+                            <li><a href="about.html">About</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> / <a href="rnd.html">R&D&I</a> / <span>Innovation Consulting</span>
+    </div>
+
+    <section class="hero">
+        <h1>💡 Innovation Consulting</h1>
+        <p>Transform your organization with strategic innovation and digital excellence</p>
+    </section>
+
+    <div class="content">
+        <section class="section">
+            <h2>Driving Innovation in Organizations</h2>
+            <p>Tomorrow Academy's Innovation Consulting practice helps organizations build innovation capabilities, foster creative cultures, and implement transformative solutions. We work with leadership teams to develop innovation strategies, establish innovation labs, and create sustainable frameworks for continuous improvement.</p>
+            <p>Our approach combines design thinking, agile methodologies, and emerging technologies to solve complex business challenges. We don't just provide recommendations—we partner with you to implement change and build internal capabilities for long-term innovation success.</p>
+        </section>
+
+        <section class="section">
+            <h2>Our Consulting Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="icon">🎯</div>
+                        <h3>Innovation Strategy</h3>
+                    </div>
+                    <div class="service-body">
+                        <ul>
+                            <li>Innovation assessment & audit</li>
+                            <li>Strategic roadmap development</li>
+                            <li>Portfolio management</li>
+                            <li>KPI definition & tracking</li>
+                            <li>Resource allocation planning</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="icon">🚀</div>
+                        <h3>Innovation Labs Setup</h3>
+                    </div>
+                    <div class="service-body">
+                        <ul>
+                            <li>Lab design & infrastructure</li>
+                            <li>Process & methodology</li>
+                            <li>Team training & enablement</li>
+                            <li>Pilot project execution</li>
+                            <li>Governance framework</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="icon">💡</div>
+                        <h3>Design Thinking Workshops</h3>
+                    </div>
+                    <div class="service-body">
+                        <ul>
+                            <li>Customer empathy mapping</li>
+                            <li>Ideation & brainstorming</li>
+                            <li>Rapid prototyping</li>
+                            <li>User testing & validation</li>
+                            <li>Implementation planning</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="icon">🔄</div>
+                        <h3>Digital Transformation</h3>
+                    </div>
+                    <div class="service-body">
+                        <ul>
+                            <li>Digital maturity assessment</li>
+                            <li>Technology roadmap</li>
+                            <li>Change management</li>
+                            <li>Process digitization</li>
+                            <li>Capability building</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="icon">🏆</div>
+                        <h3>Innovation Culture</h3>
+                    </div>
+                    <div class="service-body">
+                        <ul>
+                            <li>Cultural assessment</li>
+                            <li>Leadership alignment</li>
+                            <li>Employee engagement programs</li>
+                            <li>Innovation rewards & recognition</li>
+                            <li>Continuous learning frameworks</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="icon">📊</div>
+                        <h3>Innovation Metrics</h3>
+                    </div>
+                    <div class="service-body">
+                        <ul>
+                            <li>KPI framework design</li>
+                            <li>Dashboard development</li>
+                            <li>ROI measurement</li>
+                            <li>Benchmarking analysis</li>
+                            <li>Continuous improvement</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Our Consulting Process</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Discovery & Assessment</h3>
+                    <p>Comprehensive evaluation of current innovation capabilities, challenges, and opportunities</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Strategy Development</h3>
+                    <p>Co-create innovation strategy aligned with business objectives and market dynamics</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Implementation</h3>
+                    <p>Execute initiatives with hands-on support, training, and agile methodology</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Scale & Sustain</h3>
+                    <p>Build internal capabilities and establish processes for sustained innovation</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Why Choose Us</h2>
+            <p><strong>Proven Track Record:</strong> Successfully delivered 100+ innovation projects across industries</p>
+            <p><strong>Expert Team:</strong> Consultants with deep expertise in innovation, design thinking, and technology</p>
+            <p><strong>Practical Approach:</strong> Focus on actionable insights and real implementation, not just reports</p>
+            <p><strong>Tailored Solutions:</strong> Customized strategies based on your unique context and challenges</p>
+            <p><strong>Technology Expertise:</strong> Deep understanding of emerging tech like AI, blockchain, IoT, cloud</p>
+            <p><strong>Academic Partnership:</strong> Research-backed methodologies validated through academic collaborations</p>
+        </section>
+    </div>
+
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="number">100+</div>
+                <div class="label">Innovation Projects</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">75+</div>
+                <div class="label">Client Organizations</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">20+</div>
+                <div class="label">Innovation Labs Setup</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">95%</div>
+                <div class="label">Client Satisfaction</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Tomorrow Academy. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Training - Tomorrow Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background: #ffffff;
+            padding: 15px 0;
+            border-bottom: 1px solid lightgrey;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 45px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding: 10px 40px 10px 20px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 15px;
+            width: 450px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #0891b2;
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #64748b;
+            cursor: pointer;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-box button:hover {
+            color: #0891b2;
+        }
+
+        .btn-signup {
+            background: #0891b2;
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s;
+        }
+
+        .btn-signup:hover {
+            background: #0c4a6e;
+            transform: translateY(-1px);
+        }
+
+        .header-bottom {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #475569;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #0891b2;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: flex;
+            gap: 0.5rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: #1e9db3;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #0891b2;
+        }
+
+        .btn-primary:hover {
+            background: #f0f9ff;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: #0c4a6e;
+            margin-bottom: 1rem;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Training Programs Grid */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .program-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .program-header {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .program-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .program-header .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .program-body {
+            padding: 2rem;
+        }
+
+        .program-body h4 {
+            color: #0c4a6e;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .program-body ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .program-body ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #666;
+        }
+
+        .program-body ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #1e9db3;
+            font-weight: bold;
+        }
+
+        .program-meta {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+            background: #f0f9ff;
+            border-top: 2px solid #e0f2fe;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .program-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Categories Grid */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .category-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-left: 4px solid #1e9db3;
+            transition: transform 0.3s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-card h3 {
+            color: #0c4a6e;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .category-card .icon {
+            font-size: 1.5rem;
+        }
+
+        .category-card ul {
+            list-style: none;
+        }
+
+        .category-card ul li {
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .category-card ul li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1e9db3;
+            font-weight: bold;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: #0c4a6e;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* Training Modes */
+        .training-modes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .mode-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .mode-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .mode-card .icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .mode-card h3 {
+            color: #0c4a6e;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .mode-card p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .mode-card ul {
+            list-style: none;
+            text-align: left;
+        }
+
+        .mode-card ul li {
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .mode-card ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #1e9db3;
+            font-weight: bold;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            color: white;
+        }
+
+        .stat-card .number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .label {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* Process Steps */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .step {
+            position: relative;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 2rem;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .step h3 {
+            color: #0c4a6e;
+            margin-bottom: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .step p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: #f0f9ff;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-section h2 {
+            color: #0c4a6e;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #0c4a6e;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .programs-grid,
+            .categories-grid,
+            .features-grid,
+            .training-modes {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="header-top">
+                    <div class="logo">
+                        <img src="https://page.gensparksite.com/v1/base64_upload/cd3e70466238584d229e88d14a5186b1" alt="Technodot Academy Logo" style="height: 45px;">
+                    </div>
+                    <div class="header-right">
+                        <div class="search-box">
+                            <input type="text" placeholder="Search courses, programs, or topics...">
+                            <button type="submit">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="m21 21-4.35-4.35"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <a href="#signup" class="btn-signup">Sign Up</a>
+                    </div>
+                </div>
+                <div class="header-bottom">
+                    <nav>
+                        <ul>
+                            <li><a href="#topics">Topics</a></li>
+                            <li><a href="vendors.html">Vendors</a></li>
+                            <li><a href="universities.html">Universities</a></li>
+                            <li><a href="earn-learn.html">Earn & Learn</a></li>
+                            <li><a href="rnd.html">R&D&I</a></li>
+                            <li><a href="business.html">Business</a></li>
+                            <li><a href="about.html">About</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> / <a href="business.html">Business</a> / <span>Corporate Training</span>
+    </div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>👥 Empower Your Team with World-Class Training</h1>
+            <p>Upskill your workforce with customized corporate training programs designed for business success</p>
+            <div class="cta-buttons">
+                <a href="#programs" class="btn btn-primary">Explore Programs</a>
+                <a href="#contact" class="btn btn-secondary">Request Proposal</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="content">
+        <section class="section">
+            <h2>Invest in Your Greatest Asset: Your People</h2>
+            <p>In today's competitive business environment, continuous learning and development are critical to organizational success. Our corporate training programs are designed to enhance employee skills, boost productivity, improve team collaboration, and drive business growth.</p>
+            <p>We offer comprehensive training solutions tailored to your organization's unique needs, industry requirements, and strategic objectives. From technical skills to leadership development, we help your team stay ahead of the curve and deliver exceptional results.</p>
+        </section>
+
+        <section class="section" id="programs">
+            <h2>Featured Training Programs</h2>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-header">
+                        <div class="icon">💻</div>
+                        <h3>Technology Skills Training</h3>
+                    </div>
+                    <div class="program-body">
+                        <h4>Program Highlights:</h4>
+                        <ul>
+                            <li>Full-stack development</li>
+                            <li>Cloud computing & DevOps</li>
+                            <li>Data analytics & visualization</li>
+                            <li>Cybersecurity essentials</li>
+                            <li>AI & machine learning basics</li>
+                            <li>Software testing & QA</li>
+                        </ul>
+                    </div>
+                    <div class="program-meta">
+                        <span>⏱️ 40-80 Hours</span>
+                        <span>📍 Flexible</span>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-header">
+                        <div class="icon">🎯</div>
+                        <h3>Leadership Development</h3>
+                    </div>
+                    <div class="program-body">
+                        <h4>Program Highlights:</h4>
+                        <ul>
+                            <li>Strategic thinking & planning</li>
+                            <li>Team management & motivation</li>
+                            <li>Decision making & problem solving</li>
+                            <li>Emotional intelligence</li>
+                            <li>Change management</li>
+                            <li>Coaching & mentoring skills</li>
+                        </ul>
+                    </div>
+                    <div class="program-meta">
+                        <span>⏱️ 24-48 Hours</span>
+                        <span>📍 On-Site</span>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-header">
+                        <div class="icon">💼</div>
+                        <h3>Business Skills Enhancement</h3>
+                    </div>
+                    <div class="program-body">
+                        <h4>Program Highlights:</h4>
+                        <ul>
+                            <li>Project management (PMP, Agile)</li>
+                            <li>Business communication</li>
+                            <li>Sales & negotiation skills</li>
+                            <li>Financial literacy</li>
+                            <li>Time & productivity management</li>
+                            <li>Customer service excellence</li>
+                        </ul>
+                    </div>
+                    <div class="program-meta">
+                        <span>⏱️ 16-40 Hours</span>
+                        <span>📍 Hybrid</span>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-header">
+                        <div class="icon">📊</div>
+                        <h3>Digital Marketing Mastery</h3>
+                    </div>
+                    <div class="program-body">
+                        <h4>Program Highlights:</h4>
+                        <ul>
+                            <li>Social media marketing</li>
+                            <li>SEO & content marketing</li>
+                            <li>Email marketing campaigns</li>
+                            <li>Marketing analytics</li>
+                            <li>Paid advertising (Google, Facebook)</li>
+                            <li>Growth hacking strategies</li>
+                        </ul>
+                    </div>
+                    <div class="program-meta">
+                        <span>⏱️ 40 Hours</span>
+                        <span>📍 Online</span>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-header">
+                        <div class="icon">🤝</div>
+                        <h3>Soft Skills Development</h3>
+                    </div>
+                    <div class="program-body">
+                        <h4>Program Highlights:</h4>
+                        <ul>
+                            <li>Communication & presentation</li>
+                            <li>Team collaboration</li>
+                            <li>Conflict resolution</li>
+                            <li>Critical thinking</li>
+                            <li>Adaptability & resilience</li>
+                            <li>Professional etiquette</li>
+                        </ul>
+                    </div>
+                    <div class="program-meta">
+                        <span>⏱️ 16-24 Hours</span>
+                        <span>📍 On-Site</span>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-header">
+                        <div class="icon">🚀</div>
+                        <h3>Innovation & Creativity</h3>
+                    </div>
+                    <div class="program-body">
+                        <h4>Program Highlights:</h4>
+                        <ul>
+                            <li>Design thinking workshops</li>
+                            <li>Creative problem solving</li>
+                            <li>Innovation frameworks</li>
+                            <li>Brainstorming techniques</li>
+                            <li>Rapid prototyping</li>
+                            <li>Entrepreneurial mindset</li>
+                        </ul>
+                    </div>
+                    <div class="program-meta">
+                        <span>⏱️ 16-32 Hours</span>
+                        <span>📍 Workshop</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Training Categories</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <h3><span class="icon">💻</span> Technical Training</h3>
+                    <ul>
+                        <li>Programming languages</li>
+                        <li>Web & mobile development</li>
+                        <li>Database management</li>
+                        <li>System administration</li>
+                        <li>Network security</li>
+                        <li>Software tools & platforms</li>
+                    </ul>
+                </div>
+
+                <div class="category-card">
+                    <h3><span class="icon">📈</span> Professional Development</h3>
+                    <ul>
+                        <li>Career planning</li>
+                        <li>Personal branding</li>
+                        <li>Networking skills</li>
+                        <li>Interview techniques</li>
+                        <li>Resume building</li>
+                        <li>LinkedIn optimization</li>
+                    </ul>
+                </div>
+
+                <div class="category-card">
+                    <h3><span class="icon">⚙️</span> Process & Methodology</h3>
+                    <ul>
+                        <li>Agile & Scrum</li>
+                        <li>Lean Six Sigma</li>
+                        <li>ITIL & service management</li>
+                        <li>Quality assurance</li>
+                        <li>Business process optimization</li>
+                        <li>Continuous improvement</li>
+                    </ul>
+                </div>
+
+                <div class="category-card">
+                    <h3><span class="icon">🔒</span> Compliance & Security</h3>
+                    <ul>
+                        <li>Data privacy (GDPR, CCPA)</li>
+                        <li>Information security</li>
+                        <li>ISO certifications</li>
+                        <li>Risk management</li>
+                        <li>Regulatory compliance</li>
+                        <li>Ethics & governance</li>
+                    </ul>
+                </div>
+
+                <div class="category-card">
+                    <h3><span class="icon">🌍</span> Industry-Specific</h3>
+                    <ul>
+                        <li>Healthcare IT</li>
+                        <li>Financial services</li>
+                        <li>Retail & e-commerce</li>
+                        <li>Manufacturing 4.0</li>
+                        <li>Education technology</li>
+                        <li>Government sector</li>
+                    </ul>
+                </div>
+
+                <div class="category-card">
+                    <h3><span class="icon">🎨</span> Creative & Design</h3>
+                    <ul>
+                        <li>UI/UX design</li>
+                        <li>Graphic design</li>
+                        <li>Video editing</li>
+                        <li>Content creation</li>
+                        <li>Brand development</li>
+                        <li>Visual storytelling</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Training Delivery Modes</h2>
+            <div class="training-modes">
+                <div class="mode-card">
+                    <div class="icon">🏢</div>
+                    <h3>On-Site Training</h3>
+                    <p>Trainers come to your location for personalized, hands-on instruction</p>
+                    <ul>
+                        <li>Customized to your environment</li>
+                        <li>Team collaboration focus</li>
+                        <li>No travel costs for employees</li>
+                        <li>Flexible scheduling</li>
+                    </ul>
+                </div>
+
+                <div class="mode-card">
+                    <div class="icon">💻</div>
+                    <h3>Virtual Training</h3>
+                    <p>Live, interactive online sessions with real-time engagement</p>
+                    <ul>
+                        <li>Learn from anywhere</li>
+                        <li>Cost-effective solution</li>
+                        <li>Recorded sessions available</li>
+                        <li>Global team participation</li>
+                    </ul>
+                </div>
+
+                <div class="mode-card">
+                    <div class="icon">🔄</div>
+                    <h3>Hybrid Training</h3>
+                    <p>Combination of on-site and virtual learning for maximum flexibility</p>
+                    <ul>
+                        <li>Best of both worlds</li>
+                        <li>Accommodates different learning styles</li>
+                        <li>Extended learning period</li>
+                        <li>Continuous support</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Why Choose Our Corporate Training</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon">🎯</div>
+                    <h3>Customized Content</h3>
+                    <p>Training programs tailored to your specific business needs and objectives</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">👨‍🏫</div>
+                    <h3>Expert Trainers</h3>
+                    <p>Industry professionals with extensive real-world experience</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🛠️</div>
+                    <h3>Hands-On Learning</h3>
+                    <p>Practical exercises, case studies, and real-world projects</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">📊</div>
+                    <h3>Measurable Outcomes</h3>
+                    <p>Clear metrics and assessments to track learning progress and ROI</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🏆</div>
+                    <h3>Certification</h3>
+                    <p>Industry-recognized certifications upon successful completion</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🔄</div>
+                    <h3>Ongoing Support</h3>
+                    <p>Post-training support and resources for continuous learning</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Our Training Process</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Needs Assessment</h3>
+                    <p>Understand your training objectives, skill gaps, and desired outcomes</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Program Design</h3>
+                    <p>Create customized curriculum aligned with your business goals</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Training Delivery</h3>
+                    <p>Execute engaging, interactive training with expert instructors</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Evaluation & Support</h3>
+                    <p>Assess learning outcomes and provide ongoing support and resources</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="number">50K+</div>
+                <div class="label">Professionals Trained</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">500+</div>
+                <div class="label">Corporate Clients</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">100+</div>
+                <div class="label">Training Programs</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">4.8/5</div>
+                <div class="label">Average Rating</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <h2>Ready to Empower Your Team?</h2>
+        <p>Let's discuss a customized training solution for your organization</p>
+        <div class="cta-buttons">
+            <a href="#" class="btn btn-primary">Request a Proposal</a>
+            <a href="business.html" class="btn btn-secondary">Back to Business Solutions</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Tomorrow Academy. All rights reserved.</p>
+    </footer>
+</body>
+</html>

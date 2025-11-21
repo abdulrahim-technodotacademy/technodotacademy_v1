@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Company - Tomorrow Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: #ffffff;
+            padding: 15px 0;
+            border-bottom: 1px solid lightgrey;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 45px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding: 10px 40px 10px 20px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 15px;
+            width: 450px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #0891b2;
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #64748b;
+            cursor: pointer;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-box button:hover {
+            color: #0891b2;
+        }
+
+        .btn-signup {
+            background: #0891b2;
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s;
+        }
+
+        .btn-signup:hover {
+            background: #0c4a6e;
+            transform: translateY(-1px);
+        }
+
+        .header-bottom {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #475569;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #0891b2;
+        }
+
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: flex;
+            gap: 0.5rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: #1e9db3;
+            text-decoration: none;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: #0c4a6e;
+            margin-bottom: 1.5rem;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .mv-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .mv-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .mv-card h3 {
+            color: #0c4a6e;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .value-card {
+            background: #f0f9ff;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .value-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-card h3 {
+            color: #0c4a6e;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-year {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e9db3;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .timeline-content h3 {
+            color: #0c4a6e;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .team-photo {
+            height: 280px;
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+        }
+
+        .team-info {
+            padding: 2rem;
+        }
+
+        .team-info h3 {
+            color: #0c4a6e;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-info .role {
+            color: #1e9db3;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .team-info p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .stats {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            color: white;
+        }
+
+        .stat-card .number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background: #0c4a6e;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="header-top">
+                    <div class="logo">
+                        <img src="https://page.gensparksite.com/v1/base64_upload/cd3e70466238584d229e88d14a5186b1" alt="Technodot Academy Logo" style="height: 45px;">
+                    </div>
+                    <div class="header-right">
+                        <div class="search-box">
+                            <input type="text" placeholder="Search courses, programs, or topics...">
+                            <button type="submit">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="m21 21-4.35-4.35"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <a href="#signup" class="btn-signup">Sign Up</a>
+                    </div>
+                </div>
+                <div class="header-bottom">
+                    <nav>
+                        <ul>
+                            <li><a href="#topics">Topics</a></li>
+                            <li><a href="vendors.html">Vendors</a></li>
+                            <li><a href="universities.html">Universities</a></li>
+                            <li><a href="earn-learn.html">Earn & Learn</a></li>
+                            <li><a href="rnd.html">R&D&I</a></li>
+                            <li><a href="business.html">Business</a></li>
+                            <li><a href="about.html">About</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> / <a href="about.html">About</a> / <span>Our Company</span>
+    </div>
+
+    <section class="hero">
+        <h1>Our Company</h1>
+        <p>Building the future of education through innovation, excellence, and dedication</p>
+    </section>
+
+    <div class="content">
+        <section class="section">
+            <h2>About Tomorrow Academy</h2>
+            <p>Tomorrow Academy (Technodot Academy) is a leading provider of professional training, education, and career development services. Founded with a vision to bridge the gap between academic learning and industry requirements, we have empowered thousands of individuals and organizations to achieve their goals.</p>
+            <p>Our comprehensive ecosystem includes vendor certification programs, university degree courses, corporate training solutions, and career placement services. We partner with industry leaders, educational institutions, and corporations to deliver world-class learning experiences that transform careers and businesses.</p>
+            <p>With a presence across multiple countries and a team of expert trainers, we continue to innovate and expand our offerings to meet the evolving needs of the modern workforce.</p>
+        </section>
+
+        <section class="section">
+            <h2>Mission & Vision</h2>
+            <div class="mission-vision">
+                <div class="mv-card">
+                    <div class="icon">🎯</div>
+                    <h3>Our Mission</h3>
+                    <p>To empower individuals with industry-relevant skills, knowledge, and certifications that enable them to build successful careers and contribute meaningfully to their organizations and society.</p>
+                </div>
+                <div class="mv-card">
+                    <div class="icon">🔭</div>
+                    <h3>Our Vision</h3>
+                    <p>To be the world's most trusted and innovative education technology company, recognized for transforming lives through accessible, high-quality learning experiences and career advancement opportunities.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="icon">🏆</div>
+                    <h3>Excellence</h3>
+                    <p>Commitment to highest quality in everything we do</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon">💡</div>
+                    <h3>Innovation</h3>
+                    <p>Embracing change and pioneering new solutions</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon">🤝</div>
+                    <h3>Integrity</h3>
+                    <p>Honest, transparent, and ethical in all dealings</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon">🎓</div>
+                    <h3>Learning</h3>
+                    <p>Continuous growth and knowledge sharing</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon">💪</div>
+                    <h3>Empowerment</h3>
+                    <p>Enabling individuals to reach their full potential</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon">🌍</div>
+                    <h3>Impact</h3>
+                    <p>Creating positive change in communities</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Our Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2018</div>
+                    <div class="timeline-content">
+                        <h3>Foundation</h3>
+                        <p>Tomorrow Academy was founded with a vision to revolutionize professional education. Started with 2 training programs and 50 students.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2019</div>
+                    <div class="timeline-content">
+                        <h3>Expansion</h3>
+                        <p>Launched vendor certification programs in partnership with Zoho, Odoo, and Microsoft. Reached 500+ students across 3 cities.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2020</div>
+                    <div class="timeline-content">
+                        <h3>Digital Transformation</h3>
+                        <p>Adapted to remote learning during pandemic. Launched online degree programs in partnership with universities. Trained 2000+ students online.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2021</div>
+                    <div class="timeline-content">
+                        <h3>Corporate Solutions</h3>
+                        <p>Launched business solutions division offering corporate training and consulting. Onboarded 100+ corporate clients.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2022</div>
+                    <div class="timeline-content">
+                        <h3>Earn & Learn</h3>
+                        <p>Introduced innovative Earn & Learn program providing stipends to students. Placed 500+ students in paid internships.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h3>International Presence</h3>
+                        <p>Expanded operations to UAE, KSA, and Oman. Established partnerships with global companies and institutions.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-content">
+                        <h3>Continued Growth</h3>
+                        <p>Reached 50,000+ trained students, 500+ corporate partners, and presence in 15+ countries. Launched AI-powered learning platform.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Leadership Team</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-photo">👨‍💼</div>
+                    <div class="team-info">
+                        <h3>Rajesh Kumar</h3>
+                        <div class="role">Founder & CEO</div>
+                        <p>20+ years in education technology, former VP at leading tech company. Vision: Making quality education accessible globally.</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-photo">👩‍💼</div>
+                    <div class="team-info">
+                        <h3>Priya Sharma</h3>
+                        <div class="role">Chief Academic Officer</div>
+                        <p>15+ years in curriculum design and academic excellence. PhD in Education from IIT. Passionate about innovative learning.</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-photo">👨‍💼</div>
+                    <div class="team-info">
+                        <h3>Amit Patel</h3>
+                        <div class="role">Chief Technology Officer</div>
+                        <p>18+ years in technology innovation. Built scalable learning platforms serving millions. Expert in AI/ML applications.</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-photo">👩‍💼</div>
+                    <div class="team-info">
+                        <h3>Sneha Reddy</h3>
+                        <div class="role">VP, Corporate Solutions</div>
+                        <p>12+ years in B2B training solutions. Former Head of L&D at Fortune 500 company. Built relationships with 500+ clients.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="number">50K+</div>
+                <div class="label">Students Trained</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">500+</div>
+                <div class="label">Corporate Partners</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">15+</div>
+                <div class="label">Countries</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">95%</div>
+                <div class="label">Satisfaction Rate</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Tomorrow Academy. All rights reserved.</p>
+    </footer>
+</body>
+</html>

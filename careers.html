@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - Tomorrow Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; }
+        header { background: #ffffff; padding: 15px 0; border-bottom: 1px solid lightgrey; position: sticky; top: 0; z-index: 1000; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .header-content { display: flex; flex-direction: column; align-items: center; gap: 15px; }
+        .header-top { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        .logo { display: flex; align-items: center; }
+        .logo img { height: 45px; }
+        .header-right { display: flex; align-items: center; gap: 20px; }
+        .search-box { position: relative; }
+        .search-box input { padding: 10px 40px 10px 20px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 15px; width: 450px; font-family: 'Poppins', sans-serif; }
+        .search-box input:focus { outline: none; border-color: #0891b2; }
+        .search-box button { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #64748b; cursor: pointer; padding: 8px; display: flex; align-items: center; justify-content: center; }
+        .search-box button:hover { color: #0891b2; }
+        .btn-signup { background: #0891b2; color: white !important; padding: 10px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: all 0.2s; }
+        .btn-signup:hover { background: #0c4a6e; transform: translateY(-1px); }
+        .header-bottom { width: 100%; display: flex; justify-content: center; }
+        nav ul { display: flex; list-style: none; gap: 35px; align-items: center; margin: 0; padding: 0; }
+        nav a { text-decoration: none; color: #475569; font-size: 15px; font-weight: 500; transition: color 0.2s; }
+        nav a:hover { color: #0891b2; }
+        .breadcrumb { max-width: 1200px; margin: 2rem auto; padding: 0 2rem; display: flex; gap: 0.5rem; color: #666; font-size: 0.9rem; }
+        .breadcrumb a { color: #1e9db3; text-decoration: none; }
+        .hero { background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%); color: white; padding: 4rem 2rem; text-align: center; }
+        .hero h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; opacity: 0.95; }
+        .content { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+        .section { margin-bottom: 4rem; }
+        .section h2 { font-size: 2rem; color: #0c4a6e; margin-bottom: 1.5rem; }
+        .section p { font-size: 1.1rem; color: #666; line-height: 1.8; margin-bottom: 1.5rem; }
+        .jobs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .job-card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s; }
+        .job-card:hover { transform: translateY(-5px); }
+        .job-card h3 { color: #0c4a6e; font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .job-meta { display: flex; gap: 1rem; margin: 1rem 0; flex-wrap: wrap; }
+        .job-meta span { background: #f0f9ff; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.9rem; color: #0891b2; }
+        .job-card ul { list-style: none; margin: 1rem 0; }
+        .job-card ul li { padding: 0.3rem 0 0.3rem 1.5rem; position: relative; color: #666; }
+        .job-card ul li:before { content: "✓"; position: absolute; left: 0; color: #1e9db3; font-weight: bold; }
+        .apply-btn { display: inline-block; background: #1e9db3; color: white; padding: 0.8rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 1rem; transition: background 0.3s; }
+        .apply-btn:hover { background: #0891b2; }
+        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .benefit-card { background: #f0f9ff; padding: 2rem; border-radius: 12px; text-align: center; }
+        .benefit-card .icon { font-size: 3rem; margin-bottom: 1rem; }
+        .benefit-card h3 { color: #0c4a6e; margin-bottom: 0.5rem; }
+        .benefit-card p { color: #666; font-size: 0.95rem; }
+        footer { background: #0c4a6e; color: white; padding: 2rem; text-align: center; }
+        @media (max-width: 768px) { .nav-links { display: none; } .hero h1 { font-size: 2rem; } .jobs-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="header-top">
+                    <div class="logo">
+                        <img src="https://page.gensparksite.com/v1/base64_upload/cd3e70466238584d229e88d14a5186b1" alt="Technodot Academy Logo" style="height: 45px;">
+                    </div>
+                    <div class="header-right">
+                        <div class="search-box">
+                            <input type="text" placeholder="Search courses, programs, or topics...">
+                            <button type="submit">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="m21 21-4.35-4.35"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <a href="#signup" class="btn-signup">Sign Up</a>
+                    </div>
+                </div>
+                <div class="header-bottom">
+                    <nav>
+                        <ul>
+                            <li><a href="#topics">Topics</a></li>
+                            <li><a href="vendors.html">Vendors</a></li>
+                            <li><a href="universities.html">Universities</a></li>
+                            <li><a href="earn-learn.html">Earn & Learn</a></li>
+                            <li><a href="rnd.html">R&D&I</a></li>
+                            <li><a href="business.html">Business</a></li>
+                            <li><a href="about.html">About</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> / <a href="about.html">About</a> / <span>Careers</span>
+    </div>
+
+    <section class="hero">
+        <h1>Join Our Team</h1>
+        <p>Build your career with Tomorrow Academy and help shape the future of education</p>
+    </section>
+
+    <div class="content">
+        <section class="section">
+            <h2>Why Work With Us</h2>
+            <p>At Tomorrow Academy, we're more than just colleagues—we're a family of passionate educators, innovators, and changemakers. We offer an environment where your ideas matter, your growth is prioritized, and your work makes a real difference in people's lives.</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="icon">💰</div>
+                    <h3>Competitive Salary</h3>
+                    <p>Industry-leading compensation packages</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">🏥</div>
+                    <h3>Health Benefits</h3>
+                    <p>Comprehensive medical insurance for you and family</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">📚</div>
+                    <h3>Learning Budget</h3>
+                    <p>Annual budget for courses and certifications</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">🏖️</div>
+                    <h3>Work-Life Balance</h3>
+                    <p>Flexible hours and generous vacation policy</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">🚀</div>
+                    <h3>Career Growth</h3>
+                    <p>Clear advancement paths and mentorship</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">🎉</div>
+                    <h3>Great Culture</h3>
+                    <p>Collaborative, inclusive, and fun work environment</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Current Openings</h2>
+            
+            <div class="jobs-grid">
+                <div class="job-card">
+                    <h3>Senior Training Manager</h3>
+                    <div class="job-meta">
+                        <span>📍 Bangalore</span>
+                        <span>💼 Full-time</span>
+                        <span>📊 Senior Level</span>
+                    </div>
+                    <p>Lead our training delivery team and design innovative curriculum for corporate clients.</p>
+                    <ul>
+                        <li>7+ years in training/L&D</li>
+                        <li>Experience with corporate training</li>
+                        <li>Strong leadership skills</li>
+                        <li>Excellent communication</li>
+                    </ul>
+                    <a href="#" class="apply-btn">Apply Now</a>
+                </div>
+
+                <div class="job-card">
+                    <h3>Full Stack Developer</h3>
+                    <div class="job-meta">
+                        <span>📍 Hyderabad</span>
+                        <span>💼 Full-time</span>
+                        <span>📊 Mid Level</span>
+                    </div>
+                    <p>Build and enhance our learning platform using modern tech stack.</p>
+                    <ul>
+                        <li>3+ years experience</li>
+                        <li>React, Node.js, MongoDB</li>
+                        <li>Cloud experience (AWS/Azure)</li>
+                        <li>EdTech experience preferred</li>
+                    </ul>
+                    <a href="#" class="apply-btn">Apply Now</a>
+                </div>
+
+                <div class="job-card">
+                    <h3>Content Writer</h3>
+                    <div class="job-meta">
+                        <span>📍 Remote</span>
+                        <span>💼 Full-time</span>
+                        <span>📊 Entry-Mid Level</span>
+                    </div>
+                    <p>Create engaging educational content, course materials, and marketing copy.</p>
+                    <ul>
+                        <li>2+ years writing experience</li>
+                        <li>Educational content preferred</li>
+                        <li>Excellent English skills</li>
+                        <li>SEO knowledge a plus</li>
+                    </ul>
+                    <a href="#" class="apply-btn">Apply Now</a>
+                </div>
+
+                <div class="job-card">
+                    <h3>Business Development Manager</h3>
+                    <div class="job-meta">
+                        <span>📍 Mumbai</span>
+                        <span>💼 Full-time</span>
+                        <span>📊 Mid-Senior Level</span>
+                    </div>
+                    <p>Drive B2B sales and build partnerships with corporate clients and institutions.</p>
+                    <ul>
+                        <li>5+ years in B2B sales</li>
+                        <li>Proven track record</li>
+                        <li>EdTech/training industry experience</li>
+                        <li>Strong negotiation skills</li>
+                    </ul>
+                    <a href="#" class="apply-btn">Apply Now</a>
+                </div>
+
+                <div class="job-card">
+                    <h3>UI/UX Designer</h3>
+                    <div class="job-meta">
+                        <span>📍 Pune</span>
+                        <span>💼 Full-time</span>
+                        <span>📊 Mid Level</span>
+                    </div>
+                    <p>Design intuitive and engaging user experiences for our learning platform.</p>
+                    <ul>
+                        <li>3+ years UI/UX experience</li>
+                        <li>Figma, Adobe XD proficiency</li>
+                        <li>Portfolio required</li>
+                        <li>User research experience</li>
+                    </ul>
+                    <a href="#" class="apply-btn">Apply Now</a>
+                </div>
+
+                <div class="job-card">
+                    <h3>Digital Marketing Specialist</h3>
+                    <div class="job-meta">
+                        <span>📍 Delhi NCR</span>
+                        <span>💼 Full-time</span>
+                        <span>📊 Mid Level</span>
+                    </div>
+                    <p>Execute digital marketing campaigns across multiple channels to drive enrollment.</p>
+                    <ul>
+                        <li>3+ years digital marketing</li>
+                        <li>SEO, SEM, social media</li>
+                        <li>Google Analytics, Ads certified</li>
+                        <li>EdTech experience a plus</li>
+                    </ul>
+                    <a href="#" class="apply-btn">Apply Now</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>How to Apply</h2>
+            <p>Interested in joining our team? Send your resume and cover letter to <strong>careers@tomorrowacademy.com</strong> with the job title in the subject line. We review all applications and will reach out if there's a good match.</p>
+            <p>Don't see a role that fits? Send us your resume anyway at <strong>careers@tomorrowacademy.com</strong> - we're always looking for talented individuals to join our team!</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Tomorrow Academy. All rights reserved.</p>
+    </footer>
+</body>
+</html>

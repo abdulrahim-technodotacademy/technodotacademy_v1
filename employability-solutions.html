@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employability Solutions - Tomorrow Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background: #ffffff;
+            padding: 15px 0;
+            border-bottom: 1px solid lightgrey;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 45px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding: 10px 40px 10px 20px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 15px;
+            width: 450px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #0891b2;
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #64748b;
+            cursor: pointer;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-box button:hover {
+            color: #0891b2;
+        }
+
+        .btn-signup {
+            background: #0891b2;
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s;
+        }
+
+        .btn-signup:hover {
+            background: #0c4a6e;
+            transform: translateY(-1px);
+        }
+
+        .header-bottom {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #475569;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #0891b2;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: flex;
+            gap: 0.5rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: #1e9db3;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #0891b2;
+        }
+
+        .btn-primary:hover {
+            background: #f0f9ff;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: #0c4a6e;
+            margin-bottom: 1rem;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Programs Grid */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .program-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .program-header {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .program-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .program-header .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .program-body {
+            padding: 2rem;
+        }
+
+        .program-body h4 {
+            color: #0c4a6e;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .program-body ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .program-body ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #666;
+        }
+
+        .program-body ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #1e9db3;
+            font-weight: bold;
+        }
+
+        .program-meta {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+            background: #f0f9ff;
+            border-top: 2px solid #e0f2fe;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .program-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: #0c4a6e;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* Process Steps */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .step {
+            position: relative;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 2rem;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .step h3 {
+            color: #0c4a6e;
+            margin-bottom: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .step p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            color: white;
+        }
+
+        .stat-card .number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .label {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: #f0f9ff;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-section h2 {
+            color: #0c4a6e;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #0c4a6e;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .programs-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="header-top">
+                    <div class="logo">
+                        <img src="https://page.gensparksite.com/v1/base64_upload/cd3e70466238584d229e88d14a5186b1" alt="Technodot Academy Logo" style="height: 45px;">
+                    </div>
+                    <div class="header-right">
+                        <div class="search-box">
+                            <input type="text" placeholder="Search courses, programs, or topics...">
+                            <button type="submit">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="m21 21-4.35-4.35"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <a href="#signup" class="btn-signup">Sign Up</a>
+                    </div>
+                </div>
+                <div class="header-bottom">
+                    <nav>
+                        <ul>
+                            <li><a href="#topics">Topics</a></li>
+                            <li><a href="vendors.html">Vendors</a></li>
+                            <li><a href="universities.html">Universities</a></li>
+                            <li><a href="earn-learn.html">Earn & Learn</a></li>
+                            <li><a href="rnd.html">R&D&I</a></li>
+                            <li><a href="business.html">Business</a></li>
+                            <li><a href="about.html">About</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> / <a href="business.html">Business</a> / <span>Employability Solutions</span>
+    </div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>🎯 Employability Solutions</h1>
+            <p>Transform students into industry-ready professionals with our comprehensive employability programs</p>
+            <div class="cta-buttons">
+                <a href="#programs" class="btn btn-primary">View Programs</a>
+                <a href="#contact" class="btn btn-secondary">Request Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="content">
+        <section class="section">
+            <h2>Bridging the Academia-Industry Gap</h2>
+            <p>Our employability solutions are designed to equip students and fresh graduates with the skills, knowledge, and confidence needed to succeed in today's competitive job market. We partner with educational institutions to deliver industry-aligned training programs that transform theoretical knowledge into practical expertise.</p>
+            <p>With a focus on both technical and soft skills, our programs ensure that graduates are not just job-ready, but career-ready, with the ability to adapt and thrive in dynamic work environments.</p>
+        </section>
+
+        <section class="section" id="programs">
+            <h2>Our Employability Programs</h2>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-header">
+                        <div class="icon">💼</div>
+                        <h3>Campus to Corporate</h3>
+                    </div>
+                    <div class="program-body">
+                        <h4>Program Highlights:</h4>
+                        <ul>
+                            <li>Comprehensive soft skills training</li>
+                            <li>Resume building & LinkedIn optimization</li>
+                            <li>Mock interviews & group discussions</li>
+                            <li>Business communication skills</li>
+                            <li>Professional etiquette & grooming</li>
+                            <li>Industry expert mentorship</li>
+                        </ul>
+                    </div>
+                    <div class="program-meta">
+                        <span>⏱️ 40 Hours</span>
+                        <span>👥 Batch: 50-100</span>
+                        <span>📍 On-Campus</span>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-header">
+                        <div class="icon">💻</div>
+                        <h3>Technical Skills Enhancement</h3>
+                    </div>
+                    <div class="program-body">
+                        <h4>Program Highlights:</h4>
+                        <ul>
+                            <li>Industry-relevant technology stack</li>
+                            <li>Hands-on project development</li>
+                            <li>Code quality & best practices</li>
+                            <li>Version control & collaboration tools</li>
+                            <li>Problem-solving & debugging</li>
+                            <li>Live project experience</li>
+                        </ul>
+                    </div>
+                    <div class="program-meta">
+                        <span>⏱️ 80 Hours</span>
+                        <span>👥 Batch: 30-50</span>
+                        <span>📍 Hybrid</span>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-header">
+                        <div class="icon">🎓</div>
+                        <h3>Career Readiness Program</h3>
+                    </div>
+                    <div class="program-body">
+                        <h4>Program Highlights:</h4>
+                        <ul>
+                            <li>Aptitude & reasoning training</li>
+                            <li>Verbal & quantitative skills</li>
+                            <li>Logical reasoning & puzzles</li>
+                            <li>Technical interview preparation</li>
+                            <li>HR interview skills</li>
+                            <li>Placement support & guidance</li>
+                        </ul>
+                    </div>
+                    <div class="program-meta">
+                        <span>⏱️ 60 Hours</span>
+                        <span>👥 Batch: 50-100</span>
+                        <span>📍 On-Campus</span>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-header">
+                        <div class="icon">🚀</div>
+                        <h3>Industry Immersion Program</h3>
+                    </div>
+                    <div class="program-body">
+                        <h4>Program Highlights:</h4>
+                        <ul>
+                            <li>Real-world project assignments</li>
+                            <li>Industry mentor guidance</li>
+                            <li>Company culture exposure</li>
+                            <li>Networking opportunities</li>
+                            <li>Internship placement assistance</li>
+                            <li>Performance certification</li>
+                        </ul>
+                    </div>
+                    <div class="program-meta">
+                        <span>⏱️ 120 Hours</span>
+                        <span>👥 Batch: 20-30</span>
+                        <span>📍 Industry</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Key Features of Our Solutions</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon">📊</div>
+                    <h3>Skill Gap Analysis</h3>
+                    <p>Comprehensive assessment to identify skill gaps and customize training programs accordingly</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">👨‍🏫</div>
+                    <h3>Industry Experts</h3>
+                    <p>Learn from professionals with extensive industry experience and teaching expertise</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🏆</div>
+                    <h3>Certification</h3>
+                    <p>Industry-recognized certifications upon successful program completion</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🤝</div>
+                    <h3>Placement Support</h3>
+                    <p>Dedicated placement assistance with access to our network of 500+ companies</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">📈</div>
+                    <h3>Progress Tracking</h3>
+                    <p>Regular assessments and detailed progress reports for continuous improvement</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">💡</div>
+                    <h3>Personalized Guidance</h3>
+                    <p>One-on-one mentoring sessions for career planning and skill development</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Our Process</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Initial Assessment</h3>
+                    <p>Evaluate current skill levels and identify gaps through comprehensive testing and analysis</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Customized Program</h3>
+                    <p>Design tailored training programs aligned with industry requirements and institutional goals</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Training Delivery</h3>
+                    <p>Execute comprehensive training with expert instructors, practical sessions, and real projects</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Placement Support</h3>
+                    <p>Provide dedicated placement assistance, mock interviews, and company connections</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="number">15K+</div>
+                <div class="label">Students Trained</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">200+</div>
+                <div class="label">College Partners</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">85%</div>
+                <div class="label">Placement Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">300+</div>
+                <div class="label">Recruiting Companies</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <h2>Ready to Transform Your Students' Careers?</h2>
+        <p>Partner with us to bridge the employability gap and prepare your students for successful careers</p>
+        <div class="cta-buttons">
+            <a href="#" class="btn btn-primary">Schedule a Consultation</a>
+            <a href="business.html" class="btn btn-secondary">Back to Business Solutions</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Tomorrow Academy. All rights reserved.</p>
+    </footer>
+</body>
+</html>

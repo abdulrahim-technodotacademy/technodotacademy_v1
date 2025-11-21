@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology & Management Consulting - Tomorrow Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background: #ffffff;
+            padding: 15px 0;
+            border-bottom: 1px solid lightgrey;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 45px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding: 10px 40px 10px 20px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 15px;
+            width: 450px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #0891b2;
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #64748b;
+            cursor: pointer;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-box button:hover {
+            color: #0891b2;
+        }
+
+        .btn-signup {
+            background: #0891b2;
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s;
+        }
+
+        .btn-signup:hover {
+            background: #0c4a6e;
+            transform: translateY(-1px);
+        }
+
+        .header-bottom {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #475569;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #0891b2;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: flex;
+            gap: 0.5rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: #1e9db3;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #0891b2;
+        }
+
+        .btn-primary:hover {
+            background: #f0f9ff;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: #0c4a6e;
+            margin-bottom: 1rem;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-header {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .service-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-header .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-body {
+            padding: 2rem;
+        }
+
+        .service-body h4 {
+            color: #0c4a6e;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .service-body ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-body ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #666;
+        }
+
+        .service-body ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #1e9db3;
+            font-weight: bold;
+        }
+
+        /* Technology Areas */
+        .tech-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .tech-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-left: 4px solid #1e9db3;
+            transition: transform 0.3s;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .tech-card h3 {
+            color: #0c4a6e;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tech-card .icon {
+            font-size: 1.5rem;
+        }
+
+        .tech-card ul {
+            list-style: none;
+        }
+
+        .tech-card ul li {
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .tech-card ul li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1e9db3;
+            font-weight: bold;
+        }
+
+        /* Process Steps */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .step {
+            position: relative;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 2rem;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .step h3 {
+            color: #0c4a6e;
+            margin-bottom: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .step p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: #0c4a6e;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            color: white;
+        }
+
+        .stat-card .number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .label {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* Industries */
+        .industries {
+            background: #f0f9ff;
+            padding: 4rem 2rem;
+        }
+
+        .industries-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .industries h2 {
+            text-align: center;
+            color: #0c4a6e;
+            margin-bottom: 3rem;
+        }
+
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .industry-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .industry-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .industry-item .icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .industry-item h3 {
+            color: #0c4a6e;
+            font-size: 1.1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: #f0f9ff;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-section h2 {
+            color: #0c4a6e;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #0c4a6e;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .services-grid,
+            .tech-areas,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="header-top">
+                    <div class="logo">
+                        <img src="https://page.gensparksite.com/v1/base64_upload/cd3e70466238584d229e88d14a5186b1" alt="Technodot Academy Logo" style="height: 45px;">
+                    </div>
+                    <div class="header-right">
+                        <div class="search-box">
+                            <input type="text" placeholder="Search courses, programs, or topics...">
+                            <button type="submit">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="m21 21-4.35-4.35"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <a href="#signup" class="btn-signup">Sign Up</a>
+                    </div>
+                </div>
+                <div class="header-bottom">
+                    <nav>
+                        <ul>
+                            <li><a href="#topics">Topics</a></li>
+                            <li><a href="vendors.html">Vendors</a></li>
+                            <li><a href="universities.html">Universities</a></li>
+                            <li><a href="earn-learn.html">Earn & Learn</a></li>
+                            <li><a href="rnd.html">R&D&I</a></li>
+                            <li><a href="business.html">Business</a></li>
+                            <li><a href="about.html">About</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> / <a href="business.html">Business</a> / <span>Technology & Management Consulting</span>
+    </div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>💡 Technology & Management Consulting</h1>
+            <p>Drive digital transformation and business excellence with our expert consulting services</p>
+            <div class="cta-buttons">
+                <a href="#services" class="btn btn-primary">Our Services</a>
+                <a href="#contact" class="btn btn-secondary">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="content">
+        <section class="section">
+            <h2>Transforming Businesses Through Technology & Strategy</h2>
+            <p>In today's rapidly evolving digital landscape, businesses need expert guidance to navigate technological change and implement effective management strategies. Our consulting services combine deep technical expertise with proven business acumen to help organizations optimize operations, adopt cutting-edge technologies, and achieve sustainable growth.</p>
+            <p>We partner with businesses across industries to deliver customized solutions that address specific challenges, improve efficiency, enhance competitiveness, and drive innovation. From digital transformation to process optimization, we're your trusted partner in business evolution.</p>
+        </section>
+
+        <section class="section" id="services">
+            <h2>Our Consulting Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="icon">🚀</div>
+                        <h3>Digital Transformation</h3>
+                    </div>
+                    <div class="service-body">
+                        <h4>Key Offerings:</h4>
+                        <ul>
+                            <li>Digital strategy development</li>
+                            <li>Technology roadmap planning</li>
+                            <li>Cloud migration & adoption</li>
+                            <li>Legacy system modernization</li>
+                            <li>Change management</li>
+                            <li>Digital culture building</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="icon">⚙️</div>
+                        <h3>Process Optimization</h3>
+                    </div>
+                    <div class="service-body">
+                        <h4>Key Offerings:</h4>
+                        <ul>
+                            <li>Business process analysis</li>
+                            <li>Workflow automation</li>
+                            <li>Lean & Six Sigma implementation</li>
+                            <li>Operational efficiency improvement</li>
+                            <li>Cost reduction strategies</li>
+                            <li>Quality management systems</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="icon">📊</div>
+                        <h3>Data & Analytics</h3>
+                    </div>
+                    <div class="service-body">
+                        <h4>Key Offerings:</h4>
+                        <ul>
+                            <li>Data strategy & governance</li>
+                            <li>Business intelligence implementation</li>
+                            <li>Predictive analytics</li>
+                            <li>Data visualization dashboards</li>
+                            <li>AI/ML solution design</li>
+                            <li>Data-driven decision making</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="icon">🔒</div>
+                        <h3>Cybersecurity Consulting</h3>
+                    </div>
+                    <div class="service-body">
+                        <h4>Key Offerings:</h4>
+                        <ul>
+                            <li>Security assessment & audits</li>
+                            <li>Risk management frameworks</li>
+                            <li>Compliance & regulations</li>
+                            <li>Incident response planning</li>
+                            <li>Security architecture design</li>
+                            <li>Employee security training</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="icon">💼</div>
+                        <h3>IT Strategy & Planning</h3>
+                    </div>
+                    <div class="service-body">
+                        <h4>Key Offerings:</h4>
+                        <ul>
+                            <li>IT strategy alignment</li>
+                            <li>Technology assessment</li>
+                            <li>Infrastructure planning</li>
+                            <li>Vendor selection & management</li>
+                            <li>IT budget optimization</li>
+                            <li>Technology governance</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="icon">🎯</div>
+                        <h3>Project Management</h3>
+                    </div>
+                    <div class="service-body">
+                        <h4>Key Offerings:</h4>
+                        <ul>
+                            <li>Agile transformation</li>
+                            <li>PMO establishment</li>
+                            <li>Project delivery support</li>
+                            <li>Portfolio management</li>
+                            <li>Risk & issue management</li>
+                            <li>Quality assurance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Technology Expertise</h2>
+            <div class="tech-areas">
+                <div class="tech-card">
+                    <h3><span class="icon">☁️</span> Cloud Technologies</h3>
+                    <ul>
+                        <li>AWS, Azure, Google Cloud</li>
+                        <li>Cloud architecture design</li>
+                        <li>Containerization (Docker, Kubernetes)</li>
+                        <li>Serverless computing</li>
+                        <li>Hybrid cloud solutions</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <h3><span class="icon">💻</span> Enterprise Systems</h3>
+                    <ul>
+                        <li>ERP implementation (SAP, Oracle)</li>
+                        <li>CRM solutions (Salesforce, Zoho)</li>
+                        <li>Microsoft 365 & Power Platform</li>
+                        <li>Odoo customization</li>
+                        <li>System integration</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <h3><span class="icon">🤖</span> AI & Machine Learning</h3>
+                    <ul>
+                        <li>AI strategy development</li>
+                        <li>ML model implementation</li>
+                        <li>Natural Language Processing</li>
+                        <li>Computer vision solutions</li>
+                        <li>Automation & RPA</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <h3><span class="icon">📱</span> Digital Solutions</h3>
+                    <ul>
+                        <li>Web & mobile app development</li>
+                        <li>E-commerce platforms</li>
+                        <li>Progressive web apps</li>
+                        <li>API development & integration</li>
+                        <li>Microservices architecture</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <h3><span class="icon">🔗</span> Blockchain & IoT</h3>
+                    <ul>
+                        <li>Blockchain consulting</li>
+                        <li>Smart contract development</li>
+                        <li>IoT architecture design</li>
+                        <li>Edge computing solutions</li>
+                        <li>Industry 4.0 implementation</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <h3><span class="icon">🎨</span> UI/UX Design</h3>
+                    <ul>
+                        <li>User experience research</li>
+                        <li>Interface design</li>
+                        <li>Usability testing</li>
+                        <li>Design systems</li>
+                        <li>Accessibility compliance</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Our Consulting Process</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Discovery & Assessment</h3>
+                    <p>Comprehensive analysis of your current state, challenges, and objectives</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Strategy Development</h3>
+                    <p>Create customized roadmap with actionable recommendations and priorities</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Implementation Support</h3>
+                    <p>Execute solutions with hands-on guidance, training, and best practices</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Optimization & Growth</h3>
+                    <p>Continuous improvement, monitoring, and strategic guidance for sustained success</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Why Choose Us</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon">🏆</div>
+                    <h3>Proven Expertise</h3>
+                    <p>Team of certified consultants with extensive industry experience</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🎯</div>
+                    <h3>Tailored Solutions</h3>
+                    <p>Customized strategies aligned with your specific business needs</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">💡</div>
+                    <h3>Innovation Focus</h3>
+                    <p>Cutting-edge technologies and forward-thinking approaches</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">📈</div>
+                    <h3>Measurable Results</h3>
+                    <p>Data-driven outcomes with clear ROI and performance metrics</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🤝</div>
+                    <h3>Partnership Approach</h3>
+                    <p>Collaborative engagement with knowledge transfer and empowerment</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">⚡</div>
+                    <h3>Agile Delivery</h3>
+                    <p>Fast execution with iterative improvements and flexible methodology</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="number">300+</div>
+                <div class="label">Projects Delivered</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">150+</div>
+                <div class="label">Enterprise Clients</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">40%</div>
+                <div class="label">Avg. Efficiency Gain</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">98%</div>
+                <div class="label">Client Satisfaction</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="industries">
+        <div class="industries-container">
+            <h2>Industries We Serve</h2>
+            <div class="industries-grid">
+                <div class="industry-item">
+                    <div class="icon">🏦</div>
+                    <h3>Banking & Finance</h3>
+                </div>
+                <div class="industry-item">
+                    <div class="icon">🏥</div>
+                    <h3>Healthcare</h3>
+                </div>
+                <div class="industry-item">
+                    <div class="icon">🛒</div>
+                    <h3>Retail & E-commerce</h3>
+                </div>
+                <div class="industry-item">
+                    <div class="icon">🏭</div>
+                    <h3>Manufacturing</h3>
+                </div>
+                <div class="industry-item">
+                    <div class="icon">🎓</div>
+                    <h3>Education</h3>
+                </div>
+                <div class="industry-item">
+                    <div class="icon">📱</div>
+                    <h3>Telecommunications</h3>
+                </div>
+                <div class="industry-item">
+                    <div class="icon">🚚</div>
+                    <h3>Logistics</h3>
+                </div>
+                <div class="industry-item">
+                    <div class="icon">⚡</div>
+                    <h3>Energy & Utilities</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <h2>Ready to Transform Your Business?</h2>
+        <p>Let's discuss how our consulting services can help you achieve your strategic goals</p>
+        <div class="cta-buttons">
+            <a href="#" class="btn btn-primary">Schedule a Consultation</a>
+            <a href="business.html" class="btn btn-secondary">Back to Business Solutions</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Tomorrow Academy. All rights reserved.</p>
+    </footer>
+</body>
+</html>

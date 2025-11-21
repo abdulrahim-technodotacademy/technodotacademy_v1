@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research & Development - Tomorrow Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; }
+        header { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: #0c4a6e; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: #333; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: #1e9db3; }
+        .breadcrumb { max-width: 1200px; margin: 2rem auto; padding: 0 2rem; display: flex; gap: 0.5rem; color: #666; font-size: 0.9rem; }
+        .breadcrumb a { color: #1e9db3; text-decoration: none; }
+        .hero { background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%); color: white; padding: 4rem 2rem; text-align: center; }
+        .hero h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; opacity: 0.95; }
+        .content { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+        .section { margin-bottom: 4rem; }
+        .section h2 { font-size: 2rem; color: #0c4a6e; margin-bottom: 1.5rem; }
+        .section p { font-size: 1.1rem; color: #666; line-height: 1.8; margin-bottom: 1.5rem; }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .project-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s; }
+        .project-card:hover { transform: translateY(-5px); }
+        .project-header { background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%); color: white; padding: 2rem; }
+        .project-header h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .project-header .icon { font-size: 3rem; margin-bottom: 1rem; }
+        .project-body { padding: 2rem; }
+        .project-body p { color: #666; margin-bottom: 1rem; }
+        .project-body .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+        .tag { background: #f0f9ff; color: #0891b2; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem; }
+        .areas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .area-card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); border-left: 4px solid #1e9db3; }
+        .area-card h3 { color: #0c4a6e; margin-bottom: 1rem; font-size: 1.3rem; }
+        .area-card ul { list-style: none; }
+        .area-card ul li { padding: 0.3rem 0 0.3rem 1.5rem; position: relative; color: #666; font-size: 0.95rem; }
+        .area-card ul li:before { content: "•"; position: absolute; left: 0; color: #1e9db3; font-weight: bold; }
+        .stats { background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%); padding: 4rem 2rem; margin: 4rem 0; }
+        .stats-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .stat-card { text-align: center; color: white; }
+        .stat-card .number { font-size: 3rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .stat-card .label { font-size: 1.1rem; opacity: 0.95; }
+        .partners { background: #f0f9ff; padding: 4rem 2rem; }
+        .partners-container { max-width: 1200px; margin: 0 auto; }
+        .partners h2 { text-align: center; color: #0c4a6e; margin-bottom: 3rem; }
+        .partners-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+        .partner-logo { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); text-align: center; font-size: 1.3rem; font-weight: 700; color: #0c4a6e; }
+        footer { background: #0c4a6e; color: white; padding: 2rem; text-align: center; }
+        @media (max-width: 768px) { .nav-links { display: none; } .projects-grid, .areas-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="header-top">
+                    <div class="logo">
+                        <img src="https://page.gensparksite.com/v1/base64_upload/cd3e70466238584d229e88d14a5186b1" alt="Technodot Academy Logo" style="height: 45px;">
+                    </div>
+                    <div class="header-right">
+                        <div class="search-box">
+                            <input type="text" placeholder="Search courses, programs, or topics...">
+                            <button type="submit">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="m21 21-4.35-4.35"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <a href="#signup" class="btn-signup">Sign Up</a>
+                    </div>
+                </div>
+                <div class="header-bottom">
+                    <nav>
+                        <ul>
+                            <li><a href="#topics">Topics</a></li>
+                            <li><a href="vendors.html">Vendors</a></li>
+                            <li><a href="universities.html">Universities</a></li>
+                            <li><a href="earn-learn.html">Earn & Learn</a></li>
+                            <li><a href="rnd.html">R&D&I</a></li>
+                            <li><a href="business.html">Business</a></li>
+                            <li><a href="about.html">About</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> / <a href="rnd.html">R&D&I</a> / <span>Research & Development</span>
+    </div>
+
+    <section class="hero">
+        <h1>🔬 Research & Development</h1>
+        <p>Advancing technology through systematic investigation and innovative solutions</p>
+    </section>
+
+    <div class="content">
+        <section class="section">
+            <h2>About Our R&D Division</h2>
+            <p>Tomorrow Academy's Research & Development division is dedicated to pushing the boundaries of technology and education through systematic investigation, experimentation, and innovation. We focus on applied research that addresses real-world challenges and creates practical solutions for industry and society.</p>
+            <p>Our multidisciplinary team of researchers, engineers, and domain experts collaborate with academic institutions, industry partners, and government agencies to conduct cutting-edge research in emerging technologies. We believe in open innovation and actively contribute to the global knowledge base through publications, patents, and open-source projects.</p>
+        </section>
+
+        <section class="section">
+            <h2>Active Research Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="icon">🤖</div>
+                        <h3>AI-Powered Learning Platform</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Developing an intelligent learning management system that uses machine learning to personalize educational content and provide adaptive learning paths.</p>
+                        <div class="tags">
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">NLP</span>
+                            <span class="tag">EdTech</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="icon">🔗</div>
+                        <h3>Blockchain Credentials</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Building a decentralized system for issuing, verifying, and managing educational credentials and certifications using blockchain technology.</p>
+                        <div class="tags">
+                            <span class="tag">Blockchain</span>
+                            <span class="tag">Smart Contracts</span>
+                            <span class="tag">Web3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="icon">🎮</div>
+                        <h3>VR/AR Learning Experiences</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Creating immersive virtual and augmented reality experiences for hands-on training in complex technical skills and simulations.</p>
+                        <div class="tags">
+                            <span class="tag">VR/AR</span>
+                            <span class="tag">3D Modeling</span>
+                            <span class="tag">Gamification</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="icon">📊</div>
+                        <h3>Learning Analytics Engine</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Advanced analytics platform for tracking student progress, predicting outcomes, and providing actionable insights to educators.</p>
+                        <div class="tags">
+                            <span class="tag">Data Science</span>
+                            <span class="tag">Analytics</span>
+                            <span class="tag">Big Data</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="icon">🌐</div>
+                        <h3>IoT Smart Campus</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Developing IoT-enabled smart campus solutions for efficient resource management, security, and enhanced student experience.</p>
+                        <div class="tags">
+                            <span class="tag">IoT</span>
+                            <span class="tag">Edge Computing</span>
+                            <span class="tag">Sensors</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="icon">🔐</div>
+                        <h3>Cybersecurity Training Lab</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Research into effective cybersecurity training methodologies and development of realistic simulation environments for hands-on practice.</p>
+                        <div class="tags">
+                            <span class="tag">Security</span>
+                            <span class="tag">Penetration Testing</span>
+                            <span class="tag">Simulation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Research Focus Areas</h2>
+            <div class="areas-grid">
+                <div class="area-card">
+                    <h3>🤖 Artificial Intelligence</h3>
+                    <ul>
+                        <li>Machine Learning Algorithms</li>
+                        <li>Natural Language Processing</li>
+                        <li>Computer Vision</li>
+                        <li>Reinforcement Learning</li>
+                        <li>AI Ethics & Bias</li>
+                    </ul>
+                </div>
+
+                <div class="area-card">
+                    <h3>📚 Educational Technology</h3>
+                    <ul>
+                        <li>Adaptive Learning Systems</li>
+                        <li>Learning Management Platforms</li>
+                        <li>Assessment & Evaluation Tools</li>
+                        <li>Collaborative Learning</li>
+                        <li>Accessibility Solutions</li>
+                    </ul>
+                </div>
+
+                <div class="area-card">
+                    <h3>☁️ Cloud & Distributed Systems</h3>
+                    <ul>
+                        <li>Cloud-Native Architecture</li>
+                        <li>Microservices</li>
+                        <li>Serverless Computing</li>
+                        <li>Container Orchestration</li>
+                        <li>Distributed Databases</li>
+                    </ul>
+                </div>
+
+                <div class="area-card">
+                    <h3>🔗 Blockchain & Web3</h3>
+                    <ul>
+                        <li>Distributed Ledger Technology</li>
+                        <li>Smart Contracts</li>
+                        <li>Decentralized Applications</li>
+                        <li>Consensus Mechanisms</li>
+                        <li>Digital Identity</li>
+                    </ul>
+                </div>
+
+                <div class="area-card">
+                    <h3>📊 Data Science</h3>
+                    <ul>
+                        <li>Predictive Analytics</li>
+                        <li>Statistical Modeling</li>
+                        <li>Data Visualization</li>
+                        <li>Big Data Processing</li>
+                        <li>Business Intelligence</li>
+                    </ul>
+                </div>
+
+                <div class="area-card">
+                    <h3>🔐 Cybersecurity</h3>
+                    <ul>
+                        <li>Threat Intelligence</li>
+                        <li>Network Security</li>
+                        <li>Application Security</li>
+                        <li>Incident Response</li>
+                        <li>Security Automation</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Publications & Patents</h2>
+            <p>Our research team actively publishes in peer-reviewed journals and conferences. We have filed 25+ patents in areas including AI, blockchain, and educational technology. Our work has been cited over 2,000 times by researchers worldwide.</p>
+            <p><strong>Recent Publications:</strong></p>
+            <ul style="list-style: none; padding: 0;">
+                <li style="padding: 0.5rem 0 0.5rem 2rem; position: relative;">
+                    <span style="position: absolute; left: 0; color: #1e9db3; font-weight: bold;">📄</span>
+                    "Adaptive Learning Paths Using Deep Reinforcement Learning" - IEEE Transactions on Learning Technologies, 2024
+                </li>
+                <li style="padding: 0.5rem 0 0.5rem 2rem; position: relative;">
+                    <span style="position: absolute; left: 0; color: #1e9db3; font-weight: bold;">📄</span>
+                    "Blockchain-Based Credential Verification System" - ACM Conference on Innovation and Technology in Computer Science Education, 2024
+                </li>
+                <li style="padding: 0.5rem 0 0.5rem 2rem; position: relative;">
+                    <span style="position: absolute; left: 0; color: #1e9db3; font-weight: bold;">📄</span>
+                    "VR Simulations for Technical Skills Training" - Journal of Educational Technology & Society, 2023
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="number">50+</div>
+                <div class="label">Active Research Projects</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">100+</div>
+                <div class="label">Research Publications</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">25+</div>
+                <div class="label">Patents Filed</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">30+</div>
+                <div class="label">Research Team Members</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="partners">
+        <div class="partners-container">
+            <h2>Research Partners & Collaborators</h2>
+            <div class="partners-grid">
+                <div class="partner-logo">IIT Bangalore</div>
+                <div class="partner-logo">IISc</div>
+                <div class="partner-logo">MIT</div>
+                <div class="partner-logo">Stanford</div>
+                <div class="partner-logo">IBM Research</div>
+                <div class="partner-logo">Microsoft Research</div>
+                <div class="partner-logo">Google AI</div>
+                <div class="partner-logo">Amazon Science</div>
+                <div class="partner-logo">NASSCOM</div>
+                <div class="partner-logo">IEEE</div>
+                <div class="partner-logo">ACM</div>
+                <div class="partner-logo">ISRO</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Tomorrow Academy. All rights reserved.</p>
+    </footer>
+</body>
+</html>

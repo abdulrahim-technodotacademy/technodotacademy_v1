@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Programs - Tomorrow Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #1e293b;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #ffffff;
+            padding: 15px 0;
+            border-bottom: 1px solid lightgrey;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 45px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding: 10px 40px 10px 20px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 15px;
+            width: 450px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #0891b2;
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #64748b;
+            cursor: pointer;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-box button:hover {
+            color: #0891b2;
+        }
+
+        .btn-signup {
+            background: #0891b2;
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s;
+        }
+
+        .btn-signup:hover {
+            background: #0c4a6e;
+            transform: translateY(-1px);
+        }
+
+        .header-bottom {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #475569;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #0891b2;
+        }
+
+        /* Hero Section */
+        .universities-hero {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .universities-hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .universities-hero p {
+            font-size: 20px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Programs Section */
+        .programs-section {
+            padding: 80px 0;
+            background: #ffffff;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 42px;
+            color: #0c4a6e;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: #64748b;
+        }
+
+        .degree-category {
+            margin-bottom: 60px;
+        }
+
+        .category-title {
+            font-size: 32px;
+            color: #0c4a6e;
+            margin-bottom: 30px;
+            font-weight: 600;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #1e9db3;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .program-card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .program-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+
+        .program-icon {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            padding: 40px;
+            text-align: center;
+            font-size: 48px;
+            color: white;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .program-icon .degree-text {
+            font-size: 32px;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        .program-content {
+            padding: 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .program-card h3 {
+            font-size: 22px;
+            color: #0c4a6e;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .program-card p {
+            color: #64748b;
+            margin-bottom: 20px;
+            font-size: 15px;
+            line-height: 1.7;
+            flex: 1;
+        }
+
+        .program-details {
+            margin-bottom: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .program-details div {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            font-size: 14px;
+        }
+
+        .program-details label {
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .program-details span {
+            color: #0c4a6e;
+            font-weight: 600;
+        }
+
+        .btn-program {
+            background: #1e9db3;
+            color: white;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-program:hover {
+            background: #1a8a9e;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            color: white;
+            padding: 70px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h4 {
+            font-size: 18px;
+            margin-bottom: 22px;
+            font-weight: 600;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .programs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .universities-hero h1 {
+                font-size: 36px;
+            }
+
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="header-top">
+                    <div class="logo">
+                        <img src="https://page.gensparksite.com/v1/base64_upload/cd3e70466238584d229e88d14a5186b1" alt="Technodot Academy Logo" style="height: 45px;">
+                    </div>
+                    <div class="header-right">
+                        <div class="search-box">
+                            <input type="text" placeholder="Search courses, programs, or topics...">
+                            <button type="submit">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="m21 21-4.35-4.35"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <a href="#signup" class="btn-signup">Sign Up</a>
+                    </div>
+                </div>
+                <div class="header-bottom">
+                    <nav>
+                        <ul>
+                            <li><a href="index.html#programs">Programs</a></li>
+                            <li><a href="vendors.html">Vendors</a></li>
+                            <li><a href="universities.html">Universities</a></li>
+                            <li><a href="earn-learn.html">Earn & Learn</a></li>
+                            <li><a href="rnd.html">R&D&I</a></li>
+                            <li><a href="business.html">Business</a></li>
+                            <li><a href="about.html">About</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="universities-hero">
+        <div class="container">
+            <h1>University Programs</h1>
+            <p>Pursue your undergraduate and postgraduate degrees with flexible online learning options</p>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Bachelor's & Master's Degree Programs</h2>
+                <p class="section-subtitle">Choose from our wide range of accredited university programs</p>
+            </div>
+
+            <!-- Bachelor's Programs -->
+            <div class="degree-category">
+                <h2 class="category-title">Bachelor's Degree Programs</h2>
+                <div class="programs-grid">
+                    <!-- BCom -->
+                    <div class="program-card">
+                        <div class="program-icon">
+                            🎓
+                            <div class="degree-text">B.Com</div>
+                        </div>
+                        <div class="program-content">
+                            <h3>Bachelor of Commerce</h3>
+                            <p>Comprehensive program covering accounting, finance, economics, and business management.</p>
+                            <div class="program-details">
+                                <div>
+                                    <label>Duration:</label>
+                                    <span>3 Years</span>
+                                </div>
+                                <div>
+                                    <label>Mode:</label>
+                                    <span style="color: #1e9db3;">Online</span>
+                                </div>
+                            </div>
+                            <a href="bcom.html" class="btn-program">Explore Program</a>
+                        </div>
+                    </div>
+
+                    <!-- BBA -->
+                    <div class="program-card">
+                        <div class="program-icon">
+                            💼
+                            <div class="degree-text">BBA</div>
+                        </div>
+                        <div class="program-content">
+                            <h3>Bachelor of Business Administration</h3>
+                            <p>Build essential business skills in management, marketing, and entrepreneurship.</p>
+                            <div class="program-details">
+                                <div>
+                                    <label>Duration:</label>
+                                    <span>3 Years</span>
+                                </div>
+                                <div>
+                                    <label>Mode:</label>
+                                    <span style="color: #1e9db3;">Online</span>
+                                </div>
+                            </div>
+                            <a href="bba.html" class="btn-program">Explore Program</a>
+                        </div>
+                    </div>
+
+                    <!-- BCA -->
+                    <div class="program-card">
+                        <div class="program-icon">
+                            💻
+                            <div class="degree-text">BCA</div>
+                        </div>
+                        <div class="program-content">
+                            <h3>Bachelor of Computer Applications</h3>
+                            <p>Master programming, software development, and computer applications.</p>
+                            <div class="program-details">
+                                <div>
+                                    <label>Duration:</label>
+                                    <span>3 Years</span>
+                                </div>
+                                <div>
+                                    <label>Mode:</label>
+                                    <span style="color: #1e9db3;">Online</span>
+                                </div>
+                            </div>
+                            <a href="bca.html" class="btn-program">Explore Program</a>
+                        </div>
+                    </div>
+
+                    <!-- BA -->
+                    <div class="program-card">
+                        <div class="program-icon">
+                            📚
+                            <div class="degree-text">BA</div>
+                        </div>
+                        <div class="program-content">
+                            <h3>Bachelor of Arts</h3>
+                            <p>Explore humanities, social sciences, languages, and liberal arts education.</p>
+                            <div class="program-details">
+                                <div>
+                                    <label>Duration:</label>
+                                    <span>3 Years</span>
+                                </div>
+                                <div>
+                                    <label>Mode:</label>
+                                    <span style="color: #1e9db3;">Online</span>
+                                </div>
+                            </div>
+                            <a href="ba.html" class="btn-program">Explore Program</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Master's Programs -->
+            <div class="degree-category">
+                <h2 class="category-title">Master's Degree Programs</h2>
+                <div class="programs-grid">
+                    <!-- MCom -->
+                    <div class="program-card">
+                        <div class="program-icon">
+                            🎓
+                            <div class="degree-text">M.Com</div>
+                        </div>
+                        <div class="program-content">
+                            <h3>Master of Commerce</h3>
+                            <p>Advanced studies in commerce, finance, taxation, and business analytics.</p>
+                            <div class="program-details">
+                                <div>
+                                    <label>Duration:</label>
+                                    <span>2 Years</span>
+                                </div>
+                                <div>
+                                    <label>Mode:</label>
+                                    <span style="color: #1e9db3;">Online</span>
+                                </div>
+                            </div>
+                            <a href="mcom.html" class="btn-program">Explore Program</a>
+                        </div>
+                    </div>
+
+                    <!-- MBA -->
+                    <div class="program-card">
+                        <div class="program-icon">
+                            💼
+                            <div class="degree-text">MBA</div>
+                        </div>
+                        <div class="program-content">
+                            <h3>Master of Business Administration</h3>
+                            <p>Develop leadership skills and strategic business management expertise.</p>
+                            <div class="program-details">
+                                <div>
+                                    <label>Duration:</label>
+                                    <span>2 Years</span>
+                                </div>
+                                <div>
+                                    <label>Mode:</label>
+                                    <span style="color: #1e9db3;">Online</span>
+                                </div>
+                            </div>
+                            <a href="mba.html" class="btn-program">Explore Program</a>
+                        </div>
+                    </div>
+
+                    <!-- MCA -->
+                    <div class="program-card">
+                        <div class="program-icon">
+                            💻
+                            <div class="degree-text">MCA</div>
+                        </div>
+                        <div class="program-content">
+                            <h3>Master of Computer Applications</h3>
+                            <p>Advanced computer science, software engineering, and IT management.</p>
+                            <div class="program-details">
+                                <div>
+                                    <label>Duration:</label>
+                                    <span>2 Years</span>
+                                </div>
+                                <div>
+                                    <label>Mode:</label>
+                                    <span style="color: #1e9db3;">Online</span>
+                                </div>
+                            </div>
+                            <a href="mca.html" class="btn-program">Explore Program</a>
+                        </div>
+                    </div>
+
+                    <!-- MA -->
+                    <div class="program-card">
+                        <div class="program-icon">
+                            📚
+                            <div class="degree-text">MA</div>
+                        </div>
+                        <div class="program-content">
+                            <h3>Master of Arts</h3>
+                            <p>Specialized postgraduate studies in humanities and social sciences.</p>
+                            <div class="program-details">
+                                <div>
+                                    <label>Duration:</label>
+                                    <span>2 Years</span>
+                                </div>
+                                <div>
+                                    <label>Mode:</label>
+                                    <span style="color: #1e9db3;">Online</span>
+                                </div>
+                            </div>
+                            <a href="ma.html" class="btn-program">Explore Program</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>About Us</h4>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press Kit</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="#">For Enterprise</a></li>
+                        <li><a href="#">For Small Business</a></li>
+                        <li><a href="#">For Startups</a></li>
+                        <li><a href="#">Pricing Plans</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Tomorrow. All rights reserved. Built with excellence.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

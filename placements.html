@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placements & Career Support - Techno Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f9fafb;
+        }
+
+        /* Header Styles */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .header-top {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            padding: 20px 0;
+            gap: 20px;
+        }
+
+        .logo img {
+            height: 45px;
+            display: block;
+        }
+
+        .search-box {
+            position: relative;
+            justify-self: center;
+        }
+
+        .search-box input {
+            width: 400px;
+            padding: 12px 45px 12px 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 25px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #0891b2;
+            box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.1);
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: transform 0.2s;
+        }
+
+        .search-box button:hover {
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-self: end;
+        }
+
+        .btn-signup {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(8, 145, 178, 0.3);
+        }
+
+        .btn-signup:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(8, 145, 178, 0.4);
+        }
+
+        .header-bottom {
+            border-top: 1px solid #e5e7eb;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 15px 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #0891b2;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            color: white;
+            padding: 80px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none"/><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.05)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 30px;
+        }
+
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #0c4a6e;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Resume Upload Section */
+        .resume-upload-section {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            margin-bottom: 80px;
+        }
+
+        .resume-upload-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .resume-info h3 {
+            font-size: 28px;
+            color: #0c4a6e;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .resume-info p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .resume-benefits {
+            list-style: none;
+            padding: 0;
+        }
+
+        .resume-benefits li {
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            color: #333;
+            font-size: 15px;
+        }
+
+        .resume-benefits li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: white;
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .resume-form {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 40px;
+            border-radius: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #0c4a6e;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #e0f2fe;
+            border-radius: 10px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0891b2;
+            box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.1);
+        }
+
+        .file-upload-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-upload-wrapper input[type=file] {
+            position: absolute;
+            left: -9999px;
+        }
+
+        .file-upload-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 20px;
+            background: white;
+            border: 2px dashed #0891b2;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #0891b2;
+            font-weight: 600;
+        }
+
+        .file-upload-label:hover {
+            background: #f0f9ff;
+            border-color: #06b6d4;
+        }
+
+        .file-upload-label svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            color: white;
+            padding: 16px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(8, 145, 178, 0.3);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(8, 145, 178, 0.4);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .stat-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .stat-number {
+            font-size: 40px;
+            font-weight: 800;
+            color: #0891b2;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* Current Vacancies */
+        .vacancies-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .vacancy-card {
+            background: white;
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid #0891b2;
+        }
+
+        .vacancy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .vacancy-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 20px;
+        }
+
+        .vacancy-title h3 {
+            font-size: 22px;
+            color: #0c4a6e;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .vacancy-company {
+            color: #0891b2;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .vacancy-badge {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .vacancy-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .vacancy-detail {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .vacancy-detail-icon {
+            font-size: 18px;
+        }
+
+        .vacancy-description {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .btn-apply {
+            display: inline-block;
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-apply:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(8, 145, 178, 0.3);
+        }
+
+        /* Success Stories */
+        .success-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .success-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .success-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .success-photo {
+            height: 220px;
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+        }
+
+        .success-content {
+            padding: 30px;
+        }
+
+        .success-content h3 {
+            font-size: 20px;
+            color: #0c4a6e;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .success-company {
+            color: #0891b2;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        .success-package {
+            background: #f0f9ff;
+            color: #0891b2;
+            padding: 6px 16px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .success-content p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* Hiring Partners */
+        .companies-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 25px;
+        }
+
+        .company-card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .company-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .company-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #0c4a6e;
+        }
+
+        /* Placement Support */
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .support-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .support-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .support-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin: 0 auto 25px;
+            color: white;
+        }
+
+        .support-card h3 {
+            font-size: 20px;
+            color: #0c4a6e;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .support-card p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            background: #0c4a6e;
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 15px;
+            opacity: 0.9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .companies-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 968px) {
+            .resume-upload-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .success-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .support-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .vacancies-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-top {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .logo {
+                justify-self: center;
+            }
+
+            .search-box {
+                justify-self: stretch;
+            }
+
+            .search-box input {
+                width: 100%;
+            }
+
+            .header-right {
+                justify-self: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-header h2 {
+                font-size: 28px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .success-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .companies-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .support-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .resume-upload-section {
+                padding: 30px 25px;
+            }
+
+            .resume-form {
+                padding: 30px 25px;
+            }
+
+            .vacancy-details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-top">
+                <div class="logo">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/cd3e70466238584d229e88d14a5186b1" alt="Techno Academy Logo">
+                </div>
+                <div class="search-box">
+                    <input type="text" placeholder="Search courses, programs, or topics...">
+                    <button type="submit">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="header-right">
+                    <a href="#signup" class="btn-signup">Sign Up</a>
+                </div>
+            </div>
+            <div class="header-bottom">
+                <nav>
+                    <ul>
+                        <li><a href="index.html#programs">Programs</a></li>
+                        <li><a href="vendors.html">Vendors</a></li>
+                        <li><a href="universities.html">Universities</a></li>
+                        <li><a href="earn-learn.html">Earn & Learn</a></li>
+                        <li><a href="rnd.html">R&D&I</a></li>
+                        <li><a href="business.html">Business</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>🎯 Placements & Career Support</h1>
+            <p>Launch your dream career with our comprehensive placement assistance and industry connections</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Resume Upload Section -->
+        <div class="resume-upload-section">
+            <div class="resume-upload-grid">
+                <div class="resume-info">
+                    <h3>Submit Your Resume for Job Opportunities</h3>
+                    <p>Join our placement program and get access to exclusive job openings from our 500+ hiring partners. Our dedicated placement team will match your profile with the right opportunities.</p>
+                    
+                    <ul class="resume-benefits">
+                        <li>Direct access to hiring managers and recruiters</li>
+                        <li>Resume forwarded to relevant companies automatically</li>
+                        <li>Priority consideration for campus recruitment drives</li>
+                        <li>Personalized job recommendations based on your skills</li>
+                        <li>Interview preparation and career counseling support</li>
+                    </ul>
+                </div>
+
+                <div class="resume-form">
+                    <form action="#" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="+91 98765 43210">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="course">Course Completed/Pursuing *</label>
+                            <select id="course" name="course" required>
+                                <option value="">Select your course</option>
+                                <option value="aws">AWS Certifications</option>
+                                <option value="azure">Azure Certifications</option>
+                                <option value="gcp">Google Cloud Certifications</option>
+                                <option value="full-stack">Full Stack Development</option>
+                                <option value="data-science">Data Science & Analytics</option>
+                                <option value="ai-ml">Artificial Intelligence & ML</option>
+                                <option value="cybersecurity">Cybersecurity</option>
+                                <option value="digital-marketing">Digital Marketing</option>
+                                <option value="finance">Finance & Accounting (CFA, ACCA, etc.)</option>
+                                <option value="mba">MBA Programs</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="experience">Experience Level *</label>
+                            <select id="experience" name="experience" required>
+                                <option value="">Select experience level</option>
+                                <option value="fresher">Fresher (0 years)</option>
+                                <option value="0-1">0-1 years</option>
+                                <option value="1-3">1-3 years</option>
+                                <option value="3-5">3-5 years</option>
+                                <option value="5+">5+ years</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="resume">Upload Resume *</label>
+                            <div class="file-upload-wrapper">
+                                <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+                                <label for="resume" class="file-upload-label">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="17 8 12 3 7 8"></polyline>
+                                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                                    </svg>
+                                    Choose Resume File (PDF, DOC, DOCX)
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Submit Resume</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Placement Statistics -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">🎯</div>
+                <div class="stat-number">85%</div>
+                <div class="stat-label">Placement Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">💰</div>
+                <div class="stat-number">₹6.5L</div>
+                <div class="stat-label">Average Package</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🏆</div>
+                <div class="stat-number">₹18L</div>
+                <div class="stat-label">Highest Package</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🤝</div>
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Hiring Partners</div>
+            </div>
+        </div>
+
+        <!-- Current Vacancies -->
+        <section class="section">
+            <div class="section-header">
+                <h2>Current Job Openings</h2>
+                <p>Latest opportunities from our hiring partners exclusively for our students</p>
+            </div>
+
+            <div class="vacancies-grid">
+                <div class="vacancy-card">
+                    <div class="vacancy-header">
+                        <div class="vacancy-title">
+                            <h3>Full Stack Developer</h3>
+                            <div class="vacancy-company">TechCorp Solutions</div>
+                        </div>
+                        <div class="vacancy-badge">Urgent</div>
+                    </div>
+                    <div class="vacancy-details">
+                        <div class="vacancy-detail">
+                            <span class="vacancy-detail-icon">📍</span>
+                            <span>Bangalore, Hybrid</span>
+                        </div>
+                        <div class="vacancy-detail">
+                            <span class="vacancy-detail-icon">💰</span>
+                            <span>₹5-8 LPA</span>
+                        </div>
+                        <div class="vacancy-detail">
+                            <span class="vacancy-detail-icon">⏰</span>
+                            <span>Full-Time</span>
+                        </div>
+                        <div class="vacancy-detail">
+                            <span class="vacancy-detail-icon">🎓</span>
+                            <span>0-2 years exp.</span>
+                        </div>
+                    </div>
+                    <div class="vacancy-description">
+                        Looking for MERN/MEAN stack developers with hands-on project experience. Must have knowledge of React.js, Node.js, MongoDB, and RESTful APIs.
+                    </div>
+                    <a href="#apply" class="btn-apply">Apply Now →</a>
+                </div>
+
+                <div class="vacancy-card">
+                    <div class="vacancy-header">
+                        <div class="vacancy-title">
+                            <h3>AWS Cloud Engineer</h3>
+                            <div class="vacancy-company">CloudX Technologies</div>
+                        </div>
+                        <div class="vacancy-badge">New</div>
+                    </div>
+                    <div class="vacancy-details">
+                        <div class="vacancy-detail">
+                            <span class="vacancy-detail-icon">📍</span>
+                            <span>Mumbai, Remote</span>
+                        </div>
+                        <div class="vacancy-detail">
+                            <span class="vacancy-detail-icon">💰</span>
+                            <span>₹7-12 LPA</span>
+                        </div>
+                        <div class="vacancy-detail">
+                            <span class="vacancy-detail-icon">⏰</span>
+                            <span>Full-Time</span>
+                        </div>
+                        <div class="vacancy-detail">
+                            <span class="vacancy-detail-icon">🎓</span>
+                            <span>1-3 years exp.</span>
+                        </div>
+                    </div>
+                    <div class="vacancy-description">
+                        AWS certified professionals needed for cloud infrastructure management. Experience with EC2, S3, Lambda, and CloudFormation required.
+                    </div>
+                    <a href="#apply" class="btn-apply">Apply Now →</a>
+                </div>
+
+                <div class="vacancy-card">
+                    <div class="vacancy-header">
+                        <div class="vacancy-title">
+                            <h3>Data Analyst</h3>
+                            <div class="vacancy-company">DataInsights Pro</div>
+                        </div>
+                        <div class="vacancy-badge">Hot</div>
+                    </div>
+                    <div class="vacancy-details">
+                        <div class="vacancy-detail">
+                            <span class="vacancy-detail-icon">📍</span>
+                            <span>Pune, On-site</span>
+                        </div>
+                        <div class="vacancy-detail">
+                            <span class="vacancy-detail-icon">💰</span>
+                            <span>₹4-7 LPA</span>
+                        </div>
+                        <div class="vacancy-detail">
+                            <span class="vacancy-detail-icon">⏰</span>
+                            <span>Full-Time</span>
+                        </div>
+                        <div class="vacancy-detail">
+                            <span class="vacancy-detail-icon">🎓</span>
+                            <span>Freshers welcome</span>
+                        </div>
+                    </div>
+                    <div class="vacancy-description">
+                        Seeking data analysts with SQL, Python, and Excel skills. Experience with Power BI or Tableau is a plus. Training will be provided.
+                    </div>
+                    <a href="#apply" class="btn-apply">Apply Now →</a>
+                </div>
+
+                <div class="vacancy-card">
+                    <div class="vacancy-header">
+                        <div class="vacancy-title">
+                            <h3>Digital Marketing Specialist</h3>
+                            <div class="vacancy-company">GrowthHub Marketing</div>
+                        </div>
+                        <div class="vacancy-badge">Featured</div>
+                    </div>
+                    <div class="vacancy-details">
+                        <div class="vacancy-detail">
+                            <span class="vacancy-detail-icon">📍</span>
+                            <span>Delhi NCR, Hybrid</span>
+                        </div>
+                        <div class="vacancy-detail">
+                            <span class="vacancy-detail-icon">💰</span>
+                            <span>₹3.5-6 LPA</span>
+                        </div>
+                        <div class="vacancy-detail">
+                            <span class="vacancy-detail-icon">⏰</span>
+                            <span>Full-Time</span>
+                        </div>
+                        <div class="vacancy-detail">
+                            <span class="vacancy-detail-icon">🎓</span>
+                            <span>0-2 years exp.</span>
+                        </div>
+                    </div>
+                    <div class="vacancy-description">
+                        Looking for digital marketing enthusiasts with knowledge of SEO, SEM, social media marketing, and Google Analytics. Certification preferred.
+                    </div>
+                    <a href="#apply" class="btn-apply">Apply Now →</a>
+                </div>
+
+                <div class="vacancy-card">
+                    <div class="vacancy-header">
+                        <div class="vacancy-title">
+                            <h3>Financial Analyst</h3>
+                            <div class="vacancy-company">FinServe Consultants</div>
+                        </div>
+                        <div class="vacancy-badge">New</div>
+                    </div>
+                    <div class="vacancy-details">
+                        <div class="vacancy-detail">
+                            <span class="vacancy-detail-icon">📍</span>
+                            <span>Chennai, On-site</span>
+                        </div>
+                        <div class="vacancy-detail">
+                            <span class="vacancy-detail-icon">💰</span>
+                            <span>₹5-9 LPA</span>
+                        </div>
+                        <div class="vacancy-detail">
+                            <span class="vacancy-detail-icon">⏰</span>
+                            <span>Full-Time</span>
+                        </div>
+                        <div class="vacancy-detail">
+                            <span class="vacancy-detail-icon">🎓</span>
+                            <span>CFA/ACCA preferred</span>
+                        </div>
+                    </div>
+                    <div class="vacancy-description">
+                        Seeking finance professionals with strong analytical skills. CFA Level 1 or ACCA qualified candidates preferred. Experience in financial modeling required.
+                    </div>
+                    <a href="#apply" class="btn-apply">Apply Now →</a>
+                </div>
+
+                <div class="vacancy-card">
+                    <div class="vacancy-header">
+                        <div class="vacancy-title">
+                            <h3>Cybersecurity Analyst</h3>
+                            <div class="vacancy-company">SecureNet Systems</div>
+                        </div>
+                        <div class="vacancy-badge">Urgent</div>
+                    </div>
+                    <div class="vacancy-details">
+                        <div class="vacancy-detail">
+                            <span class="vacancy-detail-icon">📍</span>
+                            <span>Hyderabad, On-site</span>
+                        </div>
+                        <div class="vacancy-detail">
+                            <span class="vacancy-detail-icon">💰</span>
+                            <span>₹6-10 LPA</span>
+                        </div>
+                        <div class="vacancy-detail">
+                            <span class="vacancy-detail-icon">⏰</span>
+                            <span>Full-Time</span>
+                        </div>
+                        <div class="vacancy-detail">
+                            <span class="vacancy-detail-icon">🎓</span>
+                            <span>1-3 years exp.</span>
+                        </div>
+                    </div>
+                    <div class="vacancy-description">
+                        Security professionals needed with knowledge of ethical hacking, vulnerability assessment, and security tools. CEH or CompTIA Security+ certified preferred.
+                    </div>
+                    <a href="#apply" class="btn-apply">Apply Now →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Success Stories -->
+        <section class="section">
+            <div class="section-header">
+                <h2>Success Stories</h2>
+                <p>Meet our alumni who are thriving in their dream careers</p>
+            </div>
+
+            <div class="success-grid">
+                <div class="success-card">
+                    <div class="success-photo">👨‍💼</div>
+                    <div class="success-content">
+                        <h3>Rahul Verma</h3>
+                        <div class="success-company">Software Engineer at Google</div>
+                        <div class="success-package">₹18 LPA</div>
+                        <p>"Techno Academy's Full Stack program was a game-changer. The hands-on projects and placement support helped me land my dream job at Google!"</p>
+                    </div>
+                </div>
+
+                <div class="success-card">
+                    <div class="success-photo">👩‍💼</div>
+                    <div class="success-content">
+                        <h3>Priya Sharma</h3>
+                        <div class="success-company">Data Analyst at Amazon</div>
+                        <div class="success-package">₹12 LPA</div>
+                        <p>"The Data Analytics program gave me practical skills and confidence. Within 2 months of completion, I got placed at Amazon. Forever grateful!"</p>
+                    </div>
+                </div>
+
+                <div class="success-card">
+                    <div class="success-photo">👨‍💼</div>
+                    <div class="success-content">
+                        <h3>Amit Patel</h3>
+                        <div class="success-company">Cloud Engineer at Microsoft</div>
+                        <div class="success-package">₹15 LPA</div>
+                        <p>"The AWS certification training was comprehensive. The instructors were industry experts who prepared me well for both certification and job interviews."</p>
+                    </div>
+                </div>
+
+                <div class="success-card">
+                    <div class="success-photo">👩‍💼</div>
+                    <div class="success-content">
+                        <h3>Sneha Reddy</h3>
+                        <div class="success-company">Digital Marketing Manager at Flipkart</div>
+                        <div class="success-package">₹10 LPA</div>
+                        <p>"From a fresher to Digital Marketing Manager in 2 years! The practical approach and industry connections made all the difference."</p>
+                    </div>
+                </div>
+
+                <div class="success-card">
+                    <div class="success-photo">👨‍💼</div>
+                    <div class="success-content">
+                        <h3>Karthik Krishnan</h3>
+                        <div class="success-company">Product Manager at PayTM</div>
+                        <div class="success-package">₹14 LPA</div>
+                        <p>"The MBA program combined with practical training gave me the perfect blend of theory and practice needed for product management."</p>
+                    </div>
+                </div>
+
+                <div class="success-card">
+                    <div class="success-photo">👩‍💼</div>
+                    <div class="success-content">
+                        <h3>Ananya Singh</h3>
+                        <div class="success-company">UX Designer at Swiggy</div>
+                        <div class="success-package">₹9 LPA</div>
+                        <p>"The UI/UX course portfolio projects were so impressive that I got interview calls from 5+ companies. Currently loving my role at Swiggy!"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Placement Support Services -->
+        <section class="section">
+            <div class="section-header">
+                <h2>Comprehensive Placement Support</h2>
+                <p>End-to-end career support to help you land your dream job</p>
+            </div>
+
+            <div class="support-grid">
+                <div class="support-card">
+                    <div class="support-icon">📝</div>
+                    <h3>Resume Building</h3>
+                    <p>Professional resume writing and optimization services to make your profile stand out to recruiters and hiring managers.</p>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">🎤</div>
+                    <h3>Mock Interviews</h3>
+                    <p>Practice with industry experts through realistic mock interviews with detailed feedback on your performance and communication.</p>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">💼</div>
+                    <h3>LinkedIn Optimization</h3>
+                    <p>Enhance your professional presence with optimized LinkedIn profiles that attract recruiters and showcase your skills effectively.</p>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">🎯</div>
+                    <h3>Job Referrals</h3>
+                    <p>Get direct referrals to our hiring partners through our extensive industry network and placement team connections.</p>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">🏢</div>
+                    <h3>Campus Drives</h3>
+                    <p>Exclusive on-campus recruitment drives where top companies visit to interview and hire our talented students directly.</p>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">💰</div>
+                    <h3>Salary Negotiation</h3>
+                    <p>Expert guidance on salary negotiation strategies to help you secure the best possible compensation package for your role.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hiring Partners -->
+        <section class="section">
+            <div class="section-header">
+                <h2>Our Hiring Partners</h2>
+                <p>We've partnered with 500+ companies across industries to provide placement opportunities</p>
+            </div>
+
+            <div class="companies-grid">
+                <div class="company-card">
+                    <div class="company-name">Google</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">Microsoft</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">Amazon</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">Flipkart</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">Accenture</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">TCS</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">Infosys</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">Wipro</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">Cognizant</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">IBM</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">PayTM</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">Swiggy</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">Zomato</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">Ola</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">PhonePe</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">Freshworks</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">Zoho</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">HCL</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">Tech Mahindra</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">Capgemini</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">Deloitte</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">KPMG</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">EY</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-name">PwC</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Techno Academy. All rights reserved. | Empowering careers, transforming lives.</p>
+    </footer>
+</body>
+</html>

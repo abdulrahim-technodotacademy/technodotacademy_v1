@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Cloud & Workspace - Tomorrow Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #1e293b;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #ffffff;
+            padding: 15px 0;
+            border-bottom: 1px solid lightgrey;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 45px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding: 10px 40px 10px 20px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 15px;
+            width: 450px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #0891b2;
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #64748b;
+            cursor: pointer;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-box button:hover {
+            color: #0891b2;
+        }
+
+        .btn-signup {
+            background: #0891b2;
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s;
+        }
+
+        .btn-signup:hover {
+            background: #0c4a6e;
+            transform: translateY(-1px);
+        }
+
+        .header-bottom {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #475569;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #0891b2;
+        }
+
+        /* Hero */
+        .vendor-hero {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            padding: 100px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .vendor-hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .vendor-hero p {
+            font-size: 22px;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .breadcrumb {
+            margin-top: 20px;
+            opacity: 0.9;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 80px 0;
+            background: #ffffff;
+        }
+
+        .section-title {
+            font-size: 38px;
+            color: #0c4a6e;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: #64748b;
+            margin-bottom: 50px;
+        }
+
+        /* Courses Grid */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .course-card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+
+        .course-icon {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            padding: 40px;
+            text-align: center;
+            font-size: 48px;
+            color: white;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .course-content {
+            padding: 30px;
+        }
+
+        .course-card h3 {
+            font-size: 22px;
+            color: #0c4a6e;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .course-card p {
+            color: #64748b;
+            font-size: 15px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .course-details {
+            margin-bottom: 20px;
+        }
+
+        .course-details div {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 14px;
+        }
+
+        .course-details div:last-child {
+            border-bottom: none;
+        }
+
+        .course-details label {
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .course-details span {
+            color: #0c4a6e;
+            font-weight: 600;
+        }
+
+        .btn-enroll {
+            background: #1e9db3;
+            color: white;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-enroll:hover {
+            background: #1a8a9e;
+            transform: translateY(-2px);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: white;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 36px;
+            color: white;
+        }
+
+        .feature-item h3 {
+            font-size: 18px;
+            color: #0c4a6e;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .feature-item p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            color: white;
+            padding: 70px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h4 {
+            font-size: 18px;
+            margin-bottom: 22px;
+            font-weight: 600;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .courses-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .vendor-hero h1 {
+                font-size: 36px;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="header-top">
+                    <div class="logo">
+                        <img src="https://page.gensparksite.com/v1/base64_upload/cd3e70466238584d229e88d14a5186b1" alt="Technodot Academy Logo" style="height: 45px;">
+                    </div>
+                    <div class="header-right">
+                        <div class="search-box">
+                            <input type="text" placeholder="Search courses, programs, or topics...">
+                            <button type="submit">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="m21 21-4.35-4.35"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <a href="#signup" class="btn-signup">Sign Up</a>
+                    </div>
+                </div>
+                <div class="header-bottom">
+                    <nav>
+                        <ul>
+                            <li><a href="index.html#programs">Programs</a></li>
+                            <li><a href="vendors.html">Vendors</a></li>
+                            <li><a href="universities.html">Universities</a></li>
+                            <li><a href="earn-learn.html">Earn & Learn</a></li>
+                            <li><a href="rnd.html">R&D&I</a></li>
+                            <li><a href="business.html">Business</a></li>
+                            <li><a href="about.html">About</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="vendor-hero">
+        <div class="container">
+            <h1>Google Cloud & Workspace</h1>
+            <p>Get certified in Google Cloud Platform and Google Workspace with our expert-led training programs</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> / <a href="vendors.html">Vendors</a> / Google
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Available Google Courses</h2>
+            <p class="section-subtitle">Choose from our comprehensive Google Cloud and Workspace training programs</p>
+
+            <div class="courses-grid">
+                <!-- Cloud Digital Leader -->
+                <div class="course-card">
+                    <div class="course-icon">☁️</div>
+                    <div class="course-content">
+                        <h3>Cloud Digital Leader</h3>
+                        <p>Foundational knowledge of cloud concepts and Google Cloud products.</p>
+                        <div class="course-details">
+                            <div>
+                                <label>Duration:</label>
+                                <span>4 Weeks</span>
+                            </div>
+                            <div>
+                                <label>Mode:</label>
+                                <span style="color: #1e9db3;">Offline</span>
+                            </div>
+                            <div>
+                                <label>Level:</label>
+                                <span>Beginner</span>
+                            </div>
+                        </div>
+                        <button class="btn-enroll">Enroll Now</button>
+                    </div>
+                </div>
+
+                <!-- Associate Cloud Engineer -->
+                <div class="course-card">
+                    <div class="course-icon">⚙️</div>
+                    <div class="course-content">
+                        <h3>Associate Cloud Engineer</h3>
+                        <p>Deploy and manage Google Cloud Platform infrastructure.</p>
+                        <div class="course-details">
+                            <div>
+                                <label>Duration:</label>
+                                <span>8 Weeks</span>
+                            </div>
+                            <div>
+                                <label>Mode:</label>
+                                <span style="color: #1e9db3;">Offline</span>
+                            </div>
+                            <div>
+                                <label>Level:</label>
+                                <span>Intermediate</span>
+                            </div>
+                        </div>
+                        <button class="btn-enroll">Enroll Now</button>
+                    </div>
+                </div>
+
+                <!-- Professional Cloud Architect -->
+                <div class="course-card">
+                    <div class="course-icon">🏗️</div>
+                    <div class="course-content">
+                        <h3>Professional Cloud Architect</h3>
+                        <p>Design and implement Google Cloud solutions.</p>
+                        <div class="course-details">
+                            <div>
+                                <label>Duration:</label>
+                                <span>12 Weeks</span>
+                            </div>
+                            <div>
+                                <label>Mode:</label>
+                                <span style="color: #1e9db3;">Offline</span>
+                            </div>
+                            <div>
+                                <label>Level:</label>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                        <button class="btn-enroll">Enroll Now</button>
+                    </div>
+                </div>
+
+                <!-- Google Workspace Admin -->
+                <div class="course-card">
+                    <div class="course-icon">📧</div>
+                    <div class="course-content">
+                        <h3>Google Workspace Administrator</h3>
+                        <p>Manage and configure Google Workspace for organizations.</p>
+                        <div class="course-details">
+                            <div>
+                                <label>Duration:</label>
+                                <span>6 Weeks</span>
+                            </div>
+                            <div>
+                                <label>Mode:</label>
+                                <span style="color: #1e9db3;">Offline</span>
+                            </div>
+                            <div>
+                                <label>Level:</label>
+                                <span>Intermediate</span>
+                            </div>
+                        </div>
+                        <button class="btn-enroll">Enroll Now</button>
+                    </div>
+                </div>
+
+                <!-- Professional Data Engineer -->
+                <div class="course-card">
+                    <div class="course-icon">📊</div>
+                    <div class="course-content">
+                        <h3>Professional Data Engineer</h3>
+                        <p>Build and manage data processing systems on Google Cloud.</p>
+                        <div class="course-details">
+                            <div>
+                                <label>Duration:</label>
+                                <span>10 Weeks</span>
+                            </div>
+                            <div>
+                                <label>Mode:</label>
+                                <span style="color: #1e9db3;">Offline</span>
+                            </div>
+                            <div>
+                                <label>Level:</label>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                        <button class="btn-enroll">Enroll Now</button>
+                    </div>
+                </div>
+
+                <!-- Professional Cloud Developer -->
+                <div class="course-card">
+                    <div class="course-icon">💻</div>
+                    <div class="course-content">
+                        <h3>Professional Cloud Developer</h3>
+                        <p>Build scalable applications on Google Cloud Platform.</p>
+                        <div class="course-details">
+                            <div>
+                                <label>Duration:</label>
+                                <span>10 Weeks</span>
+                            </div>
+                            <div>
+                                <label>Mode:</label>
+                                <span style="color: #1e9db3;">Offline</span>
+                            </div>
+                            <div>
+                                <label>Level:</label>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                        <button class="btn-enroll">Enroll Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">Why Choose Our Google Training?</h2>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <h3>Official Certification</h3>
+                    <p>Get officially certified by Google</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">👨‍🏫</div>
+                    <h3>Expert Instructors</h3>
+                    <p>Learn from certified professionals</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💻</div>
+                    <h3>Hands-on Projects</h3>
+                    <p>Real-world practical experience</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Career Support</h3>
+                    <p>Job placement assistance included</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>About Us</h4>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press Kit</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="#">For Enterprise</a></li>
+                        <li><a href="#">For Small Business</a></li>
+                        <li><a href="#">For Startups</a></li>
+                        <li><a href="#">Pricing Plans</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Tomorrow. All rights reserved. Built with excellence.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

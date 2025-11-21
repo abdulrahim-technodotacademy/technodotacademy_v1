@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hire From Us - Tomorrow Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background: #ffffff;
+            padding: 15px 0;
+            border-bottom: 1px solid lightgrey;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 45px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding: 10px 40px 10px 20px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 15px;
+            width: 450px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #0891b2;
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #64748b;
+            cursor: pointer;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-box button:hover {
+            color: #0891b2;
+        }
+
+        .btn-signup {
+            background: #0891b2;
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s;
+        }
+
+        .btn-signup:hover {
+            background: #0c4a6e;
+            transform: translateY(-1px);
+        }
+
+        .header-bottom {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #475569;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #0891b2;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: flex;
+            gap: 0.5rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: #1e9db3;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #0891b2;
+        }
+
+        .btn-primary:hover {
+            background: #f0f9ff;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: #0c4a6e;
+            margin-bottom: 1rem;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Talent Pools Grid */
+        .talent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .talent-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .talent-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .talent-header {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .talent-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .talent-header .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .talent-body {
+            padding: 2rem;
+        }
+
+        .talent-body h4 {
+            color: #0c4a6e;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .talent-body ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .talent-body ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #666;
+        }
+
+        .talent-body ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #1e9db3;
+            font-weight: bold;
+        }
+
+        .talent-meta {
+            padding: 1rem;
+            background: #f0f9ff;
+            border-top: 2px solid #e0f2fe;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .talent-meta .availability {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .talent-meta .hire-btn {
+            padding: 0.5rem 1rem;
+            background: #1e9db3;
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .talent-meta .hire-btn:hover {
+            background: #0891b2;
+        }
+
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h3 {
+            color: #0c4a6e;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .benefit-card p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* Process Steps */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .step {
+            position: relative;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 2rem;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .step h3 {
+            color: #0c4a6e;
+            margin-bottom: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .step p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            color: white;
+        }
+
+        .stat-card .number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .label {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: #f0f9ff;
+            padding: 4rem 2rem;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            color: #0c4a6e;
+            margin-bottom: 3rem;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-card .quote {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-card .author {
+            font-weight: 600;
+            color: #0c4a6e;
+        }
+
+        .testimonial-card .company {
+            color: #1e9db3;
+            font-size: 0.9rem;
+        }
+
+        /* Skills Tags */
+        .skills-section {
+            background: #f0f9ff;
+            padding: 4rem 2rem;
+        }
+
+        .skills-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skills-container h2 {
+            text-align: center;
+            color: #0c4a6e;
+            margin-bottom: 3rem;
+        }
+
+        .skills-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .skill-category h3 {
+            color: #0c4a6e;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: #e0f2fe;
+            color: #0c4a6e;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: #f0f9ff;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-section h2 {
+            color: #0c4a6e;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #0c4a6e;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .talent-grid,
+            .benefits-grid,
+            .skills-categories {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="header-top">
+                    <div class="logo">
+                        <img src="https://page.gensparksite.com/v1/base64_upload/cd3e70466238584d229e88d14a5186b1" alt="Technodot Academy Logo" style="height: 45px;">
+                    </div>
+                    <div class="header-right">
+                        <div class="search-box">
+                            <input type="text" placeholder="Search courses, programs, or topics...">
+                            <button type="submit">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="m21 21-4.35-4.35"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <a href="#signup" class="btn-signup">Sign Up</a>
+                    </div>
+                </div>
+                <div class="header-bottom">
+                    <nav>
+                        <ul>
+                            <li><a href="#topics">Topics</a></li>
+                            <li><a href="vendors.html">Vendors</a></li>
+                            <li><a href="universities.html">Universities</a></li>
+                            <li><a href="earn-learn.html">Earn & Learn</a></li>
+                            <li><a href="rnd.html">R&D&I</a></li>
+                            <li><a href="business.html">Business</a></li>
+                            <li><a href="about.html">About</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> / <a href="business.html">Business</a> / <span>Hire From Us</span>
+    </div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>🎓 Hire Job-Ready Talent From Tomorrow Academy</h1>
+            <p>Access a pool of skilled, trained, and motivated professionals ready to contribute from day one</p>
+            <div class="cta-buttons">
+                <a href="#talent" class="btn btn-primary">View Talent Pools</a>
+                <a href="#contact" class="btn btn-secondary">Post Requirements</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="content">
+        <section class="section">
+            <h2>Your Talent Acquisition Partner</h2>
+            <p>Tomorrow Academy is proud to offer companies access to our network of highly trained professionals across diverse technology and business domains. Our graduates have completed rigorous training programs, gained hands-on project experience, and are equipped with both technical expertise and essential soft skills.</p>
+            <p>By hiring from us, you're not just filling positions—you're investing in pre-vetted, industry-ready talent who can make immediate impact while bringing fresh perspectives and enthusiasm to your organization.</p>
+        </section>
+
+        <section class="section" id="talent">
+            <h2>Available Talent Pools</h2>
+            <div class="talent-grid">
+                <div class="talent-card">
+                    <div class="talent-header">
+                        <div class="icon">💻</div>
+                        <h3>Full Stack Developers</h3>
+                    </div>
+                    <div class="talent-body">
+                        <h4>Core Competencies:</h4>
+                        <ul>
+                            <li>Frontend: React, Angular, Vue.js</li>
+                            <li>Backend: Node.js, Python, Java</li>
+                            <li>Databases: MySQL, MongoDB, PostgreSQL</li>
+                            <li>Cloud: AWS, Azure basics</li>
+                            <li>Version Control: Git, GitHub</li>
+                            <li>Agile methodologies</li>
+                        </ul>
+                    </div>
+                    <div class="talent-meta">
+                        <span class="availability">📊 150+ Candidates</span>
+                        <a href="#contact" class="hire-btn">Hire Now</a>
+                    </div>
+                </div>
+
+                <div class="talent-card">
+                    <div class="talent-header">
+                        <div class="icon">📊</div>
+                        <h3>Data Analysts</h3>
+                    </div>
+                    <div class="talent-body">
+                        <h4>Core Competencies:</h4>
+                        <ul>
+                            <li>Python, R programming</li>
+                            <li>SQL & database querying</li>
+                            <li>Excel, Power BI, Tableau</li>
+                            <li>Statistical analysis</li>
+                            <li>Data visualization</li>
+                            <li>Business intelligence</li>
+                        </ul>
+                    </div>
+                    <div class="talent-meta">
+                        <span class="availability">📊 80+ Candidates</span>
+                        <a href="#contact" class="hire-btn">Hire Now</a>
+                    </div>
+                </div>
+
+                <div class="talent-card">
+                    <div class="talent-header">
+                        <div class="icon">📱</div>
+                        <h3>Digital Marketers</h3>
+                    </div>
+                    <div class="talent-body">
+                        <h4>Core Competencies:</h4>
+                        <ul>
+                            <li>SEO & SEM strategies</li>
+                            <li>Social media marketing</li>
+                            <li>Content marketing</li>
+                            <li>Google Analytics & Ads</li>
+                            <li>Email marketing</li>
+                            <li>Marketing automation</li>
+                        </ul>
+                    </div>
+                    <div class="talent-meta">
+                        <span class="availability">📊 100+ Candidates</span>
+                        <a href="#contact" class="hire-btn">Hire Now</a>
+                    </div>
+                </div>
+
+                <div class="talent-card">
+                    <div class="talent-header">
+                        <div class="icon">☁️</div>
+                        <h3>Cloud Engineers</h3>
+                    </div>
+                    <div class="talent-body">
+                        <h4>Core Competencies:</h4>
+                        <ul>
+                            <li>AWS, Azure, GCP platforms</li>
+                            <li>Infrastructure as Code (Terraform)</li>
+                            <li>CI/CD pipelines</li>
+                            <li>Docker & Kubernetes</li>
+                            <li>Monitoring & logging</li>
+                            <li>Cloud security basics</li>
+                        </ul>
+                    </div>
+                    <div class="talent-meta">
+                        <span class="availability">📊 60+ Candidates</span>
+                        <a href="#contact" class="hire-btn">Hire Now</a>
+                    </div>
+                </div>
+
+                <div class="talent-card">
+                    <div class="talent-header">
+                        <div class="icon">🤖</div>
+                        <h3>AI/ML Engineers</h3>
+                    </div>
+                    <div class="talent-body">
+                        <h4>Core Competencies:</h4>
+                        <ul>
+                            <li>Python, TensorFlow, PyTorch</li>
+                            <li>Machine learning algorithms</li>
+                            <li>Deep learning & neural networks</li>
+                            <li>Natural Language Processing</li>
+                            <li>Computer vision</li>
+                            <li>Model deployment</li>
+                        </ul>
+                    </div>
+                    <div class="talent-meta">
+                        <span class="availability">📊 40+ Candidates</span>
+                        <a href="#contact" class="hire-btn">Hire Now</a>
+                    </div>
+                </div>
+
+                <div class="talent-card">
+                    <div class="talent-header">
+                        <div class="icon">💼</div>
+                        <h3>Business Analysts</h3>
+                    </div>
+                    <div class="talent-body">
+                        <h4>Core Competencies:</h4>
+                        <ul>
+                            <li>Requirements gathering</li>
+                            <li>Process documentation</li>
+                            <li>Stakeholder management</li>
+                            <li>Data analysis & reporting</li>
+                            <li>Project management basics</li>
+                            <li>Business process modeling</li>
+                        </ul>
+                    </div>
+                    <div class="talent-meta">
+                        <span class="availability">📊 70+ Candidates</span>
+                        <a href="#contact" class="hire-btn">Hire Now</a>
+                    </div>
+                </div>
+
+                <div class="talent-card">
+                    <div class="talent-header">
+                        <div class="icon">🎨</div>
+                        <h3>UI/UX Designers</h3>
+                    </div>
+                    <div class="talent-body">
+                        <h4>Core Competencies:</h4>
+                        <ul>
+                            <li>Figma, Adobe XD, Sketch</li>
+                            <li>User research & testing</li>
+                            <li>Wireframing & prototyping</li>
+                            <li>Responsive design</li>
+                            <li>Design systems</li>
+                            <li>HTML/CSS basics</li>
+                        </ul>
+                    </div>
+                    <div class="talent-meta">
+                        <span class="availability">📊 50+ Candidates</span>
+                        <a href="#contact" class="hire-btn">Hire Now</a>
+                    </div>
+                </div>
+
+                <div class="talent-card">
+                    <div class="talent-header">
+                        <div class="icon">🔒</div>
+                        <h3>Cybersecurity Analysts</h3>
+                    </div>
+                    <div class="talent-body">
+                        <h4>Core Competencies:</h4>
+                        <ul>
+                            <li>Network security fundamentals</li>
+                            <li>Vulnerability assessment</li>
+                            <li>Security monitoring tools</li>
+                            <li>Incident response</li>
+                            <li>Compliance & regulations</li>
+                            <li>Ethical hacking basics</li>
+                        </ul>
+                    </div>
+                    <div class="talent-meta">
+                        <span class="availability">📊 35+ Candidates</span>
+                        <a href="#contact" class="hire-btn">Hire Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Why Hire From Tomorrow Academy</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="icon">✅</div>
+                    <h3>Pre-Vetted Talent</h3>
+                    <p>All candidates undergo rigorous training and assessment before being made available</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">🎯</div>
+                    <h3>Industry-Ready Skills</h3>
+                    <p>Trained on latest technologies and industry best practices</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">💼</div>
+                    <h3>Project Experience</h3>
+                    <p>Hands-on experience through real-world projects and internships</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">🤝</div>
+                    <h3>Soft Skills Training</h3>
+                    <p>Communication, teamwork, and professional etiquette included</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">⚡</div>
+                    <h3>Quick Onboarding</h3>
+                    <p>Minimal training required—ready to contribute from day one</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">💰</div>
+                    <h3>Cost-Effective</h3>
+                    <p>Reduce recruitment costs and time-to-hire significantly</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">🔄</div>
+                    <h3>Replacement Guarantee</h3>
+                    <p>90-day replacement guarantee if candidate doesn't meet expectations</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="icon">📈</div>
+                    <h3>Continuous Support</h3>
+                    <p>Post-placement support to ensure smooth integration</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Hiring Process</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Submit Requirements</h3>
+                    <p>Share your role requirements, skills needed, and timeline</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Candidate Shortlisting</h3>
+                    <p>We match and share profiles of suitable candidates within 48 hours</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Interview & Selection</h3>
+                    <p>Conduct interviews with shortlisted candidates and make your selection</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Onboarding Support</h3>
+                    <p>We facilitate smooth onboarding and provide ongoing support</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="number">5000+</div>
+                <div class="label">Candidates Placed</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">500+</div>
+                <div class="label">Hiring Partners</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">95%</div>
+                <div class="label">Retention Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">48 Hrs</div>
+                <div class="label">Avg. Response Time</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills-section">
+        <div class="skills-container">
+            <h2>Skills & Technologies Our Talent Knows</h2>
+            <div class="skills-categories">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">Ruby</span>
+                        <span class="skill-tag">Go</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Frontend Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Angular</span>
+                        <span class="skill-tag">Vue.js</span>
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">Tailwind</span>
+                        <span class="skill-tag">Bootstrap</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Backend Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">Express.js</span>
+                        <span class="skill-tag">Laravel</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Cloud & DevOps</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Azure</span>
+                        <span class="skill-tag">GCP</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">Terraform</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Databases</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Redis</span>
+                        <span class="skill-tag">Oracle</span>
+                        <span class="skill-tag">SQL Server</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Business Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Zoho</span>
+                        <span class="skill-tag">Odoo</span>
+                        <span class="skill-tag">Salesforce</span>
+                        <span class="skill-tag">Microsoft 365</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Tableau</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="testimonials-container">
+            <h2>What Our Hiring Partners Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="quote">"We hired 5 full-stack developers from Tomorrow Academy and they exceeded our expectations. Well-trained and ready to contribute from day one."</p>
+                    <p class="author">Amit Patel</p>
+                    <p class="company">CTO, TechVista Solutions</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">"The quality of talent and their professional attitude made our recruitment process so much easier. Highly recommend their placement services."</p>
+                    <p class="author">Sneha Reddy</p>
+                    <p class="company">HR Director, InnovateTech</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">"Outstanding experience! The candidates were technically sound and had excellent communication skills. Will definitely hire again."</p>
+                    <p class="author">Rajesh Kumar</p>
+                    <p class="company">Founder, StartupHub</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <h2>Ready to Build Your Dream Team?</h2>
+        <p>Let's connect you with the right talent for your organization</p>
+        <div class="cta-buttons">
+            <a href="#" class="btn btn-primary">Post Your Requirements</a>
+            <a href="business.html" class="btn btn-secondary">Back to Business Solutions</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Tomorrow Academy. All rights reserved.</p>
+    </footer>
+</body>
+</html>

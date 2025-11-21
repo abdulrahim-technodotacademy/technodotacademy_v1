@@ -1,0 +1,2371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoho Certification Programs - Tomorrow Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #1e293b;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #ffffff;
+            padding: 15px 0;
+            box-shadow: none;
+            border-bottom: 1px solid lightgrey;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header-top {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            width: 100%;
+            gap: 20px;
+            padding-bottom: 15px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+            justify-self: start;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .logo a:hover {
+            opacity: 0.8;
+        }
+
+        .search-box {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-self: center;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-self: end;
+        }
+
+        .search-box input {
+            padding: 10px 40px 10px 20px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 15px;
+            width: 450px;
+            transition: all 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #1e9db3;
+            box-shadow: 0 0 0 3px rgba(30, 157, 179, 0.1);
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 8px;
+            background: none;
+            border: none;
+            color: #64748b;
+            cursor: pointer;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .search-box button:hover {
+            color: #1e9db3;
+        }
+
+        .btn-signup {
+            background: #0891b2;
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+
+        .btn-signup:hover {
+            background: #0e7490;
+        }
+
+        .header-bottom {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 15px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #475569;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #0891b2;
+        }
+
+        /* Dropdown Menu Styles */
+        nav li {
+            position: relative;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown > a {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .dropdown > a::after {
+            content: '▼';
+            font-size: 10px;
+            transition: transform 0.3s;
+        }
+
+        .dropdown:hover > a::after {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            min-width: 250px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            padding: 8px 0;
+        }
+
+        .dropdown-menu.two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-width: 600px;
+            max-width: 700px;
+            column-gap: 0;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            margin-top: 10px;
+        }
+
+        .dropdown-menu::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 6px solid white;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 12px 20px;
+            color: #475569;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.2s;
+            border-left: 3px solid transparent;
+            cursor: pointer;
+        }
+
+        .dropdown-item:hover {
+            background: linear-gradient(90deg, rgba(8, 145, 178, 0.1) 0%, transparent 100%);
+            color: #0891b2;
+            border-left-color: #0891b2;
+            padding-left: 25px;
+        }
+
+        .dropdown-item > span {
+            display: block;
+            font-size: 11px;
+            color: #94a3b8;
+            margin-top: 2px;
+        }
+
+        .dropdown-item.has-submenu {
+            position: relative;
+        }
+
+        .dropdown-label {
+            display: block;
+            width: 100%;
+            font-size: 15px !important;
+            font-weight: 500 !important;
+            color: #475569;
+        }
+
+        .dropdown-item.has-submenu:hover .dropdown-label {
+            color: #0891b2;
+        }
+
+        .dropdown-label > span {
+            display: block;
+            font-size: 11px !important;
+            color: #94a3b8 !important;
+            margin-top: 2px;
+            font-weight: 400 !important;
+        }
+
+        .dropdown-item.has-submenu::after {
+            content: '▶';
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 10px;
+            color: #94a3b8;
+            transition: transform 0.3s;
+        }
+
+        .dropdown-item.has-submenu:hover::after {
+            transform: translateY(-50%) translateX(3px);
+            color: #0891b2;
+        }
+
+        .submenu {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            min-width: 240px;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            margin-left: 15px;
+            padding: 8px 0;
+            z-index: 1001;
+        }
+
+        .dropdown-item.has-submenu:hover .submenu {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            margin-left: 8px;
+        }
+
+        .submenu-item {
+            display: block;
+            padding: 10px 20px;
+            color: #475569;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+            border-left: 3px solid transparent;
+        }
+
+        .submenu-item:hover {
+            background: linear-gradient(90deg, rgba(255, 215, 0, 0.1) 0%, transparent 100%);
+            color: #ffa500;
+            border-left-color: #ffd700;
+            padding-left: 25px;
+        }
+
+        .submenu-item .submenu-icon {
+            display: inline-block;
+            margin-right: 8px;
+            font-size: 14px;
+        }
+
+        .submenu-item.has-sub-submenu {
+            position: relative;
+        }
+
+        .submenu-item.has-sub-submenu::after {
+            content: '▶';
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 9px;
+            color: #94a3b8;
+            transition: transform 0.3s;
+        }
+
+        .submenu-item.has-sub-submenu:hover::after {
+            transform: translateY(-50%) translateX(3px);
+            color: #ffa500;
+        }
+
+        .sub-submenu {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            margin-left: 15px;
+            padding: 8px 0;
+            z-index: 1002;
+        }
+
+        .submenu-item.has-sub-submenu:hover .sub-submenu {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            margin-left: 8px;
+        }
+
+        .sub-submenu-item {
+            display: block;
+            padding: 10px 20px;
+            color: #475569;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s;
+            border-left: 3px solid transparent;
+        }
+
+        .sub-submenu-item:hover {
+            background: linear-gradient(90deg, rgba(147, 51, 234, 0.1) 0%, transparent 100%);
+            color: #9333ea;
+            border-left-color: #a855f7;
+            padding-left: 25px;
+        }
+
+        .hamburger-menu {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 46px;
+            height: 46px;
+            background: #ffffff;
+            border: 3px solid #0FA6C4;
+            border-radius: 50%;
+            cursor: pointer;
+            padding: 0;
+            z-index: 10001;
+            position: relative;
+            margin-left: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 6px rgba(15, 166, 196, 0.2);
+        }
+
+        .hamburger-menu:hover {
+            border-color: #0891b2;
+            box-shadow: 0 3px 10px rgba(15, 166, 196, 0.3);
+            transform: scale(1.05);
+        }
+
+        .hamburger-menu-inner {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 22px;
+            height: 16px;
+            position: relative;
+        }
+
+        .hamburger-menu span {
+            width: 100%;
+            height: 3px;
+            background: #0FA6C4;
+            border-radius: 1px;
+            transition: all 0.3s ease;
+            transform-origin: center;
+            display: block;
+        }
+
+        /* Hero */
+        .vendor-hero {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            padding: 100px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .vendor-hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .vendor-hero p {
+            font-size: 22px;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .breadcrumb {
+            margin-top: 20px;
+            opacity: 0.9;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 80px 0;
+            background: #ffffff;
+        }
+
+        .section-title {
+            font-size: 38px;
+            color: #0c4a6e;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: #64748b;
+            margin-bottom: 50px;
+        }
+
+        /* Courses Grid */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .course-card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+
+        .course-icon {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            padding: 40px;
+            text-align: center;
+            font-size: 48px;
+            color: white;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .course-content {
+            padding: 30px;
+        }
+
+        .course-card h3 {
+            font-size: 22px;
+            color: #0c4a6e;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .course-card p {
+            color: #64748b;
+            font-size: 15px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .course-details {
+            margin-bottom: 20px;
+        }
+
+        .course-details div {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 14px;
+        }
+
+        .course-details div:last-child {
+            border-bottom: none;
+        }
+
+        .course-details label {
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .course-details span {
+            color: #0c4a6e;
+            font-weight: 600;
+        }
+
+        .btn-enroll {
+            background: #1e9db3;
+            color: white;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-enroll:hover {
+            background: #1a8a9e;
+            transform: translateY(-2px);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: white;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 36px;
+            color: white;
+        }
+
+        .feature-item h3 {
+            font-size: 18px;
+            color: #0c4a6e;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .feature-item p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            color: white;
+            padding: 70px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h4 {
+            font-size: 18px;
+            margin-bottom: 22px;
+            font-weight: 600;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .courses-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .vendor-hero h1 {
+                font-size: 36px;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Dropdown Menu Styles */
+        nav li {
+            position: relative;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown > a {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .dropdown > a::after {
+            content: '▼';
+            font-size: 10px;
+            transition: transform 0.3s;
+        }
+
+        .dropdown:hover > a::after {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            min-width: 250px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            padding: 8px 0;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            margin-top: 10px;
+        }
+
+        .dropdown-menu::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 6px solid white;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 12px 20px;
+            color: #475569;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.2s;
+            border-left: 3px solid transparent;
+            cursor: pointer;
+        }
+
+        .dropdown-item:hover {
+            background: linear-gradient(90deg, rgba(8, 145, 178, 0.1) 0%, transparent 100%);
+            color: #0891b2;
+            border-left-color: #0891b2;
+            padding-left: 25px;
+        }
+
+        .dropdown-item > span {
+            display: block;
+            font-size: 11px;
+            color: #94a3b8;
+            margin-top: 2px;
+        }
+
+        .dropdown-item.has-submenu {
+            position: relative;
+        }
+
+        .dropdown-label {
+            display: block;
+            width: 100%;
+            font-size: 15px !important;
+            font-weight: 500 !important;
+            color: #475569;
+        }
+
+        .dropdown-item.has-submenu:hover .dropdown-label {
+            color: #0891b2;
+        }
+
+        .dropdown-label > span {
+            display: block;
+            font-size: 11px !important;
+            color: #94a3b8 !important;
+            margin-top: 2px;
+            font-weight: 400 !important;
+        }
+
+        .dropdown-item.has-submenu::after {
+            content: '▶';
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 10px;
+            color: #94a3b8;
+            transition: transform 0.3s;
+        }
+
+        .dropdown-item.has-submenu:hover::after {
+            transform: translateY(-50%) translateX(3px);
+            color: #0891b2;
+        }
+
+        .submenu {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            min-width: 240px;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            margin-left: 15px;
+            padding: 8px 0;
+            z-index: 1001;
+        }
+
+        .dropdown-item.has-submenu:hover .submenu {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            margin-left: 8px;
+        }
+
+        .submenu-item {
+            display: block;
+            padding: 10px 20px;
+            color: #475569;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+            border-left: 3px solid transparent;
+        }
+
+        .submenu-item:hover {
+            background: linear-gradient(90deg, rgba(255, 215, 0, 0.1) 0%, transparent 100%);
+            color: #ffa500;
+            border-left-color: #ffd700;
+            padding-left: 25px;
+        }
+
+        .submenu-item .submenu-icon {
+            display: inline-block;
+            margin-right: 8px;
+            font-size: 14px;
+        }
+
+        .submenu-item.has-sub-submenu {
+            position: relative;
+        }
+
+        .submenu-item.has-sub-submenu::after {
+            content: '▶';
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 9px;
+            color: #94a3b8;
+            transition: transform 0.3s;
+        }
+
+        .submenu-item.has-sub-submenu:hover::after {
+            transform: translateY(-50%) translateX(3px);
+            color: #ffa500;
+        }
+
+        .sub-submenu {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            margin-left: 15px;
+            padding: 8px 0;
+            z-index: 1002;
+        }
+
+        .submenu-item.has-sub-submenu:hover .sub-submenu {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            margin-left: 8px;
+        }
+
+        .sub-submenu-item {
+            display: block;
+            padding: 10px 20px;
+            color: #475569;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s;
+            border-left: 3px solid transparent;
+        }
+
+        .sub-submenu-item:hover {
+            background: linear-gradient(90deg, rgba(147, 51, 234, 0.1) 0%, transparent 100%);
+            color: #9333ea;
+            border-left-color: #a855f7;
+            padding-left: 25px;
+        }
+
+        .hamburger-menu {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 46px;
+            height: 46px;
+            background: #ffffff;
+            border: 3px solid #0FA6C4;
+            border-radius: 50%;
+            cursor: pointer;
+            padding: 0;
+            z-index: 10001;
+            position: relative;
+            margin-left: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 6px rgba(15, 166, 196, 0.2);
+        }
+
+        .hamburger-menu:hover {
+            border-color: #0891b2;
+            box-shadow: 0 3px 10px rgba(15, 166, 196, 0.3);
+            transform: scale(1.05);
+        }
+
+        .hamburger-menu-inner {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 22px;
+            height: 16px;
+            position: relative;
+        }
+
+        .hamburger-menu span {
+            width: 100%;
+            height: 3px;
+            background: #0FA6C4;
+            border-radius: 1px;
+            transition: all 0.3s ease;
+            transform-origin: center;
+            display: block;
+        }
+
+        .hamburger-menu.active {
+            background: #0FA6C4;
+            border-color: #0FA6C4;
+        }
+
+        .hamburger-menu.active span {
+            background: #ffffff;
+        }
+
+        .hamburger-menu.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-menu.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 90%;
+            max-width: 480px;
+            height: 100vh;
+            background: #ffffff;
+            box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+            z-index: 10000;
+            overflow-y: auto;
+            transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0;
+        }
+
+        .mobile-menu-overlay.active {
+            right: 0;
+        }
+
+        .mobile-menu-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 9999;
+        }
+
+        .mobile-menu-backdrop.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu-header {
+            position: sticky;
+            top: 0;
+            padding: 18px 20px;
+            border-bottom: 1px solid #e0e0e0;
+            background: #ffffff;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .mobile-menu-close {
+            background: none;
+            border: none;
+            font-size: 32px;
+            color: #333;
+            cursor: pointer;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            font-weight: 300;
+        }
+
+        .mobile-menu-close:hover {
+            color: #0891b2;
+        }
+
+        .mobile-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-nav > li {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .mobile-nav > li > a,
+        .mobile-nav-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 20px;
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 400;
+            transition: all 0.2s;
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            border-left: 3px solid transparent;
+        }
+
+        .mobile-nav > li > a:hover,
+        .mobile-nav-item:hover {
+            background: #f9f9f9;
+            border-left-color: #0891b2;
+        }
+
+        .mobile-nav-arrow {
+            font-size: 10px;
+            transition: transform 0.3s ease;
+            color: #666;
+            margin-left: 10px;
+        }
+
+        .mobile-nav-item.active {
+            background: #f9f9f9;
+            border-left-color: #0891b2;
+        }
+
+        .mobile-nav-item.active .mobile-nav-arrow {
+            transform: rotate(180deg);
+        }
+
+        .mobile-submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease;
+            background: #fafafa;
+        }
+
+        .mobile-submenu.active {
+            max-height: 3000px;
+        }
+
+        .mobile-submenu-category {
+            display: block;
+            padding: 16px 20px 8px 35px;
+            color: #666;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            background: #fafafa;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-left: 3px solid transparent;
+            position: relative;
+        }
+
+        .mobile-submenu-category:hover {
+            color: #0891b2;
+        }
+
+        .mobile-submenu-category::after {
+            content: '▼';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-submenu-category.active::after {
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        .mobile-submenu-group {
+            margin-bottom: 0;
+        }
+
+        .mobile-sub-submenu-list {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease;
+        }
+
+        .mobile-sub-submenu-list.active {
+            max-height: 2000px;
+        }
+
+        .mobile-submenu-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px 12px 35px;
+            color: #555;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 400;
+            transition: all 0.2s;
+            border-left: 3px solid transparent;
+            background: #fafafa;
+        }
+
+        .mobile-submenu-item:hover {
+            background: #f0f0f0;
+            color: #0891b2;
+            border-left-color: #0891b2;
+        }
+
+        .mobile-submenu-item .icon {
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .mobile-sub-submenu-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px 10px 50px;
+            color: #666;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 400;
+            transition: all 0.2s;
+            border-left: 3px solid transparent;
+            background: #fafafa;
+        }
+
+        .mobile-sub-submenu-item:hover {
+            background: #f0f0f0;
+            color: #0891b2;
+            border-left-color: #0891b2;
+        }
+
+        .mobile-menu-footer {
+            padding: 20px;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 20px;
+            background: #ffffff;
+        }
+
+        .mobile-menu-footer .btn-signup {
+            display: block;
+            text-align: center;
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <!-- Top Row: Logo, Search, Sign Up -->
+                <div class="header-top">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="https://page.gensparksite.com/v1/base64_upload/cd3e70466238584d229e88d14a5186b1" alt="Techno Dot Academy Logo" style="height: 45px;">
+                        </a>
+                    </div>
+                    <div class="search-box">
+                        <input type="text" placeholder="Search courses, programs, or topics...">
+                        <button type="submit">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="header-right">
+                        <a href="signup.html" class="btn-signup">Sign Up</a>
+                        <button class="hamburger-menu" id="hamburgerBtn" aria-label="Toggle menu">
+                            <div class="hamburger-menu-inner">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Bottom Row: Navigation Links -->
+                <div class="header-bottom">
+                    <nav>
+                        <ul>
+                            <li class="dropdown">
+                                <a href="#programs">Programs</a>
+                                <div class="dropdown-menu two-column">
+                                    <div class="dropdown-item">
+                                        <a href="artificial-intelligence.html" class="dropdown-label">
+                                            🤖 AI & Data Security
+                                            <span>Artificial Intelligence & Cybersecurity</span>
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <a href="cloud-computing.html" class="dropdown-label">
+                                            ☁️ Cloud & DevOps
+                                            <span>Cloud Infrastructure & DevOps</span>
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <a href="full-stack-development.html" class="dropdown-label">
+                                            💻 Full Stack Development
+                                            <span>Web & Mobile Development</span>
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <a href="digital-finance.html" class="dropdown-label">
+                                            💼 Business & Digital Finance
+                                            <span>Finance, Accounting & Business</span>
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <a href="zoho.html" class="dropdown-label">
+                                            🔷 Zoho Training
+                                            <span>Zoho Business Applications</span>
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <a href="odoo.html" class="dropdown-label">
+                                            ⚙️ Odoo Training
+                                            <span>Odoo ERP System</span>
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <a href="microsoft.html" class="dropdown-label">
+                                            🪟 Microsoft Training
+                                            <span>Microsoft Azure & 365</span>
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <a href="google.html" class="dropdown-label">
+                                            🔍 Google Training
+                                            <span>Google Cloud & Workspace</span>
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-item has-submenu">
+                                        <span class="dropdown-label">
+                                            ☁️ Cloud Computing
+                                            <span>AWS, Azure, Google Cloud</span>
+                                        </span>
+                                        <div class="submenu">
+                                            <div class="submenu-item has-sub-submenu">
+                                                <span class="submenu-icon">🎓</span>
+                                                Professional Certification
+                                                <div class="sub-submenu">
+                                                    <a href="cloud-computing.html" class="sub-submenu-item">Cloud Computing</a>
+                                                    <a href="aws-devops.html" class="sub-submenu-item">AWS DevOps</a>
+                                                    <a href="cloud-devops.html" class="sub-submenu-item">Cloud+DevOps</a>
+                                                </div>
+                                            </div>
+                                            <a href="universities.html" class="submenu-item">
+                                                <span class="submenu-icon">🎯</span>
+                                                University Courses
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown-item has-submenu">
+                                        <span class="dropdown-label">
+                                            💰 Finance & Accounting
+                                            <span>Financial Management, Analysis</span>
+                                        </span>
+                                        <div class="submenu">
+                                            <div class="submenu-item has-sub-submenu">
+                                                <span class="submenu-icon">🎓</span>
+                                                Professional Certification
+                                                <div class="sub-submenu">
+                                                    <a href="digital-finance.html" class="sub-submenu-item">Digital Finance</a>
+                                                    <a href="digital-finance-taxation.html" class="sub-submenu-item">Digital Finance & Taxation</a>
+                                                    <a href="odoo-functional.html" class="sub-submenu-item">Odoo Functional Training</a>
+                                                    <a href="frm.html" class="sub-submenu-item">FRM</a>
+                                                    <a href="cfa.html" class="sub-submenu-item">CFA</a>
+                                                    <a href="cima.html" class="sub-submenu-item">CIMA</a>
+                                                    <a href="ifrs.html" class="sub-submenu-item">IFRS</a>
+                                                    <a href="financial-modeling.html" class="sub-submenu-item">Financial Modeling</a>
+                                                    <a href="acca.html" class="sub-submenu-item">ACCA</a>
+                                                    <a href="ca.html" class="sub-submenu-item">CA</a>
+                                                    <a href="cma.html" class="sub-submenu-item">CMA (US)</a>
+                                                </div>
+                                            </div>
+                                            <a href="universities.html" class="submenu-item">
+                                                <span class="submenu-icon">🎯</span>
+                                                University Courses
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown-item has-submenu">
+                                        <span class="dropdown-label">
+                                            💻 Coding & Development
+                                            <span>Web, Mobile, Full Stack</span>
+                                        </span>
+                                        <div class="submenu">
+                                            <div class="submenu-item has-sub-submenu">
+                                                <span class="submenu-icon">🎓</span>
+                                                Professional Certification
+                                                <div class="sub-submenu">
+                                                    <a href="full-stack-development.html" class="sub-submenu-item">Full Stack Development</a>
+                                                    <a href="python-programming.html" class="sub-submenu-item">Python Programming</a>
+                                                    <a href="java-development.html" class="sub-submenu-item">Java Development</a>
+                                                    <a href="mern-stack.html" class="sub-submenu-item">MERN Stack</a>
+                                                    <a href="mean-stack.html" class="sub-submenu-item">MEAN Stack</a>
+                                                    <a href="mobile-app-development.html" class="sub-submenu-item">Mobile App Development</a>
+                                                    <a href="data-structures-algorithms.html" class="sub-submenu-item">Data Structures & Algorithms</a>
+                                                </div>
+                                            </div>
+                                            <a href="universities.html" class="submenu-item">
+                                                <span class="submenu-icon">🎯</span>
+                                                University Courses
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown-item has-submenu">
+                                        <span class="dropdown-label">
+                                            📚 Other Topics
+                                            <span>Design, Marketing, Business</span>
+                                        </span>
+                                        <div class="submenu">
+                                            <div class="submenu-item has-sub-submenu">
+                                                <span class="submenu-icon">🎓</span>
+                                                Professional Certification
+                                                <div class="sub-submenu">
+                                                    <a href="data-science.html" class="sub-submenu-item">Data Science & Analytics</a>
+                                                    <a href="artificial-intelligence.html" class="sub-submenu-item">Artificial Intelligence</a>
+                                                    <a href="machine-learning.html" class="sub-submenu-item">Machine Learning</a>
+                                                    <a href="digital-marketing.html" class="sub-submenu-item">Digital Marketing</a>
+                                                    <a href="ui-ux-design.html" class="sub-submenu-item">UI/UX Design</a>
+                                                    <a href="graphic-design.html" class="sub-submenu-item">Graphic Design</a>
+                                                    <a href="business-analytics.html" class="sub-submenu-item">Business Analytics</a>
+                                                    <a href="project-management.html" class="sub-submenu-item">Project Management</a>
+                                                </div>
+                                            </div>
+                                            <a href="universities.html" class="submenu-item">
+                                                <span class="submenu-icon">🎯</span>
+                                                University Courses
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="dropdown">
+                                <a href="universities.html">Universities</a>
+                                <div class="dropdown-menu">
+                                    <div class="dropdown-item has-submenu">
+                                        <span class="dropdown-label">
+                                            📚 Bachelor's Degrees
+                                            <span>Undergraduate Programs</span>
+                                        </span>
+                                        <div class="submenu">
+                                            <a href="bca.html" class="submenu-item">
+                                                <span class="submenu-icon">💻</span>
+                                                BCA - Computer Applications
+                                            </a>
+                                            <a href="bcom.html" class="submenu-item">
+                                                <span class="submenu-icon">💰</span>
+                                                B.Com - Commerce
+                                            </a>
+                                            <a href="bba.html" class="submenu-item">
+                                                <span class="submenu-icon">💼</span>
+                                                BBA - Business Administration
+                                            </a>
+                                            <a href="ba.html" class="submenu-item">
+                                                <span class="submenu-icon">📖</span>
+                                                BA - Arts
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown-item has-submenu">
+                                        <span class="dropdown-label">
+                                            🎯 Master's Degrees
+                                            <span>Postgraduate Programs</span>
+                                        </span>
+                                        <div class="submenu">
+                                            <a href="mca.html" class="submenu-item">
+                                                <span class="submenu-icon">💻</span>
+                                                MCA - Computer Applications
+                                            </a>
+                                            <a href="mcom.html" class="submenu-item">
+                                                <span class="submenu-icon">💰</span>
+                                                M.Com - Commerce
+                                            </a>
+                                            <a href="mba.html" class="submenu-item">
+                                                <span class="submenu-icon">💼</span>
+                                                MBA - Business Administration
+                                            </a>
+                                            <a href="ma.html" class="submenu-item">
+                                                <span class="submenu-icon">📖</span>
+                                                MA - Arts
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li><a href="earn-learn.html">Earn & Learn</a></li>
+                            <li class="dropdown">
+                                <a href="rnd.html">R&D&I</a>
+                                <div class="dropdown-menu">
+                                    <a href="research-development.html" class="dropdown-item">
+                                        🔬 Research & Development
+                                        <span>Innovation and Technology Research</span>
+                                    </a>
+                                    <a href="innovation-consulting.html" class="dropdown-item">
+                                        💡 Innovation Consulting
+                                        <span>Strategic Technology Advisory</span>
+                                    </a>
+                                    <a href="techspace.html" class="dropdown-item">
+                                        🏢 TechSpace Co-working
+                                        <span>Modern Workspace Solutions</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li><a href="placements.html">Placements</a></li>
+                            <li class="dropdown">
+                                <a href="business.html">Business</a>
+                                <div class="dropdown-menu">
+                                    <a href="employability-solutions.html" class="dropdown-item">
+                                        🎯 Employability Solutions
+                                        <span>Career Development Programs</span>
+                                    </a>
+                                    <a href="entrepreneurship-development.html" class="dropdown-item">
+                                        🚀 Entrepreneurship Development
+                                        <span>Startup Support & Mentoring</span>
+                                    </a>
+                                    <a href="technology-consulting.html" class="dropdown-item">
+                                        💻 Technology Consulting
+                                        <span>IT Strategy & Solutions</span>
+                                    </a>
+                                    <a href="corporate-training.html" class="dropdown-item">
+                                        👥 Corporate Training
+                                        <span>Employee Skill Development</span>
+                                    </a>
+                                    <a href="hire-from-us.html" class="dropdown-item">
+                                        🎓 Hire From Us
+                                        <span>Skilled Graduate Placement</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="dropdown">
+                                <a href="about-company.html">Company</a>
+                                <div class="dropdown-menu">
+                                    <a href="about-company.html" class="dropdown-item">
+                                        🏢 About Us
+                                        <span>Our Story & Mission</span>
+                                    </a>
+                                    <a href="careers.html" class="dropdown-item">
+                                        💼 Careers
+                                        <span>Join Our Team</span>
+                                    </a>
+                                    <a href="webinar.html" class="dropdown-item">
+                                        📹 Webinars
+                                        <span>Live Online Sessions</span>
+                                    </a>
+                                    <a href="media.html" class="dropdown-item">
+                                        📰 Media & Press
+                                        <span>News & Publications</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li><a href="contact-us.html">Contact Us</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="vendor-hero">
+        <div class="container">
+            <h1>Zoho Certification Programs</h1>
+            <p>Master Zoho's comprehensive suite of business applications with our expert-led training programs</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> / <a href="vendors.html">Vendors</a> / Zoho
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Available Zoho Courses</h2>
+            <p class="section-subtitle">Choose from our comprehensive Zoho training programs</p>
+
+            <div class="courses-grid">
+                <!-- Zoho CRM -->
+                <div class="course-card">
+                    <div class="course-icon">📊</div>
+                    <div class="course-content">
+                        <h3>Zoho CRM Certification</h3>
+                                                Professional Certification
+                                                <div class="sub-submenu">
+                                                    <a href="cloud-computing.html" class="sub-submenu-item">Cloud Computing</a>
+                                                    <a href="aws-devops.html" class="sub-submenu-item">AWS DevOps</a>
+                                                    <a href="cloud-devops.html" class="sub-submenu-item">Cloud+DevOps</a>
+                                                </div>
+                                            </div>
+                                            <a href="universities.html" class="submenu-item">
+                                                <span class="submenu-icon">🎯</span>
+                                                University Courses
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown-item has-submenu">
+                                        <span class="dropdown-label">
+                                            💰 Finance & Accounting
+                                            <span>Financial Management, Analysis</span>
+                                        </span>
+                                        <div class="submenu">
+                                            <div class="submenu-item has-sub-submenu">
+                                                <span class="submenu-icon">🎓</span>
+                                                Professional Certification
+                                                <div class="sub-submenu">
+                                                    <a href="digital-finance.html" class="sub-submenu-item">Digital Finance</a>
+                                                    <a href="digital-finance-taxation.html" class="sub-submenu-item">Digital Finance & Taxation</a>
+                                                    <a href="odoo-functional.html" class="sub-submenu-item">Odoo Functional Training</a>
+                                                    <a href="frm.html" class="sub-submenu-item">FRM</a>
+                                                    <a href="cfa.html" class="sub-submenu-item">CFA</a>
+                                                    <a href="cima.html" class="sub-submenu-item">CIMA</a>
+                                                    <a href="ifrs.html" class="sub-submenu-item">IFRS</a>
+                                                    <a href="financial-modeling.html" class="sub-submenu-item">Financial Modeling</a>
+                                                    <a href="acca.html" class="sub-submenu-item">ACCA</a>
+                                                    <a href="ca.html" class="sub-submenu-item">CA</a>
+                                                    <a href="cma.html" class="sub-submenu-item">CMA (US)</a>
+                                                </div>
+                                            </div>
+                                            <a href="universities.html" class="submenu-item">
+                                                <span class="submenu-icon">🎯</span>
+                                                University Courses
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown-item has-submenu">
+                                        <span class="dropdown-label">
+                                            💻 Coding & Development
+                                            <span>Web, Mobile, Full Stack</span>
+                                        </span>
+                                        <div class="submenu">
+                                            <div class="submenu-item has-sub-submenu">
+                                                <span class="submenu-icon">🎓</span>
+                                                Professional Certification
+                                                <div class="sub-submenu">
+                                                    <a href="full-stack-development.html" class="sub-submenu-item">Full Stack Development</a>
+                                                    <a href="python-programming.html" class="sub-submenu-item">Python Programming</a>
+                                                    <a href="java-development.html" class="sub-submenu-item">Java Development</a>
+                                                    <a href="mern-stack.html" class="sub-submenu-item">MERN Stack</a>
+                                                    <a href="mean-stack.html" class="sub-submenu-item">MEAN Stack</a>
+                                                    <a href="mobile-app-development.html" class="sub-submenu-item">Mobile App Development</a>
+                                                    <a href="data-structures-algorithms.html" class="sub-submenu-item">Data Structures & Algorithms</a>
+                                                </div>
+                                            </div>
+                                            <a href="universities.html" class="submenu-item">
+                                                <span class="submenu-icon">🎯</span>
+                                                University Courses
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown-item has-submenu">
+                                        <span class="dropdown-label">
+                                            📚 Other Topics
+                                            <span>Design, Marketing, Business</span>
+                                        </span>
+                                        <div class="submenu">
+                                            <div class="submenu-item has-sub-submenu">
+                                                <span class="submenu-icon">🎓</span>
+                                                Professional Certification
+                                                <div class="sub-submenu">
+                                                    <a href="data-science.html" class="sub-submenu-item">Data Science & Analytics</a>
+                                                    <a href="artificial-intelligence.html" class="sub-submenu-item">Artificial Intelligence</a>
+                                                    <a href="machine-learning.html" class="sub-submenu-item">Machine Learning</a>
+                                                    <a href="digital-marketing.html" class="sub-submenu-item">Digital Marketing</a>
+                                                    <a href="ui-ux-design.html" class="sub-submenu-item">UI/UX Design</a>
+                                                    <a href="graphic-design.html" class="sub-submenu-item">Graphic Design</a>
+                                                    <a href="business-analytics.html" class="sub-submenu-item">Business Analytics</a>
+                                                    <a href="project-management.html" class="sub-submenu-item">Project Management</a>
+                                                </div>
+                                            </div>
+                                            <a href="universities.html" class="submenu-item">
+                                                <span class="submenu-icon">🎯</span>
+                                                University Courses
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="dropdown">
+                                <a href="vendors.html">Vendors</a>
+                                <div class="dropdown-menu">
+                                    <a href="zoho.html" class="dropdown-item">
+                                        🔷 Zoho Training
+                                        <span>CRM, Books, and Enterprise Solutions</span>
+                                    </a>
+                                    <a href="odoo.html" class="dropdown-item">
+                                        🟣 Odoo Training
+                                        <span>ERP and Business Management</span>
+                                    </a>
+                                    <a href="microsoft.html" class="dropdown-item">
+                                        🪟 Microsoft Training
+                                        <span>Azure, Office 365, Power Platform</span>
+                                    </a>
+                                    <a href="google.html" class="dropdown-item">
+                                        🔍 Google Training
+                                        <span>Google Cloud Platform & Workspace</span>
+                                    </a>
+                                    <a href="aws.html" class="dropdown-item">
+                                        ☁️ AWS Training
+                                        <span>Amazon Web Services Certification</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="dropdown">
+                                <a href="universities.html">Universities</a>
+                                <div class="dropdown-menu">
+                                    <div class="dropdown-item has-submenu">
+                                        <span class="dropdown-label">
+                                            📚 Bachelor's Degrees
+                                            <span>Undergraduate Programs</span>
+                                        </span>
+                                        <div class="submenu">
+                                            <a href="bca.html" class="submenu-item">
+                                                <span class="submenu-icon">💻</span>
+                                                BCA - Computer Applications
+                                            </a>
+                                            <a href="bcom.html" class="submenu-item">
+                                                <span class="submenu-icon">💰</span>
+                                                B.Com - Commerce
+                                            </a>
+                                            <a href="bba.html" class="submenu-item">
+                                                <span class="submenu-icon">💼</span>
+                                                BBA - Business Administration
+                                            </a>
+                                            <a href="ba.html" class="submenu-item">
+                                                <span class="submenu-icon">📖</span>
+                                                BA - Arts
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown-item has-submenu">
+                                        <span class="dropdown-label">
+                                            🎯 Master's Degrees
+                                            <span>Postgraduate Programs</span>
+                                        </span>
+                                        <div class="submenu">
+                                            <a href="mca.html" class="submenu-item">
+                                                <span class="submenu-icon">💻</span>
+                                                MCA - Computer Applications
+                                            </a>
+                                            <a href="mcom.html" class="submenu-item">
+                                                <span class="submenu-icon">💰</span>
+                                                M.Com - Commerce
+                                            </a>
+                                            <a href="mba.html" class="submenu-item">
+                                                <span class="submenu-icon">💼</span>
+                                                MBA - Business Administration
+                                            </a>
+                                            <a href="ma.html" class="submenu-item">
+                                                <span class="submenu-icon">📖</span>
+                                                MA - Arts
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li><a href="earn-learn.html">Earn &amp; Learn</a></li>
+                            <li class="dropdown">
+                                <a href="rnd.html">R&amp;D&amp;I</a>
+                                <div class="dropdown-menu">
+                                    <a href="research-development.html" class="dropdown-item">
+                                        🔬 Research &amp; Development
+                                        <span>Innovation and Technology Research</span>
+                                    </a>
+                                    <a href="innovation-consulting.html" class="dropdown-item">
+                                        💡 Innovation Consulting
+                                        <span>Strategic Technology Advisory</span>
+                                    </a>
+                                    <a href="techspace.html" class="dropdown-item">
+                                        🏢 TechSpace Co-working
+                                        <span>Modern Workspace Solutions</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="dropdown">
+                                <a href="business.html">Business</a>
+                                <div class="dropdown-menu">
+                                    <a href="employability-solutions.html" class="dropdown-item">
+                                        🎯 Employability Solutions
+                                        <span>Career Development Programs</span>
+                                    </a>
+                                    <a href="entrepreneurship-development.html" class="dropdown-item">
+                                        🚀 Entrepreneurship Development
+                                        <span>Startup Support &amp; Mentoring</span>
+                                    </a>
+                                    <a href="technology-consulting.html" class="dropdown-item">
+                                        💻 Technology Consulting
+                                        <span>IT Strategy &amp; Solutions</span>
+                                    </a>
+                                    <a href="corporate-training.html" class="dropdown-item">
+                                        👥 Corporate Training
+                                        <span>Employee Skill Development</span>
+                                    </a>
+                                    <a href="hire-from-us.html" class="dropdown-item">
+                                        🎓 Hire From Us
+                                        <span>Skilled Graduate Placement</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="dropdown">
+                                <a href="about-company.html">Company</a>
+                                <div class="dropdown-menu">
+                                    <a href="about-company.html" class="dropdown-item">
+                                        🏢 About Us
+                                        <span>Our Story &amp; Mission</span>
+                                    </a>
+                                    <a href="careers.html" class="dropdown-item">
+                                        💼 Careers
+                                        <span>Join Our Team</span>
+                                    </a>
+                                    <a href="webinar.html" class="dropdown-item">
+                                        📹 Webinars
+                                        <span>Live Online Sessions</span>
+                                    </a>
+                                    <a href="media.html" class="dropdown-item">
+                                        📰 Media &amp; Press
+                                        <span>News &amp; Publications</span>
+                                    </a>
+                                    <a href="placements.html" class="dropdown-item">
+                                        📈 Placements
+                                        <span>Success Stories</span>
+                                    </a>
+                                    <a href="contact-us.html" class="dropdown-item">
+                                        📞 Contact Us
+                                        <span>Get In Touch</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Backdrop -->
+    <div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <div class="mobile-menu-header">
+            <span class="mobile-menu-title">Menu</span>
+            <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">×</button>
+        </div>
+
+        <ul class="mobile-nav">
+            <li>
+                <button class="mobile-nav-item" data-submenu="topics">
+                    Topics
+                    <span class="mobile-nav-arrow">▼</span>
+                </button>
+                <div class="mobile-submenu" id="submenu-topics">
+                    <div class="mobile-submenu-group">
+                        <div class="mobile-submenu-category" data-category="cloud">☁️ Cloud Computing</div>
+                        <div class="mobile-sub-submenu-list" id="category-cloud">
+                            <a href="cloud-computing.html" class="mobile-sub-submenu-item">Cloud Computing</a>
+                            <a href="aws-devops.html" class="mobile-sub-submenu-item">AWS DevOps</a>
+                            <a href="cloud-devops.html" class="mobile-sub-submenu-item">Cloud+DevOps</a>
+                        </div>
+                    </div>
+                    <div class="mobile-submenu-group">
+                        <div class="mobile-submenu-category" data-category="finance">💰 Finance & Accounting</div>
+                        <div class="mobile-sub-submenu-list" id="category-finance">
+                            <a href="digital-finance.html" class="mobile-sub-submenu-item">Digital Finance</a>
+                            <a href="digital-finance-taxation.html" class="mobile-sub-submenu-item">Digital Finance & Taxation</a>
+                            <a href="odoo-functional.html" class="mobile-sub-submenu-item">Odoo Functional</a>
+                            <a href="frm.html" class="mobile-sub-submenu-item">FRM</a>
+                            <a href="cfa.html" class="mobile-sub-submenu-item">CFA</a>
+                            <a href="cima.html" class="mobile-sub-submenu-item">CIMA</a>
+                            <a href="ifrs.html" class="mobile-sub-submenu-item">IFRS</a>
+                            <a href="financial-modeling.html" class="mobile-sub-submenu-item">Financial Modeling</a>
+                            <a href="acca.html" class="mobile-sub-submenu-item">ACCA</a>
+                            <a href="ca.html" class="mobile-sub-submenu-item">CA</a>
+                            <a href="cma.html" class="mobile-sub-submenu-item">CMA</a>
+                        </div>
+                    </div>
+                    <div class="mobile-submenu-group">
+                        <div class="mobile-submenu-category" data-category="coding">💻 Coding & Development</div>
+                        <div class="mobile-sub-submenu-list" id="category-coding">
+                            <a href="full-stack-development.html" class="mobile-sub-submenu-item">Full Stack Development</a>
+                            <a href="python-programming.html" class="mobile-sub-submenu-item">Python Programming</a>
+                            <a href="java-development.html" class="mobile-sub-submenu-item">Java Development</a>
+                            <a href="mern-stack.html" class="mobile-sub-submenu-item">MERN Stack</a>
+                            <a href="mean-stack.html" class="mobile-sub-submenu-item">MEAN Stack</a>
+                            <a href="mobile-app-development.html" class="mobile-sub-submenu-item">Mobile App Development</a>
+                            <a href="data-structures-algorithms.html" class="mobile-sub-submenu-item">Data Structures & Algorithms</a>
+                        </div>
+                    </div>
+                    <div class="mobile-submenu-group">
+                        <div class="mobile-submenu-category" data-category="other">📚 Other Topics</div>
+                        <div class="mobile-sub-submenu-list" id="category-other">
+                            <a href="data-science.html" class="mobile-sub-submenu-item">Data Science</a>
+                            <a href="artificial-intelligence.html" class="mobile-sub-submenu-item">Artificial Intelligence</a>
+                            <a href="machine-learning.html" class="mobile-sub-submenu-item">Machine Learning</a>
+                            <a href="digital-marketing.html" class="mobile-sub-submenu-item">Digital Marketing</a>
+                            <a href="ui-ux-design.html" class="mobile-sub-submenu-item">UI/UX Design</a>
+                            <a href="graphic-design.html" class="mobile-sub-submenu-item">Graphic Design</a>
+                            <a href="business-analytics.html" class="mobile-sub-submenu-item">Business Analytics</a>
+                            <a href="project-management.html" class="mobile-sub-submenu-item">Project Management</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <button class="mobile-nav-item" data-submenu="vendors">
+                    Vendors
+                    <span class="mobile-nav-arrow">▼</span>
+                </button>
+                <div class="mobile-submenu" id="submenu-vendors">
+                    <a href="vendors.html" class="mobile-submenu-item">
+                        <span class="icon">🏢</span>All Vendors
+                    </a>
+                    <a href="zoho.html" class="mobile-submenu-item">
+                        <span class="icon">🔷</span>Zoho Training
+                    </a>
+                    <a href="odoo.html" class="mobile-submenu-item">
+                        <span class="icon">🟣</span>Odoo Training
+                    </a>
+                    <a href="microsoft.html" class="mobile-submenu-item">
+                        <span class="icon">🪟</span>Microsoft Training
+                    </a>
+                    <a href="google.html" class="mobile-submenu-item">
+                        <span class="icon">🔍</span>Google Training
+                    </a>
+                </div>
+            </li>
+            <li>
+                <button class="mobile-nav-item" data-submenu="universities">
+                    Universities
+                    <span class="mobile-nav-arrow">▼</span>
+                </button>
+                <div class="mobile-submenu" id="submenu-universities">
+                    <a href="universities.html" class="mobile-submenu-item">
+                        <span class="icon">🎓</span>All Programs
+                    </a>
+                    <div class="mobile-submenu-group">
+                        <div class="mobile-submenu-category" data-category="bachelor">📚 Bachelor's Degrees</div>
+                        <div class="mobile-sub-submenu-list" id="category-bachelor">
+                            <a href="bca.html" class="mobile-sub-submenu-item">BCA - Computer Applications</a>
+                            <a href="bcom.html" class="mobile-sub-submenu-item">B.Com - Commerce</a>
+                            <a href="bba.html" class="mobile-sub-submenu-item">BBA - Business Administration</a>
+                            <a href="ba.html" class="mobile-sub-submenu-item">BA - Arts</a>
+                        </div>
+                    </div>
+                    <div class="mobile-submenu-group">
+                        <div class="mobile-submenu-category" data-category="master">🎯 Master's Degrees</div>
+                        <div class="mobile-sub-submenu-list" id="category-master">
+                            <a href="mca.html" class="mobile-sub-submenu-item">MCA - Computer Applications</a>
+                            <a href="mcom.html" class="mobile-sub-submenu-item">M.Com - Commerce</a>
+                            <a href="mba.html" class="mobile-sub-submenu-item">MBA - Business Administration</a>
+                            <a href="ma.html" class="mobile-sub-submenu-item">MA - Arts</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li><a href="earn-learn.html">Earn &amp; Learn</a></li>
+            <li>
+                <button class="mobile-nav-item" data-submenu="rnd">
+                    R&D&I
+                    <span class="mobile-nav-arrow">▼</span>
+                </button>
+                <div class="mobile-submenu" id="submenu-rnd">
+                    <a href="rnd.html" class="mobile-submenu-item">
+                        <span class="icon">🔬</span>R&D&I Overview
+                    </a>
+                    <a href="research-development.html" class="mobile-submenu-item">
+                        <span class="icon">📊</span>Research & Development
+                    </a>
+                    <a href="innovation-consulting.html" class="mobile-submenu-item">
+                        <span class="icon">💡</span>Innovation Consulting
+                    </a>
+                    <a href="techspace.html" class="mobile-submenu-item">
+                        <span class="icon">🏢</span>TechSpace Co-working
+                    </a>
+                </div>
+            </li>
+            <li>
+                <button class="mobile-nav-item" data-submenu="business">
+                    Business
+                    <span class="mobile-nav-arrow">▼</span>
+                </button>
+                <div class="mobile-submenu" id="submenu-business">
+                    <a href="business.html" class="mobile-submenu-item">
+                        <span class="icon">💼</span>Business Solutions
+                    </a>
+                    <a href="employability-solutions.html" class="mobile-submenu-item">
+                        <span class="icon">🎯</span>Employability Solutions
+                    </a>
+                    <a href="entrepreneurship-development.html" class="mobile-submenu-item">
+                        <span class="icon">🚀</span>Entrepreneurship Development
+                    </a>
+                    <a href="technology-consulting.html" class="mobile-submenu-item">
+                        <span class="icon">💻</span>Technology Consulting
+                    </a>
+                    <a href="corporate-training.html" class="mobile-submenu-item">
+                        <span class="icon">👥</span>Corporate Training
+                    </a>
+                    <a href="hire-from-us.html" class="mobile-submenu-item">
+                        <span class="icon">🎓</span>Hire From Us
+                    </a>
+                </div>
+            </li>
+            <li>
+                <button class="mobile-nav-item" data-submenu="about">
+                    Company
+                    <span class="mobile-nav-arrow">▼</span>
+                </button>
+                <div class="mobile-submenu" id="submenu-about">
+                    <a href="about-company.html" class="mobile-submenu-item">
+                        <span class="icon">🏢</span>About Company
+                    </a>
+                    <a href="careers.html" class="mobile-submenu-item">
+                        <span class="icon">💼</span>Careers
+                    </a>
+                    <a href="webinar.html" class="mobile-submenu-item">
+                        <span class="icon">📹</span>Webinars
+                    </a>
+                    <a href="media.html" class="mobile-submenu-item">
+                        <span class="icon">📰</span>Media & Press
+                    </a>
+                    <a href="placements.html" class="mobile-submenu-item">
+                        <span class="icon">📈</span>Placements
+                    </a>
+                    <a href="contact-us.html" class="mobile-submenu-item">
+                        <span class="icon">📞</span>Contact Us
+                    </a>
+                </div>
+            </li>
+        </ul>
+
+        <div class="mobile-menu-footer">
+            <a href="signup.html" class="btn-signup">Sign Up</a>
+        </div>
+    </div>
+
+    <!-- Mobile Menu JavaScript -->
+    <script>
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const mobileMenuBackdrop = document.getElementById('mobileMenuBackdrop');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const body = document.body;
+
+        function toggleMobileMenu() {
+            hamburgerBtn.classList.toggle('active');
+            mobileMenuOverlay.classList.toggle('active');
+            mobileMenuBackdrop.classList.toggle('active');
+            
+            if (mobileMenuOverlay.classList.contains('active')) {
+                body.style.overflow = 'hidden';
+            } else {
+                body.style.overflow = '';
+            }
+        }
+
+        hamburgerBtn.addEventListener('click', toggleMobileMenu);
+        mobileMenuClose.addEventListener('click', toggleMobileMenu);
+        mobileMenuBackdrop.addEventListener('click', toggleMobileMenu);
+
+        const submenuButtons = document.querySelectorAll('.mobile-nav-item[data-submenu]');
+        submenuButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const submenuId = 'submenu-' + this.dataset.submenu;
+                const submenu = document.getElementById(submenuId);
+                this.classList.toggle('active');
+                submenu.classList.toggle('active');
+            });
+        });
+
+        const categoryButtons = document.querySelectorAll('.mobile-submenu-category[data-category]');
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const categoryId = 'category-' + this.dataset.category;
+                const categoryList = document.getElementById(categoryId);
+                this.classList.toggle('active');
+                categoryList.classList.toggle('active');
+            });
+        });
+
+        const mobileMenuLinks = document.querySelectorAll('.mobile-sub-submenu-item, .mobile-submenu-item, .mobile-nav > li > a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.tagName === 'A') {
+                    setTimeout(() => toggleMobileMenu(), 150);
+                }
+            });
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenuOverlay.classList.contains('active')) {
+                toggleMobileMenu();
+            }
+        });
+    </script>
+
+    <!-- Hero -->
+    <section class="vendor-hero">
+        <div class="container">
+            <h1>Zoho Certification Programs</h1>
+            <p>Master Zoho's comprehensive suite of business applications with our expert-led training programs</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> / <a href="vendors.html">Vendors</a> / Zoho
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Available Zoho Courses</h2>
+            <p class="section-subtitle">Choose from our comprehensive Zoho training programs</p>
+
+            <div class="courses-grid">
+                <!-- Zoho CRM -->
+                <div class="course-card">
+                    <div class="course-icon">📊</div>
+                    <div class="course-content">
+                        <h3>Zoho CRM Certification</h3>
+                        <p>Complete training on Zoho CRM with hands-on projects and certification.</p>
+                        <div class="course-details">
+                            <div>
+                                <label>Duration:</label>
+                                <span>6 Weeks</span>
+                            </div>
+                            <div>
+                                <label>Mode:</label>
+                                <span style="color: #1e9db3;">Offline</span>
+                            </div>
+                            <div>
+                                <label>Level:</label>
+                                <span>Beginner to Advanced</span>
+                            </div>
+                        </div>
+                        <button class="btn-enroll">Enroll Now</button>
+                    </div>
+                </div>
+
+                <!-- Zoho Books -->
+                <div class="course-card">
+                    <div class="course-icon">💼</div>
+                    <div class="course-content">
+                        <h3>Zoho Books Training</h3>
+                        <p>Learn accounting and financial management with Zoho Books.</p>
+                        <div class="course-details">
+                            <div>
+                                <label>Duration:</label>
+                                <span>4 Weeks</span>
+                            </div>
+                            <div>
+                                <label>Mode:</label>
+                                <span style="color: #1e9db3;">Offline</span>
+                            </div>
+                            <div>
+                                <label>Level:</label>
+                                <span>Intermediate</span>
+                            </div>
+                        </div>
+                        <button class="btn-enroll">Enroll Now</button>
+                    </div>
+                </div>
+
+                <!-- Zoho Projects -->
+                <div class="course-card">
+                    <div class="course-icon">📋</div>
+                    <div class="course-content">
+                        <h3>Zoho Projects Mastery</h3>
+                        <p>Master project management with Zoho Projects platform.</p>
+                        <div class="course-details">
+                            <div>
+                                <label>Duration:</label>
+                                <span>5 Weeks</span>
+                            </div>
+                            <div>
+                                <label>Mode:</label>
+                                <span style="color: #1e9db3;">Offline</span>
+                            </div>
+                            <div>
+                                <label>Level:</label>
+                                <span>All Levels</span>
+                            </div>
+                        </div>
+                        <button class="btn-enroll">Enroll Now</button>
+                    </div>
+                </div>
+
+                <!-- Zoho Creator -->
+                <div class="course-card">
+                    <div class="course-icon">🔧</div>
+                    <div class="course-content">
+                        <h3>Zoho Creator Development</h3>
+                        <p>Build custom applications with Zoho Creator low-code platform.</p>
+                        <div class="course-details">
+                            <div>
+                                <label>Duration:</label>
+                                <span>8 Weeks</span>
+                            </div>
+                            <div>
+                                <label>Mode:</label>
+                                <span style="color: #1e9db3;">Offline</span>
+                            </div>
+                            <div>
+                                <label>Level:</label>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                        <button class="btn-enroll">Enroll Now</button>
+                    </div>
+                </div>
+
+                <!-- Zoho Desk -->
+                <div class="course-card">
+                    <div class="course-icon">🎧</div>
+                    <div class="course-content">
+                        <h3>Zoho Desk Training</h3>
+                        <p>Learn customer support management with Zoho Desk.</p>
+                        <div class="course-details">
+                            <div>
+                                <label>Duration:</label>
+                                <span>4 Weeks</span>
+                            </div>
+                            <div>
+                                <label>Mode:</label>
+                                <span style="color: #1e9db3;">Offline</span>
+                            </div>
+                            <div>
+                                <label>Level:</label>
+                                <span>Beginner</span>
+                            </div>
+                        </div>
+                        <button class="btn-enroll">Enroll Now</button>
+                    </div>
+                </div>
+
+                <!-- Zoho Analytics -->
+                <div class="course-card">
+                    <div class="course-icon">📈</div>
+                    <div class="course-content">
+                        <h3>Zoho Analytics</h3>
+                        <p>Data analysis and visualization with Zoho Analytics.</p>
+                        <div class="course-details">
+                            <div>
+                                <label>Duration:</label>
+                                <span>6 Weeks</span>
+                            </div>
+                            <div>
+                                <label>Mode:</label>
+                                <span style="color: #1e9db3;">Offline</span>
+                            </div>
+                            <div>
+                                <label>Level:</label>
+                                <span>Intermediate</span>
+                            </div>
+                        </div>
+                        <button class="btn-enroll">Enroll Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">Why Choose Our Zoho Training?</h2>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <h3>Official Certification</h3>
+                    <p>Get officially certified by Zoho</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">👨‍🏫</div>
+                    <h3>Expert Instructors</h3>
+                    <p>Learn from certified professionals</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💻</div>
+                    <h3>Hands-on Projects</h3>
+                    <p>Real-world practical experience</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Career Support</h3>
+                    <p>Job placement assistance included</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>About Us</h4>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press Kit</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="#">For Enterprise</a></li>
+                        <li><a href="#">For Small Business</a></li>
+                        <li><a href="#">For Startups</a></li>
+                        <li><a href="#">Pricing Plans</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Tomorrow. All rights reserved. Built with excellence.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

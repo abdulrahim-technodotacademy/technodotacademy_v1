@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrepreneurship Development - Tomorrow Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background: #ffffff;
+            padding: 15px 0;
+            border-bottom: 1px solid lightgrey;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 45px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding: 10px 40px 10px 20px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 15px;
+            width: 450px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #0891b2;
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #64748b;
+            cursor: pointer;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-box button:hover {
+            color: #0891b2;
+        }
+
+        .btn-signup {
+            background: #0891b2;
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s;
+        }
+
+        .btn-signup:hover {
+            background: #0c4a6e;
+            transform: translateY(-1px);
+        }
+
+        .header-bottom {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #475569;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #0891b2;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: flex;
+            gap: 0.5rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: #1e9db3;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #0891b2;
+        }
+
+        .btn-primary:hover {
+            background: #f0f9ff;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: #0c4a6e;
+            margin-bottom: 1rem;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Program Tracks */
+        .tracks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .track-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .track-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .track-header {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .track-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .track-header .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .track-body {
+            padding: 2rem;
+        }
+
+        .track-body h4 {
+            color: #0c4a6e;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .track-body ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .track-body ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #666;
+        }
+
+        .track-body ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #1e9db3;
+            font-weight: bold;
+        }
+
+        .track-meta {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+            background: #f0f9ff;
+            border-top: 2px solid #e0f2fe;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .track-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Modules Grid */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .module-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-left: 4px solid #1e9db3;
+            transition: transform 0.3s;
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .module-card h3 {
+            color: #0c4a6e;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .module-card ul {
+            list-style: none;
+        }
+
+        .module-card ul li {
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .module-card ul li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1e9db3;
+            font-weight: bold;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: #0c4a6e;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            color: white;
+        }
+
+        .stat-card .number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .label {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* Success Stories */
+        .success-stories {
+            background: #f0f9ff;
+            padding: 4rem 2rem;
+        }
+
+        .success-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .success-container h2 {
+            text-align: center;
+            color: #0c4a6e;
+            margin-bottom: 3rem;
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .story-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .story-card .quote {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .story-card .author {
+            font-weight: 600;
+            color: #0c4a6e;
+        }
+
+        .story-card .venture {
+            color: #1e9db3;
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: #f0f9ff;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-section h2 {
+            color: #0c4a6e;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #0c4a6e;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .tracks-grid,
+            .modules-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="header-top">
+                    <div class="logo">
+                        <img src="https://page.gensparksite.com/v1/base64_upload/cd3e70466238584d229e88d14a5186b1" alt="Technodot Academy Logo" style="height: 45px;">
+                    </div>
+                    <div class="header-right">
+                        <div class="search-box">
+                            <input type="text" placeholder="Search courses, programs, or topics...">
+                            <button type="submit">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="m21 21-4.35-4.35"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <a href="#signup" class="btn-signup">Sign Up</a>
+                    </div>
+                </div>
+                <div class="header-bottom">
+                    <nav>
+                        <ul>
+                            <li><a href="#topics">Topics</a></li>
+                            <li><a href="vendors.html">Vendors</a></li>
+                            <li><a href="universities.html">Universities</a></li>
+                            <li><a href="earn-learn.html">Earn & Learn</a></li>
+                            <li><a href="rnd.html">R&D&I</a></li>
+                            <li><a href="business.html">Business</a></li>
+                            <li><a href="about.html">About</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> / <a href="business.html">Business</a> / <span>Entrepreneurship Development</span>
+    </div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>🚀 Entrepreneurship Skill Development Program</h1>
+            <p>Empower aspiring entrepreneurs with skills, mentorship, and resources to build successful ventures</p>
+            <div class="cta-buttons">
+                <a href="#tracks" class="btn btn-primary">Explore Programs</a>
+                <a href="#contact" class="btn btn-secondary">Join Now</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="content">
+        <section class="section">
+            <h2>Building Tomorrow's Business Leaders</h2>
+            <p>Our Entrepreneurship Development Program is designed to nurture innovative thinking, business acumen, and practical skills required to launch and scale successful ventures. We provide comprehensive training that covers ideation, business planning, funding strategies, marketing, operations, and growth management.</p>
+            <p>Whether you're a student with a business idea, a professional looking to start your own venture, or someone wanting to develop entrepreneurial skills, our programs offer the knowledge, tools, and network to turn your vision into reality.</p>
+        </section>
+
+        <section class="section" id="tracks">
+            <h2>Program Tracks</h2>
+            <div class="tracks-grid">
+                <div class="track-card">
+                    <div class="track-header">
+                        <div class="icon">💡</div>
+                        <h3>Startup Essentials</h3>
+                    </div>
+                    <div class="track-body">
+                        <h4>For Beginners & Students</h4>
+                        <ul>
+                            <li>Idea generation & validation</li>
+                            <li>Business model development</li>
+                            <li>Market research & analysis</li>
+                            <li>Basic financial planning</li>
+                            <li>Pitch presentation skills</li>
+                            <li>Lean startup methodology</li>
+                        </ul>
+                    </div>
+                    <div class="track-meta">
+                        <span>⏱️ 60 Hours</span>
+                        <span>📍 Online</span>
+                    </div>
+                </div>
+
+                <div class="track-card">
+                    <div class="track-header">
+                        <div class="icon">🎯</div>
+                        <h3>Growth & Scaling</h3>
+                    </div>
+                    <div class="track-body">
+                        <h4>For Early-Stage Founders</h4>
+                        <ul>
+                            <li>Product-market fit strategies</li>
+                            <li>Customer acquisition & retention</li>
+                            <li>Sales & marketing tactics</li>
+                            <li>Team building & leadership</li>
+                            <li>Funding & investor relations</li>
+                            <li>Operations & process optimization</li>
+                        </ul>
+                    </div>
+                    <div class="track-meta">
+                        <span>⏱️ 80 Hours</span>
+                        <span>📍 Hybrid</span>
+                    </div>
+                </div>
+
+                <div class="track-card">
+                    <div class="track-header">
+                        <div class="icon">🏢</div>
+                        <h3>Business Excellence</h3>
+                    </div>
+                    <div class="track-body">
+                        <h4>For Established Entrepreneurs</h4>
+                        <ul>
+                            <li>Advanced business strategies</li>
+                            <li>Financial management & planning</li>
+                            <li>Market expansion strategies</li>
+                            <li>Innovation & transformation</li>
+                            <li>Exit strategies & M&A</li>
+                            <li>Sustainability & social impact</li>
+                        </ul>
+                    </div>
+                    <div class="track-meta">
+                        <span>⏱️ 100 Hours</span>
+                        <span>📍 On-Site</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Curriculum Modules</h2>
+            <div class="modules-grid">
+                <div class="module-card">
+                    <h3>🧠 Entrepreneurial Mindset</h3>
+                    <ul>
+                        <li>Innovation & creativity</li>
+                        <li>Problem-solving skills</li>
+                        <li>Risk management</li>
+                        <li>Resilience & adaptability</li>
+                        <li>Growth mindset development</li>
+                    </ul>
+                </div>
+
+                <div class="module-card">
+                    <h3>📊 Business Planning</h3>
+                    <ul>
+                        <li>Business model canvas</li>
+                        <li>Value proposition design</li>
+                        <li>Competitive analysis</li>
+                        <li>Financial projections</li>
+                        <li>Business plan creation</li>
+                    </ul>
+                </div>
+
+                <div class="module-card">
+                    <h3>💰 Funding & Finance</h3>
+                    <ul>
+                        <li>Bootstrapping strategies</li>
+                        <li>Investor pitching</li>
+                        <li>Crowdfunding platforms</li>
+                        <li>Government schemes & grants</li>
+                        <li>Financial management basics</li>
+                    </ul>
+                </div>
+
+                <div class="module-card">
+                    <h3>📱 Digital Marketing</h3>
+                    <ul>
+                        <li>Social media marketing</li>
+                        <li>Content marketing strategies</li>
+                        <li>SEO & online presence</li>
+                        <li>Growth hacking techniques</li>
+                        <li>Analytics & optimization</li>
+                    </ul>
+                </div>
+
+                <div class="module-card">
+                    <h3>⚖️ Legal & Compliance</h3>
+                    <ul>
+                        <li>Business registration</li>
+                        <li>Intellectual property rights</li>
+                        <li>Contracts & agreements</li>
+                        <li>Tax planning</li>
+                        <li>Regulatory compliance</li>
+                    </ul>
+                </div>
+
+                <div class="module-card">
+                    <h3>🚀 Launch & Scale</h3>
+                    <ul>
+                        <li>MVP development</li>
+                        <li>Go-to-market strategy</li>
+                        <li>Customer feedback loops</li>
+                        <li>Iteration & pivoting</li>
+                        <li>Scaling operations</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Program Benefits</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon">👨‍🏫</div>
+                    <h3>Expert Mentorship</h3>
+                    <p>Learn from successful entrepreneurs and industry veterans who guide you through your journey</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🤝</div>
+                    <h3>Networking</h3>
+                    <p>Connect with fellow entrepreneurs, investors, and industry professionals</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">💼</div>
+                    <h3>Real Projects</h3>
+                    <p>Work on actual business challenges and develop your own venture during the program</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">💡</div>
+                    <h3>Incubation Support</h3>
+                    <p>Access to co-working spaces, resources, and incubation facilities</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">💰</div>
+                    <h3>Funding Opportunities</h3>
+                    <p>Connect with investors, angel networks, and funding platforms</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🎓</div>
+                    <h3>Certification</h3>
+                    <p>Earn recognized certification in entrepreneurship and business development</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="number">500+</div>
+                <div class="label">Startups Mentored</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">₹50Cr+</div>
+                <div class="label">Funding Raised</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">80%</div>
+                <div class="label">Survival Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">2000+</div>
+                <div class="label">Jobs Created</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="success-stories">
+        <div class="success-container">
+            <h2>Success Stories</h2>
+            <div class="stories-grid">
+                <div class="story-card">
+                    <p class="quote">"The entrepreneurship program gave me the confidence and skills to launch my ed-tech startup. The mentorship and network were invaluable."</p>
+                    <p class="author">Priya Sharma</p>
+                    <p class="venture">Founder, LearnTech Solutions</p>
+                </div>
+                <div class="story-card">
+                    <p class="quote">"From idea to Series A funding in 18 months! The program's structured approach and expert guidance were game-changers for our startup."</p>
+                    <p class="author">Rahul Verma</p>
+                    <p class="venture">Co-founder, HealthKart Plus</p>
+                </div>
+                <div class="story-card">
+                    <p class="quote">"The practical insights on scaling operations and team building helped us grow from 5 to 50 employees in just one year."</p>
+                    <p class="author">Anita Desai</p>
+                    <p class="venture">CEO, GreenTech Innovations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <h2>Ready to Start Your Entrepreneurial Journey?</h2>
+        <p>Join our next cohort and transform your business idea into reality</p>
+        <div class="cta-buttons">
+            <a href="#" class="btn btn-primary">Apply Now</a>
+            <a href="business.html" class="btn btn-secondary">Back to Business Solutions</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Tomorrow Academy. All rights reserved.</p>
+    </footer>
+</body>
+</html>

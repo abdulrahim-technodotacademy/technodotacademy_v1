@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Computing Professional Certification | Tomorrow Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo img {
+            height: 45px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            width: 450px;
+            padding: 10px 40px 10px 15px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #64748b;
+        }
+
+        .btn-signup {
+            background: #0891b2;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* Navigation */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 35px;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav a {
+            color: #475569;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #0891b2;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background: #f8fafc;
+            padding: 15px 0;
+            font-size: 14px;
+        }
+
+        .breadcrumb a {
+            color: #0891b2;
+            text-decoration: none;
+        }
+
+        .breadcrumb span {
+            color: #64748b;
+            margin: 0 8px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            padding: 60px 0;
+            color: white;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .hero-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hero-feature span {
+            font-size: 20px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #0891b2;
+            padding: 15px 35px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 15px 35px;
+            border: 2px solid white;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #0891b2;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cloud-icon {
+            font-size: 200px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: #0c4a6e;
+            color: white;
+            padding: 30px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #0c4a6e;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Course Tracks */
+        .tracks-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .track-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .track-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .track-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .track-card h3 {
+            font-size: 1.5rem;
+            color: #0c4a6e;
+            margin-bottom: 15px;
+        }
+
+        .track-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .track-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .track-card li {
+            padding: 8px 0;
+            color: #475569;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .track-card li::before {
+            content: '✓';
+            color: #10b981;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* Curriculum */
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .curriculum-card {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 30px;
+            border-left: 4px solid #0891b2;
+        }
+
+        .curriculum-card h3 {
+            font-size: 1.3rem;
+            color: #0c4a6e;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .curriculum-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .curriculum-card li {
+            padding: 8px 0;
+            color: #475569;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .curriculum-card li::before {
+            content: '▸';
+            color: #0891b2;
+            font-weight: bold;
+            margin-top: 2px;
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .cert-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .cert-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .cert-card h4 {
+            font-size: 1.1rem;
+            color: #0c4a6e;
+            margin-bottom: 10px;
+        }
+
+        .cert-card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Benefits */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .benefit-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.3rem;
+            color: #0c4a6e;
+            margin-bottom: 15px;
+        }
+
+        .benefit-card p {
+            color: #666;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        footer {
+            background: #0c4a6e;
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: block;
+            padding: 5px 0;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .tracks-grid,
+            .curriculum-grid,
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cert-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .search-box input {
+                width: 100%;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <!-- Top Row: Logo, Search, Sign Up -->
+                <div class="header-top">
+                    <div class="logo">
+                        <img src="https://page.gensparksite.com/v1/base64_upload/cd3e70466238584d229e88d14a5186b1" alt="Technodot Academy Logo">
+                    </div>
+                    <div class="header-right">
+                        <div class="search-box">
+                            <input type="text" placeholder="Search courses, programs, or topics...">
+                            <button type="submit">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="m21 21-4.35-4.35"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <a href="#signup" class="btn-signup">Sign Up</a>
+                    </div>
+                </div>
+
+                <!-- Bottom Row: Navigation Links -->
+                <div class="header-bottom">
+                    <nav>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="vendors.html">Vendors</a></li>
+                            <li><a href="universities.html">Universities</a></li>
+                            <li><a href="earn-learn.html">Earn & Learn</a></li>
+                            <li><a href="rnd.html">R&D&I</a></li>
+                            <li><a href="business.html">Business</a></li>
+                            <li><a href="about.html">About</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Home</a>
+            <span>/</span>
+            <a href="index.html#topics">Topics</a>
+            <span>/</span>
+            <a href="#">Cloud Computing</a>
+            <span>/</span>
+            <span>Professional Certification</span>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Cloud Computing Professional Certification</h1>
+                    <p>Master cloud technologies with industry-recognized certifications from AWS, Azure, and Google Cloud Platform. Build your career in the fastest-growing tech domain.</p>
+                    
+                    <div class="hero-features">
+                        <div class="hero-feature">
+                            <span>⏱️</span>
+                            <div>3-6 Months Duration</div>
+                        </div>
+                        <div class="hero-feature">
+                            <span>🎓</span>
+                            <div>Industry Certification</div>
+                        </div>
+                        <div class="hero-feature">
+                            <span>💼</span>
+                            <div>100% Job Assistance</div>
+                        </div>
+                        <div class="hero-feature">
+                            <span>👨‍💼</span>
+                            <div>Expert Instructors</div>
+                        </div>
+                    </div>
+
+                    <div class="hero-buttons">
+                        <a href="#enroll" class="btn-primary">Enroll Now</a>
+                        <a href="#curriculum" class="btn-secondary">View Curriculum</a>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <div class="cloud-icon">☁️</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>10,000+</h3>
+                    <p>Students Certified</p>
+                </div>
+                <div class="stat-item">
+                    <h3>95%</h3>
+                    <p>Placement Rate</p>
+                </div>
+                <div class="stat-item">
+                    <h3>₹8.5L</h3>
+                    <p>Average Package</p>
+                </div>
+                <div class="stat-item">
+                    <h3>200+</h3>
+                    <p>Hiring Partners</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Course Tracks Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Choose Your Cloud Track</h2>
+                <p>Select the certification track that aligns with your career goals. Each track is designed to provide comprehensive knowledge and hands-on experience.</p>
+            </div>
+
+            <div class="tracks-grid">
+                <div class="track-card">
+                    <div class="track-icon">🔶</div>
+                    <h3>AWS Cloud Track</h3>
+                    <p>Amazon Web Services is the world's most comprehensive cloud platform with 200+ services.</p>
+                    <ul>
+                        <li>AWS Solutions Architect</li>
+                        <li>AWS Developer Associate</li>
+                        <li>AWS SysOps Administrator</li>
+                        <li>Hands-on Labs & Projects</li>
+                    </ul>
+                </div>
+
+                <div class="track-card">
+                    <div class="track-icon">🔷</div>
+                    <h3>Azure Cloud Track</h3>
+                    <p>Microsoft Azure provides intelligent cloud services trusted by 95% of Fortune 500 companies.</p>
+                    <ul>
+                        <li>Azure Fundamentals (AZ-900)</li>
+                        <li>Azure Administrator (AZ-104)</li>
+                        <li>Azure Solutions Architect</li>
+                        <li>Real-world Azure Projects</li>
+                    </ul>
+                </div>
+
+                <div class="track-card">
+                    <div class="track-icon">🔴</div>
+                    <h3>Google Cloud Track</h3>
+                    <p>Google Cloud Platform offers cutting-edge infrastructure and data analytics capabilities.</p>
+                    <ul>
+                        <li>GCP Cloud Engineer</li>
+                        <li>GCP Cloud Architect</li>
+                        <li>GCP Data Engineer</li>
+                        <li>Practical GCP Labs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum Section -->
+    <section class="section" id="curriculum" style="background: #f8fafc;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Comprehensive Curriculum</h2>
+                <p>Our curriculum is designed by industry experts and covers all essential cloud computing concepts.</p>
+            </div>
+
+            <div class="curriculum-grid">
+                <div class="curriculum-card">
+                    <h3>📚 Module 1: Cloud Fundamentals</h3>
+                    <ul>
+                        <li>Introduction to Cloud Computing</li>
+                        <li>Cloud Service Models (IaaS, PaaS, SaaS)</li>
+                        <li>Cloud Deployment Models</li>
+                        <li>Cloud Security Basics</li>
+                        <li>Cost Optimization Strategies</li>
+                    </ul>
+                </div>
+
+                <div class="curriculum-card">
+                    <h3>⚙️ Module 2: Compute Services</h3>
+                    <ul>
+                        <li>Virtual Machines & Instances</li>
+                        <li>Container Services (Docker, Kubernetes)</li>
+                        <li>Serverless Computing</li>
+                        <li>Auto Scaling & Load Balancing</li>
+                        <li>High Availability Architecture</li>
+                    </ul>
+                </div>
+
+                <div class="curriculum-card">
+                    <h3>💾 Module 3: Storage & Databases</h3>
+                    <ul>
+                        <li>Object Storage Solutions</li>
+                        <li>Block & File Storage</li>
+                        <li>Relational Database Services</li>
+                        <li>NoSQL Database Services</li>
+                        <li>Data Migration & Backup</li>
+                    </ul>
+                </div>
+
+                <div class="curriculum-card">
+                    <h3>🌐 Module 4: Networking</h3>
+                    <ul>
+                        <li>Virtual Private Cloud (VPC)</li>
+                        <li>DNS & Content Delivery</li>
+                        <li>VPN & Direct Connect</li>
+                        <li>Network Security Groups</li>
+                        <li>Hybrid Cloud Networking</li>
+                    </ul>
+                </div>
+
+                <div class="curriculum-card">
+                    <h3>🔒 Module 5: Security & Compliance</h3>
+                    <ul>
+                        <li>Identity & Access Management</li>
+                        <li>Encryption & Key Management</li>
+                        <li>Security Best Practices</li>
+                        <li>Compliance Standards</li>
+                        <li>Monitoring & Logging</li>
+                    </ul>
+                </div>
+
+                <div class="curriculum-card">
+                    <h3>🚀 Module 6: DevOps & Automation</h3>
+                    <ul>
+                        <li>Infrastructure as Code</li>
+                        <li>CI/CD Pipelines</li>
+                        <li>Configuration Management</li>
+                        <li>Monitoring & Alerting</li>
+                        <li>Disaster Recovery Planning</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Industry-Recognized Certifications</h2>
+                <p>Earn globally recognized certifications that validate your cloud expertise.</p>
+            </div>
+
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div class="cert-icon">🔶</div>
+                    <h4>AWS Solutions Architect</h4>
+                    <p>Associate Level</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">🔶</div>
+                    <h4>AWS Developer</h4>
+                    <p>Associate Level</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">🔷</div>
+                    <h4>Azure Administrator</h4>
+                    <p>AZ-104</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">🔷</div>
+                    <h4>Azure Solutions Architect</h4>
+                    <p>AZ-305</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">🔴</div>
+                    <h4>GCP Cloud Engineer</h4>
+                    <p>Associate Level</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">🔴</div>
+                    <h4>GCP Cloud Architect</h4>
+                    <p>Professional Level</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">☁️</div>
+                    <h4>CompTIA Cloud+</h4>
+                    <p>Vendor Neutral</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">☁️</div>
+                    <h4>Cloud Security+</h4>
+                    <p>Security Focus</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section" style="background: #f8fafc;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Our Cloud Computing Program?</h2>
+                <p>Get the competitive advantage with our comprehensive training approach.</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">👨‍🏫</div>
+                    <h3>Expert Instructors</h3>
+                    <p>Learn from certified cloud architects with 10+ years of industry experience</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">💻</div>
+                    <h3>Hands-on Labs</h3>
+                    <p>Access to real cloud environments for practical learning and projects</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">📊</div>
+                    <h3>Real-world Projects</h3>
+                    <p>Build production-ready cloud solutions and deploy live applications</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Exam Preparation</h3>
+                    <p>Comprehensive certification exam prep with practice tests and study materials</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">💼</div>
+                    <h3>Career Support</h3>
+                    <p>Resume building, interview prep, and job placement assistance</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🤝</div>
+                    <h3>Lifetime Access</h3>
+                    <p>Get lifetime access to course materials and community support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="enroll">
+        <div class="container">
+            <h2>Ready to Launch Your Cloud Career?</h2>
+            <p>Join thousands of professionals who have transformed their careers with our cloud certification programs.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn-primary">Enroll Now</a>
+                <a href="#" class="btn-secondary">Download Brochure</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Tomorrow Academy</h3>
+                    <p>Empowering learners with world-class education and industry-recognized certifications.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="vendors.html">Vendors</a></li>
+                        <li><a href="universities.html">Universities</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Programs</h3>
+                    <ul>
+                        <li><a href="cloud-computing.html">Cloud Computing</a></li>
+                        <li><a href="aws-devops.html">AWS DevOps</a></li>
+                        <li><a href="cloud-devops.html">Cloud+DevOps</a></li>
+                        <li><a href="earn-learn.html">Earn & Learn</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>📧 info@tomorrowacademy.com</li>
+                        <li>📞 +91 80 1234 5678</li>
+                        <li>📍 Bangalore, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Tomorrow Academy (Technodot Academy). All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
